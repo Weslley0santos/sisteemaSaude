@@ -1,5 +1,7 @@
 <template>
   <div>
-    <p>Observações:</p>
+    <p></p>
   </div>
 </template>
+
+<script setup lang="ts"></script>

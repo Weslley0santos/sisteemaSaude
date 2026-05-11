@@ -2,7 +2,7 @@ import type { RouteRecordRaw } from 'vue-router';
 
 import PaginaPrincipal from 'layouts/PaginaPrincipal.vue';
 
-import TelaAtendimento from 'pages/TelaAtendimento.vue';
+import DashboardAtendimento from 'src/pages/DashboardAtendimento.vue';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -12,7 +12,7 @@ const routes: RouteRecordRaw[] = [
     children: [
       {
         path: '',
-        component: TelaAtendimento,
+        component: DashboardAtendimento,
       },
     ],
   },

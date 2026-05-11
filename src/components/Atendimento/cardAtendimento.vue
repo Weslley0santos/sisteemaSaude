@@ -1,7 +1,7 @@
 <template>
   <div class="card-atendimento">
-    <DadosAtendimento />
-    <TempoAtendimento />
+    <DadosAtendimento :atendimento="props.atendimento" />
+    <TempoAtendimento :tempoAtendimento="props.atendimento.tempoAtendimento" />
     <ObsAtendimento />
   </div>
 </template>
@@ -9,6 +9,32 @@
 import DadosAtendimento from './DadosAtendimento.vue';
 import ObsAtendimento from './ObsAtendimento.vue';
 import TempoAtendimento from './TempoAtendimento.vue';
+
+interface Atendimento {
+  nome: string;
+  status: string;
+  estagio: string;
+  senha: string;
+  encaminhamento: string;
+  observacoes: Observacoes;
+  tempoAtendimento: TempoAtendimento;
+}
+
+interface Observacoes {
+  texto: string;
+  estagio: string;
+}
+
+interface TempoAtendimento {
+  espera: number;
+  consultando: number;
+  total: number;
+}
+
+const props = defineProps<{
+  atendimento: Atendimento;
+  observacoes: Observacoes;
+}>();
 </script>
 
 <style lang="scss" scoped>

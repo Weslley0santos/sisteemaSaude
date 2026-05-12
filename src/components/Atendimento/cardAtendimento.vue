@@ -1,39 +1,36 @@
 <template>
   <div class="card-atendimento">
     <DadosAtendimento :atendimento="props.atendimento" />
-    <TempoAtendimento :tempoAtendimento="props.atendimento.tempoAtendimento" />
-    <ObsAtendimento />
+
+    <div>
+      <p>Observações:</p>
+      <ObsAtendimento :observacoes="props.atendimento.observacoes" />
+    </div>
+    <q-btn
+      v-if="props.atendimento.estagio === ESTAGIO.triagem"
+      label="Enviar para Consulta"
+      @click="emit('enviar-consulta', props.atendimento)"
+    ></q-btn>
+    <q-btn
+      v-if="props.atendimento.estagio === ESTAGIO.consulta"
+      label="Finalizar Atendimento"
+      @click="emit('finalizar', props.atendimento)"
+    ></q-btn>
   </div>
 </template>
 <script setup lang="ts">
 import DadosAtendimento from './DadosAtendimento.vue';
 import ObsAtendimento from './ObsAtendimento.vue';
-import TempoAtendimento from './TempoAtendimento.vue';
-
-interface Atendimento {
-  nome: string;
-  status: string;
-  estagio: string;
-  senha: string;
-  encaminhamento: string;
-  observacoes: Observacoes;
-  tempoAtendimento: TempoAtendimento;
-}
-
-interface Observacoes {
-  texto: string;
-  estagio: string;
-}
-
-interface TempoAtendimento {
-  espera: number;
-  consultando: number;
-  total: number;
-}
+import type { Atendimento } from 'src/types/atendimento';
+import { ESTAGIO } from 'src/stores/atendimentoStore';
 
 const props = defineProps<{
   atendimento: Atendimento;
-  observacoes: Observacoes;
+}>();
+
+const emit = defineEmits<{
+  (e: 'enviar-consulta', atendimento: Atendimento): void;
+  (e: 'finalizar', atendimento: Atendimento): void;
 }>();
 </script>
 

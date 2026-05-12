@@ -1,13 +1,23 @@
 <template>
   <q-drawer v-model="drawer" show-if-above bordered>
     <div class="tabela-menu p-4">
-      <ul class="lista-menu">
-        <li class="list-item">Atendimentos</li>
-        <li class="list-item">Finalizados</li>
-        <li class="list-item">Em espera</li>
-        <li class="list-item">Unidades</li>
-        <li class="list-item">Dashbord</li>
-      </ul>
+      <q-list>
+        <q-item clickable to="/">
+          <q-item-section>Dashboard</q-item-section>
+        </q-item>
+
+        <q-item clickable to="/triagem">
+          <q-item-section>Triagem</q-item-section>
+        </q-item>
+
+        <q-item clickable to="/consulta">
+          <q-item-section>Consulta</q-item-section>
+        </q-item>
+
+        <q-item clickable to="/finalizados">
+          <q-item-section>Finalizados</q-item-section>
+        </q-item>
+      </q-list>
     </div>
   </q-drawer>
 </template>

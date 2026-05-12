@@ -1,19 +1,13 @@
 <template>
   <div class="dados-atendimento">
-    <p>Nome: {{ props.atendimento.nome }}</p>
-    <p>Status: {{ props.atendimento.status }}</p>
-    <p>Senha {{ props.atendimento.senha }}</p>
-    <p>Encaminhamento {{ props.atendimento.encaminhamento }}</p>
+    <p><strong>Nome:</strong> {{ props.atendimento.nome }}</p>
+    <p><strong>Status:</strong> {{ props.atendimento.status }}</p>
+    <p><strong>Senha:</strong> {{ props.atendimento.senha }}</p>
+    <p><strong>Encaminhamento:</strong> {{ props.atendimento.encaminhamento }}</p>
   </div>
 </template>
 <script setup lang="ts">
-interface Atendimento {
-  nome: string;
-  status: string;
-  estagio: string;
-  senha: string;
-  encaminhamento: string;
-}
+import type { Atendimento } from 'src/types/atendimento';
 
 const props = defineProps<{
   atendimento: Atendimento;

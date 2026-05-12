@@ -8,15 +8,14 @@
     <div class="input-conteiner">
       <q-select
         v-model="atendimento.encaminhamento"
-        :options="encaminhamentoOptions"
+        :options="store.encaminhamentoOptions"
         label="Encaminhamento (Opcional)"
-      ></q-select>
+        emit-value
+        map-options
+      />
     </div>
 
-    <div v-for="(novaObs, index) in atendimento.observacoes" :key="index" class="observação-card">
-      <p>{{ novaObs.texto }}</p>
-      <small>{{ novaObs.estagio }}</small>
-    </div>
+    <ObsAtendimento :observacoes="atendimento.observacoes" />
     <q-btn v-if="!mostrarObs" class="adicionar-obs" @click="mostrarObs = true">
       Adicionar observação
     </q-btn>
@@ -30,51 +29,25 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-const emit = defineEmits(['criar-atendimento']);
+import ObsAtendimento from './ObsAtendimento.vue';
+import type { Atendimento } from 'src/types/atendimento';
+import { useAtendimentoStore, ESTAGIO, STATUS } from 'src/stores/atendimentoStore';
 
-interface Observacoes {
-  texto: string;
-  estagio: string;
-}
-const ESTAGIO = {
-  triagem: 'Triagem',
-  esperando_consulta: 'Esperando Consulta',
-  No_medico: 'No Medico',
-};
+const store = useAtendimentoStore();
 
-const STATUS = {
-  esperando: 'Esperando',
-  consultado: 'Consultando',
-  concluido: 'Concluido',
-};
-
-const atendimento = ref({
+const atendimento = ref<Atendimento>({
   nome: '',
   status: STATUS.esperando,
   estagio: ESTAGIO.triagem,
   senha: '',
   encaminhamento: '',
-  observacoes: [] as Observacoes[],
+  observacoes: [],
   tempoAtendimento: {
     espera: 0,
     consultando: 0,
     total: 0,
   },
 });
-
-const encaminhamento = {
-  clinico_geral: 'clinico_geral',
-  cardiologia: 'cardiologia',
-  ortopedista: 'ortopedista',
-  pediatria: 'pediatria',
-};
-
-const encaminhamentoOptions = [
-  { label: 'Clinico Geral', value: encaminhamento.clinico_geral },
-  { label: 'Cardiologia', value: encaminhamento.cardiologia },
-  { label: 'Ortopedista', value: encaminhamento.ortopedista },
-  { label: 'Pediatria', value: encaminhamento.pediatria },
-];
 
 const mostrarObs = ref(false);
 const novaObs = ref('');
@@ -91,13 +64,21 @@ const adicionarObs = () => {
 };
 
 const criarAtendimento = () => {
-  emit('criar-atendimento', {
-    ...atendimento.value,
-  });
-  atendimento.value.nome = '';
-  atendimento.value.encaminhamento = '';
-  atendimento.value.observacoes = [];
-  atendimento.value.senha = '';
+  store.adicionarAtendimento({ ...atendimento.value });
+
+  atendimento.value = {
+    nome: '',
+    status: STATUS.esperando,
+    estagio: ESTAGIO.triagem,
+    senha: '',
+    encaminhamento: '',
+    observacoes: [],
+    tempoAtendimento: {
+      espera: 0,
+      consultando: 0,
+      total: 0,
+    },
+  };
 };
 </script>
 <style scoped lang="scss">

@@ -1,5 +1,5 @@
 <template>
-  <div class="card-atendimento">
+  <div class="card-atendimento" @click="emit('editar', props.atendimento)">
     <DadosAtendimento :atendimento="props.atendimento" />
 
     <div>
@@ -9,12 +9,15 @@
     <q-btn
       v-if="props.atendimento.estagio === ESTAGIO.triagem"
       label="Enviar para Consulta"
-      @click="emit('enviar-consulta', props.atendimento)"
+      @click.stop="emit('enviar-consulta', props.atendimento)"
     ></q-btn>
     <q-btn
-      v-if="props.atendimento.estagio === ESTAGIO.consulta"
+      v-if="
+        props.atendimento.estagio === ESTAGIO.consulta &&
+        props.atendimento.status === STATUS.emAndamento
+      "
       label="Finalizar Atendimento"
-      @click="emit('finalizar', props.atendimento)"
+      @click.stop="emit('finalizar-atendimento', props.atendimento)"
     ></q-btn>
   </div>
 </template>
@@ -22,15 +25,17 @@
 import DadosAtendimento from './DadosAtendimento.vue';
 import ObsAtendimento from './ObsAtendimento.vue';
 import type { Atendimento } from 'src/types/atendimento';
-import { ESTAGIO } from 'src/stores/atendimentoStore';
+import { STATUS, ESTAGIO } from 'src/stores/atendimentoStore';
 
 const props = defineProps<{
   atendimento: Atendimento;
+  tipo?: 'dashboard' | 'triagem' | 'consulta' | 'finalizados';
 }>();
 
 const emit = defineEmits<{
   (e: 'enviar-consulta', atendimento: Atendimento): void;
-  (e: 'finalizar', atendimento: Atendimento): void;
+  (e: 'finalizar-atendimento', atendimento: Atendimento): void;
+  (e: 'editar', atendimento: Atendimento): void;
 }>();
 </script>
 

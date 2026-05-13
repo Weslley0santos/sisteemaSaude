@@ -37,7 +37,7 @@ const store = useAtendimentoStore();
 
 const atendimento = ref<Atendimento>({
   nome: '',
-  status: STATUS.esperando,
+  status: STATUS.emAndamento,
   estagio: ESTAGIO.triagem,
   senha: '',
   encaminhamento: '',
@@ -68,7 +68,7 @@ const criarAtendimento = () => {
 
   atendimento.value = {
     nome: '',
-    status: STATUS.esperando,
+    status: STATUS.emAndamento,
     estagio: ESTAGIO.triagem,
     senha: '',
     encaminhamento: '',

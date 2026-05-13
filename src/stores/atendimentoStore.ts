@@ -3,13 +3,11 @@ import type { Atendimento } from 'src/types/atendimento';
 
 export const ESTAGIO = {
   triagem: 'Triagem',
-  consulta: 'Esperando Consulta',
-  finalizado: 'No Medico',
+  consulta: 'Consulta',
 };
 
 export const STATUS = {
-  esperando: 'Esperando',
-  consultado: 'Consultando',
+  emAndamento: 'Em andamento',
   concluido: 'Concluido',
 };
 
@@ -39,20 +37,29 @@ export const useAtendimentoStore = defineStore('atendimento', {
     },
 
     finalizarAtendimento(senha: string) {
-      const atendimento = this.atendimentos.find((a) => a.senha === senha);
+      // Chama a função finalizar atendimento com o parametro senha como string
+      const atendimento = this.atendimentos.find((a) => a.senha === senha); //cria uma const atendimento
+      //que compara a senha e puxa o atendimento daquela senha
 
       if (atendimento) {
-        atendimento.estagio = ESTAGIO.finalizado;
+        //se atendimento for
+        atendimento.status = STATUS.concluido;
+        //atendimento  muda para concluido
       }
     },
   },
 
   getters: {
-    triagem: (state) => state.atendimentos.filter((a) => a.estagio === 'Triagem'),
+    triagem: (state) => state.atendimentos.filter((a) => a.estagio === ESTAGIO.triagem),
 
-    consulta: (state) => state.atendimentos.filter((a) => a.estagio === 'Esperando Consulta'),
+    consulta: (state) => state.atendimentos.filter((a) => a.estagio === ESTAGIO.consulta),
 
-    finalizados: (state) => state.atendimentos.filter((a) => a.estagio === 'No Medico'),
+    concluidos: (state) => state.atendimentos.filter((a) => a.status === STATUS.concluido),
+
+    consultaAtiva: (state) =>
+      state.atendimentos.filter(
+        (a) => a.estagio === ESTAGIO.consulta && a.status === STATUS.emAndamento,
+      ),
 
     encaminhamentoOptions: () =>
       Object.entries(ENCAMINHAMENTO).map(([key, value]) => ({

@@ -1,5 +1,5 @@
 <template>
-  <q-drawer v-model="drawer" show-if-above bordered>
+  <q-drawer v-model="props.drawer" show-if-above bordered>
     <div class="tabela-menu p-4">
       <q-list>
         <q-item clickable to="/">
@@ -23,9 +23,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 
-const drawer = ref(true);
+const props = defineProps<{  
+  drawer: bollean;
+
+}>()
 </script>
 <style scoped>
 .tabela-menu {

@@ -1,13 +1,18 @@
 <template>
   <q-page>
     <div class="topo-pag">
-      <h1 class="titulo"><strong>Em Atendimento </strong></h1>
+      <h1 class="titulo"><strong>Dashboard </strong></h1>
 
       <q-btn label="Novo Atendimento" @click="mostrarFormulario = true"></q-btn>
     </div>
     <div class="container">
       <FormsAtendimento v-if="mostrarFormulario" @criar-atendimento="adicionarAtendimento" />
-      <cardAtendimento v-for="item in store.atendimentos" :key="item.senha" :atendimento="item" />
+      <cardAtendimento
+        v-for="item in store.atendimentos"
+        :key="item.senha"
+        :atendimento="item"
+        tipo="dashboard"
+      />
     </div>
   </q-page>
 </template>

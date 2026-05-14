@@ -1,5 +1,5 @@
 <template>
-  <p>Finalizados</p>
+  <h1 class="text-primary font-bold text-3xl">Finalizados</h1>
   <cardAtendimento
     v-for="item in store.concluidos"
     :key="item.senha"

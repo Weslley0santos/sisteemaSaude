@@ -1,9 +1,11 @@
 <template>
-  <div class="dados-atendimento">
-    <p><strong>Nome:</strong> {{ props.atendimento.nome }}</p>
-    <p><strong>Status:</strong> {{ props.atendimento.status }}</p>
-    <p><strong>Senha:</strong> {{ props.atendimento.senha }}</p>
-    <p><strong>Encaminhamento:</strong> {{ props.atendimento.encaminhamento }}</p>
+  <div class="grid grid-cols-2">
+    <p class="border-l-4 border-secondary p-1 mb-1">Nome: {{ props.atendimento.nome }}</p>
+    <p class="border-l-4 border-secondary p-1 mb-1">Status: {{ props.atendimento.status }}</p>
+    <p class="border-l-4 border-secondary p-1 mb-1">Senha: {{ props.atendimento.senha }}</p>
+    <p class="border-l-4 border-secondary p-1 mb-1">
+      Encaminhamento: {{ props.atendimento.encaminhamento }}
+    </p>
   </div>
 </template>
 <script setup lang="ts">

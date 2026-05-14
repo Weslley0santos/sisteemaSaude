@@ -13,23 +13,35 @@ const routes: RouteRecordRaw[] = [
 
     children: [
       {
-        path: '',
+        path: 'dashboard',
         component: DashboardAtendimento,
+        meta: {
+          showBotaoAdd: true,
+        },
       },
 
       {
         path: 'triagem',
         component: TriagemAtendimentos,
+        meta: {
+          showBotaoAdd: true,
+        },
       },
 
       {
         path: 'consulta',
         component: ConsultasAtendimento,
+        meta: {
+          showBotaoAdd: true,
+        },
       },
 
       {
         path: 'finalizados',
         component: finalizadosAtendimento,
+        meta: {
+          showBotaoAdd: true,
+        },
       },
     ],
   },

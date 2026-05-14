@@ -1,12 +1,17 @@
 <template>
   <q-page>
-    <div class="topo-pag">
-      <h1 class="titulo"><strong>Dashboard </strong></h1>
+    <div class="p-5 flex">
+      <h1 class="text-primary font-bold text-3xl m-5">Dashboard</h1>
 
       <q-btn label="Novo Atendimento" @click="mostrarFormulario = true"></q-btn>
     </div>
-    <div class="container">
-      <FormsAtendimento v-if="mostrarFormulario" @criar-atendimento="adicionarAtendimento" />
+    <div class="m-1">
+      <FormsAtendimento
+        v-if="mostrarFormulario"
+        @criar-atendimento="adicionarAtendimento"
+        class="bg-slate-100 p-2 rounded-md m-2"
+      />
+
       <cardAtendimento
         v-for="item in store.atendimentos"
         :key="item.senha"
@@ -33,22 +38,3 @@ const adicionarAtendimento = (novoAtendimento: Atendimento) => {
   mostrarFormulario.value = false;
 };
 </script>
-<style lang="scss" scoped>
-.titulo {
-  color: rgb(0, 139, 7);
-  text-align: center;
-  margin: 10px;
-  font-size: 32px;
-}
-
-.container {
-  padding: 20px;
-}
-
-.topo-pag {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <p>Consultas</p>
+  <h1 class="text-primary font-bold text-3xl">Consultas</h1>
   <cardAtendimento
     v-for="item in store.consultaAtiva"
     :key="item.senha"

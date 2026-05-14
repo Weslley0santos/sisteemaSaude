@@ -3,7 +3,11 @@ export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      primaria: 'var(--cor-primaria)',
+      colors: {
+        primary: 'var(--primary)',
+        secondary: 'var(--secondary)',
+        background: 'var(--background)',
+      },
     },
   },
   plugins: [],

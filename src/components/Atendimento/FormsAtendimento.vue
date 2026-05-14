@@ -16,13 +16,15 @@
     </div>
 
     <ObsAtendimento :observacoes="atendimento.observacoes" />
-    <q-btn v-if="!mostrarObs" class="adicionar-obs" @click="mostrarObs = true">
+    <q-btn v-if="!mostrarObs" class="m-2 bg-green-300" @click="mostrarObs = true">
       Adicionar observação
     </q-btn>
     <div v-if="mostrarObs" class="input-conteiner">
       <q-input v-model="novaObs" label="Adicionar observação" type="textarea"></q-input>
     </div>
-    <q-btn v-if="mostrarObs" class="salvar-obs" @click="adicionarObs">Salvar Observação</q-btn>
+    <q-btn v-if="mostrarObs" class="m-2 bg-green-300" @click="adicionarObs"
+      >Salvar Observação</q-btn
+    >
     <q-btn label="Criar Atendimento" @click="criarAtendimento"></q-btn>
   </q-form>
 </template>
@@ -81,16 +83,4 @@ const criarAtendimento = () => {
   };
 };
 </script>
-<style scoped lang="scss">
-.adicionar-obs {
-  margin: 15px;
-  padding: 10px;
-  background-color: aqua;
-}
-
-.salvar-obs {
-  margin: 15px;
-  padding: 10px;
-  background-color: aqua;
-}
-</style>
+<style scoped lang="scss"></style>

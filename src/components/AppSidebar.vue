@@ -1,20 +1,53 @@
 <template>
-  <q-drawer v-model="props.drawer" show-if-above bordered>
-    <div class="tabela-menu p-4">
+  <q-drawer
+    :model-value="props.drawer"
+    @update:model-value="(value) => emit('update:drawer', value)"
+    show-if-above
+    bordered
+  >
+    <div class="bg-primary h-full overflow-y-auto">
       <q-list>
-        <q-item clickable to="/">
+        <q-item
+          clickable
+          to="/dashboard"
+          active-class="bg-secondary w-full"
+          class="rounded-none p-2 text-white transition-colors hover:bg-secondary"
+        >
+          <svg-icon class="mr-2" type="mdi" :path="mdiHomeHeart"></svg-icon>
+
           <q-item-section>Dashboard</q-item-section>
         </q-item>
 
-        <q-item clickable to="/triagem">
+        <q-item
+          clickable
+          to="/triagem"
+          active-class="bg-secondary  w-full"
+          class="rounded-none p-2 text-white transition-colors hover:bg-secondary"
+        >
+          <svg-icon class="mr-2" type="mdi" :path="mdiHospitalBoxOutline"></svg-icon>
+
           <q-item-section>Triagem</q-item-section>
         </q-item>
 
-        <q-item clickable to="/consulta">
+        <q-item
+          clickable
+          to="/consulta"
+          active-class="bg-secondary  w-full"
+          class="rounded-none p-2 text-white transition-colors hover:bg-secondary"
+        >
+          <svg-icon class="mr-2" type="mdi" :path="mdiStethoscope" />
+
           <q-item-section>Consulta</q-item-section>
         </q-item>
 
-        <q-item clickable to="/finalizados">
+        <q-item
+          clickable
+          to="/finalizados"
+          active-class="bg-secondary  w-full"
+          class="rounded-none p-2 text-white transition-colors hover:bg-secondary"
+        >
+          <svg-icon class="mr-2" type="mdi" :path="mdiBookmarkCheckOutline"></svg-icon>
+
           <q-item-section>Finalizados</q-item-section>
         </q-item>
       </q-list>
@@ -23,25 +56,19 @@
 </template>
 
 <script setup lang="ts">
+import SvgIcon from '@jamescoyle/vue-icon';
+import {
+  mdiStethoscope,
+  mdiHospitalBoxOutline,
+  mdiHomeHeart,
+  mdiBookmarkCheckOutline,
+} from '@mdi/js';
 
-const props = defineProps<{  
-  drawer: bollean;
+const props = defineProps<{
+  drawer: boolean;
+}>();
 
-}>()
+const emit = defineEmits<{
+  (e: 'update:drawer', value: boolean): void;
+}>();
 </script>
-<style scoped>
-.tabela-menu {
-  background-color: #64e264;
-  height: 100%;
-  overflow-y: auto;
-}
-.list-item {
-  transition: background-color 0.2s;
-  padding: 10px;
-  border-radius: 8px;
-}
-
-.list-item:hover {
-  background-color: #14a800;
-}
-</style>

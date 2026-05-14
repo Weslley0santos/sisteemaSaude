@@ -1,23 +1,28 @@
 <template>
-  <q-dialog :model-value="props.modelValue" class="p-20">
-    <q-card v-if="props.atendimento">
-      <DadosAtendimento :atendimento="props.atendimento" />
+  <q-dialog v-model="aberto">
+    <q-card class="min-w-[700px]">
+      <q-card-section class="flex justify-between items-center">
+        <h2 class="text-xl font-bold">Atendimento</h2>
 
-      <ObsAtendimento :observacoes="props.atendimento.observacoes" />
+        <q-btn flat round dense icon="close" @click="fechar()" />
+      </q-card-section>
 
-      <tempoAtendimento :tempoAtendimento="props.atendimento.tempoAtendimento" />
+      <q-separator />
+
+      <q-card-section>
+        <FormsAtendimento v-if="modo === 'create'" />
+
+        <ViewAtendimento v-if="modo === 'view'" :atendimento="atendimentoAtual" />
+
+        <EditAtendimento v-if="modo === 'edit'" :atendimento="atendimentoAtual" />
+      </q-card-section>
     </q-card>
   </q-dialog>
 </template>
 
 <script setup lang="ts">
-import DadosAtendimento from './DadosAtendimento.vue';
-import ObsAtendimento from './ObsAtendimento.vue';
-import TempoAtendimento from './TempoAtendimento.vue';
-import type { Atendimento } from 'src/types/atendimento';
+import { useModal } from 'src/composable/useModal';
 
-const props = defineProps<{
-  modelValue: boolean;
-  atendimento: Atendimento | null;
-}>();
+import FormsAtendimento from './FormsAtendimento.vue';
+const { aberto, modo, atendimentoAtual, fechar } = useModal();
 </script>

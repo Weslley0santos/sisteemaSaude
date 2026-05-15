@@ -25,7 +25,7 @@
     <q-btn v-if="mostrarObs" class="m-2 bg-green-300" @click="adicionarObs"
       >Salvar Observação</q-btn
     >
-    <q-btn label="Criar Atendimento" @click="criarAtendimento"></q-btn>
+    <q-btn :label="modo === 'edit' ? 'Salvar Alterações' : 'Criar Atendimento'" @click="salvar" />
   </q-form>
 </template>
 
@@ -36,20 +36,32 @@ import type { Atendimento } from 'src/types/atendimento';
 import { useAtendimentoStore, ESTAGIO, STATUS } from 'src/stores/atendimentoStore';
 
 const store = useAtendimentoStore();
+const props = defineProps<{
+  atendimento?: Atendimento;
+  modo?: 'create' | 'edit';
+}>();
 
-const atendimento = ref<Atendimento>({
-  nome: '',
-  status: STATUS.emAndamento,
-  estagio: ESTAGIO.triagem,
-  senha: '',
-  encaminhamento: '',
-  observacoes: [],
-  tempoAtendimento: {
-    espera: 0,
-    consultando: 0,
-    total: 0,
-  },
-});
+const emit = defineEmits<{
+  (e: 'salvar', atendimento: Atendimento): void;
+}>();
+
+const atendimento = ref<Atendimento>(
+  props.atendimento
+    ? { ...props.atendimento }
+    : {
+        nome: '',
+        status: STATUS.emAndamento,
+        estagio: ESTAGIO.triagem,
+        senha: '',
+        encaminhamento: '',
+        observacoes: [],
+        tempoAtendimento: {
+          espera: 0,
+          consultando: 0,
+          total: 0,
+        },
+      },
+);
 
 const mostrarObs = ref(false);
 const novaObs = ref('');
@@ -65,9 +77,8 @@ const adicionarObs = () => {
   mostrarObs.value = false;
 };
 
-const criarAtendimento = () => {
-  store.adicionarAtendimento({ ...atendimento.value });
-
+const salvar = () => {
+  emit('salvar', { ...atendimento.value });
   atendimento.value = {
     nome: '',
     status: STATUS.emAndamento,

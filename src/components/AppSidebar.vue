@@ -1,10 +1,5 @@
 <template>
-  <q-drawer
-    :model-value="props.drawer"
-    @update:model-value="(value) => emit('update:drawer', value)"
-    show-if-above
-    bordered
-  >
+  <q-drawer v-model="drawer" show-if-above :breakpoint="1024" bordered>
     <div class="bg-primary h-full overflow-y-auto">
       <q-list>
         <q-item
@@ -15,7 +10,7 @@
         >
           <svg-icon class="mr-2" type="mdi" :path="mdiHomeHeart"></svg-icon>
 
-          <q-item-section>Dashboard</q-item-section>
+          <q-item-section>Atendimentos</q-item-section>
         </q-item>
 
         <q-item
@@ -56,6 +51,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import SvgIcon from '@jamescoyle/vue-icon';
 import {
   mdiStethoscope,
@@ -64,11 +60,5 @@ import {
   mdiBookmarkCheckOutline,
 } from '@mdi/js';
 
-const props = defineProps<{
-  drawer: boolean;
-}>();
-
-const emit = defineEmits<{
-  (e: 'update:drawer', value: boolean): void;
-}>();
+const drawer = ref<boolean | null>(false);
 </script>

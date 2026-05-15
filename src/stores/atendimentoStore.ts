@@ -12,10 +12,10 @@ export const STATUS = {
 };
 
 export const ENCAMINHAMENTO = {
-  clinico_geral: 'Clinico geral',
-  cardiologia: 'Cardiologia',
-  ortopedista: 'Ortopedista',
-  pediatria: 'Pediatria',
+  Clinico_Geral: 'Clinico geral',
+  Cardiologia: 'Cardiologia',
+  Ortopedista: 'Ortopedista',
+  Pediatria: 'Pediatria',
 };
 
 export const useAtendimentoStore = defineStore('atendimento', {
@@ -26,6 +26,16 @@ export const useAtendimentoStore = defineStore('atendimento', {
   actions: {
     adicionarAtendimento(atendimento: Atendimento) {
       this.atendimentos.push(atendimento);
+    },
+
+    atualizarAtendimento(atendimentoAtualizado: Atendimento) {
+      const index = this.atendimentos.findIndex(
+        (atendimento) => atendimento.senha === atendimentoAtualizado.senha,
+      );
+
+      if (index !== -1) {
+        this.atendimentos[index] = atendimentoAtualizado;
+      }
     },
 
     avancarParaConsulta(senha: string) {

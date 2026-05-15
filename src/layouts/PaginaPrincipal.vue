@@ -1,12 +1,17 @@
 <template>
   <q-layout view="hHh lpR fFf">
     <AppHeader @toggle-menu="sideMenu" />
-    <AppSidebar :drawer="drawer" />
+    <AppSidebar v-model="drawer" />
 
     <q-page-container>
       <router-view />
     </q-page-container>
-    <q-page-sticky v-if="$route.meta.showBotaoAdd" position="bottom-right" :offset="[18, 18]">
+    <q-page-sticky
+      v-if="$route.meta.showBotaoAdd"
+      position="bottom-right"
+      :offset="[18, 18]"
+      class="z-50"
+    >
       <q-btn fab icon="add" color="accent" @click="modal.abrirCreate()" />
     </q-page-sticky>
     <modalAtendimento />

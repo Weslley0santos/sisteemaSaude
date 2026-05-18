@@ -1,36 +1,24 @@
 <template>
   <q-page class="p-4">
-
     <div class="mb-4">
-      <h1 class="text-2xl font-bold text-primary">
-        Dashboard
-      </h1>
+      <h1 class="text-2xl font-bold text-primary">Dashboard</h1>
     </div>
 
     <DashboardCards />
 
     <DashboardAnalytics
       :dataSelecionada="dataSelecionada"
-      @update:dataSelecionada="
-        dataSelecionada = $event
-      "
+      @update:dataSelecionada="dataSelecionada = $event"
     />
 
-    <DashboardTabs
-      :tab="tab"
-      @update:tab="tab = $event"
-    />
+    <DashboardTabs :tab="tab" @update:tab="tab = $event" />
 
-    <DashboardTable
-      :rows="atendimentosFiltrados"
-      @abrir-atendimento="abrirAtendimento"
-    />
-
+    <DashboardTable :rows="atendimentosFiltrados" @abrir-atendimento="abrirAtendimento" />
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, onMounted } from 'vue';
 
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import { useModal } from 'src/composable/useModal';
@@ -60,14 +48,15 @@ const atendimentosFiltrados = computed(() => {
   }
 
   return store.atendimentos.filter(
-    (atendimento) =>
-      atendimento.estagio.toLowerCase() === tab.value
+    (atendimento) => atendimento.estagio.toLowerCase() === tab.value,
   );
 });
 
-const abrirAtendimento = (
-  atendimento: Atendimento
-) => {
+const abrirAtendimento = (atendimento: Atendimento) => {
   modal.abrirView(atendimento);
 };
+
+onMounted(async () => {
+  await store.carregarAtendimentos();
+});
 </script>

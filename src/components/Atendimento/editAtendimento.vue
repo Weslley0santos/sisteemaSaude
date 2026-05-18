@@ -8,11 +8,8 @@
 
 <script setup lang="ts">
 import FormsAtendimento from './FormsAtendimento.vue';
-
 import type { Atendimento } from 'src/types/atendimento';
-
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
-
 import { useModal } from 'src/composable/useModal';
 
 const props = defineProps<{

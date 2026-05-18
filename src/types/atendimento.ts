@@ -1,12 +1,19 @@
 export interface Atendimento {
+  id?: number;
   nome: string;
   status: string;
   estagio: string;
   senha: string;
   encaminhamento: string;
   observacoes: Observacoes[];
+  criadoEm: string;
+  inicioConsulta?: string;
+  finalizadoEm?: string;
   tempoAtendimento: TempoAtendimento;
 }
+export type AtendimentoUpdate = Partial<Atendimento> & {
+  id: number;
+};
 
 export interface Observacoes {
   texto: string;

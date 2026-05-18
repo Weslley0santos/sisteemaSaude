@@ -11,6 +11,7 @@
     "format": "prettier --write \"**/*.{js,ts,vue,css,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
+    "backend": "json-server --watch db/db.json --port 3001",
     "build": "quasar build",
     "postinstall": "quasar prepare"
   },
@@ -36,6 +37,7 @@
     "eslint": "^9.39.4",
     "eslint-plugin-vue": "^10.8.0",
     "globals": "^17.4.0",
+    "json-server": "^1.0.0-beta.15",
     "postcss": "^8.5.14",
     "prettier": "^3.8.1",
     "tailwindcss": "^3.4.19",

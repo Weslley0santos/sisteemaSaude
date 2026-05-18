@@ -8,7 +8,7 @@
       <ObsAtendimento :observacoes="props.atendimento.observacoes" />
     </div>
     <div>
-      <tempoAtendimento :tempoAtendimento="props.atendimento.tempoAtendimento" />
+      <tempoAtendimento :atendimento="props.atendimento" />
     </div>
     <div class="flex justify-end">
       <q-btn color="primary" label="Editar" @click="editar" />

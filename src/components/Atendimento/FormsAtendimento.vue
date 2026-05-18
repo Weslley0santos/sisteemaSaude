@@ -55,6 +55,7 @@ const atendimento = ref<Atendimento>(
         senha: '',
         encaminhamento: '',
         observacoes: [],
+        criadoEm: new Date().toISOString(),
         tempoAtendimento: {
           espera: 0,
           consultando: 0,
@@ -86,6 +87,7 @@ const salvar = () => {
     senha: '',
     encaminhamento: '',
     observacoes: [],
+    criadoEm: '',
     tempoAtendimento: {
       espera: 0,
       consultando: 0,

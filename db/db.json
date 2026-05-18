@@ -1,0 +1,21 @@
+{
+  "atendimentos": [
+    {
+      "id": 1,
+      "nome": "João Silva",
+      "status": "Em andamento",
+      "estagio": "Triagem",
+      "senha": "A001",
+      "encaminhamento": "Clinico geral",
+      "criadoEm": "2026-05-18T10:00:00.000Z",
+      "inicioConsulta": null,
+      "finalizadoEm": null,
+      "observacoes": [],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      }
+    }
+  ]
+}

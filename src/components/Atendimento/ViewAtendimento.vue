@@ -12,13 +12,16 @@
     </div>
     <div class="flex justify-end">
       <q-btn color="primary" label="Editar" @click="editar" />
+      <q-btn icon="delete" color="negative" flat @click="remover" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import type { Atendimento } from 'src/types/atendimento';
+
 import { useModal } from 'src/composable/useModal';
+import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 
 import DadosAtendimento from './DadosAtendimento.vue';
 import ObsAtendimento from './ObsAtendimento.vue';
@@ -29,8 +32,17 @@ const props = defineProps<{
 }>();
 
 const modal = useModal();
+const store = useAtendimentoStore();
 
 const editar = () => {
   modal.abrirEdit(props.atendimento);
+};
+
+const remover = async () => {
+  if (!props.atendimento.id) return;
+
+  await store.removerAtendimento(props.atendimento.id);
+
+  modal.fechar();
 };
 </script>

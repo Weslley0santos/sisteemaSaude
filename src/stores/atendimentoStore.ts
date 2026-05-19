@@ -13,36 +13,75 @@ export const STATUS = {
   concluido: 'Concluido',
 };
 
+export const ENCAMINHAMENTO = {
+  Clinico_Geral: 'Clinico geral',
+  Cardiologia: 'Cardiologia',
+  Ortopedista: 'Ortopedista',
+  Pediatria: 'Pediatria',
+};
+
 export const useAtendimentoStore = defineStore('atendimento', {
   state: () => ({
     atendimentos: [] as Atendimento[],
   }),
 
   actions: {
+    // -------------------------
+    // LOAD INICIAL
+    // -------------------------
     async carregarAtendimentos() {
-      this.atendimentos = await AtendimentoService.listar();
+      const data = await AtendimentoService.listar();
+
+      // proteção contra dados incompletos da API
+      this.atendimentos = data.map((a: Atendimento) => ({
+        ...a,
+        tempoAtendimento: {
+          espera: a.tempoAtendimento?.espera ?? 0,
+          consultando: a.tempoAtendimento?.consultando ?? 0,
+          total: a.tempoAtendimento?.total ?? 0,
+        },
+      }));
     },
 
+    // -------------------------
+    // CREATE
+    // -------------------------
     async adicionarAtendimento(atendimento: Atendimento) {
       const data = await AtendimentoService.criar(atendimento);
-      this.atendimentos.push(data);
+
+      this.atendimentos.push({
+        ...data,
+        tempoAtendimento: {
+          espera: 0,
+          consultando: 0,
+          total: 0,
+        },
+      });
     },
 
-    async atualizarAtendimento(atendimentoAtualizado: Atendimento) {
-      const index = this.atendimentos.findIndex((a) => a.senha === atendimentoAtualizado.senha);
+    // -------------------------
+    // UPDATE GENÉRICO
+    // -------------------------
+    async atualizarAtendimento(atualizado: Atendimento) {
+      if (!atualizado.id) return;
 
-      if (index === -1) return;
+      const data = await AtendimentoService.atualizar(atualizado.id, atualizado);
 
-      const atual = this.atendimentos[index];
-      if (!atual?.id) return;
+      const index = this.atendimentos.findIndex((a) => a.id === atualizado.id);
 
-      const data = await AtendimentoService.atualizar(atual.id, atendimentoAtualizado);
-
-      this.atendimentos[index] = data;
+      if (index !== -1) {
+        this.atendimentos[index] = {
+          ...this.atendimentos[index],
+          ...data,
+        };
+      }
     },
 
-    async avancarParaConsulta(senha: string) {
-      const index = this.atendimentos.findIndex((a) => a.senha === senha);
+    // -------------------------
+    // AVANÇAR PARA CONSULTA
+    // -------------------------
+    async avancarParaConsulta(id: number) {
+      const index = this.atendimentos.findIndex((a) => a.id === id);
       if (index === -1) return;
 
       const atual = this.atendimentos[index];
@@ -50,28 +89,29 @@ export const useAtendimentoStore = defineStore('atendimento', {
 
       const inicioConsulta = new Date().toISOString();
 
-      const tempoAtual = {
-        espera: atual.tempoAtendimento?.espera ?? 0,
-        consultando: atual.tempoAtendimento?.consultando ?? 0,
-        total: atual.tempoAtendimento?.total ?? 0,
-      };
-
       const atualizado: Atendimento = {
         ...atual,
         estagio: ESTAGIO.consulta,
         inicioConsulta,
-        tempoAtendimento: tempoAtual,
+        tempoAtendimento: {
+          ...atual.tempoAtendimento,
+          espera: calcularEspera(atual, inicioConsulta),
+        },
       };
-
-      atualizado.tempoAtendimento.espera = calcularEspera(atual, inicioConsulta);
 
       const data = await AtendimentoService.atualizar(atual.id, atualizado);
 
-      this.atendimentos[index] = data;
+      this.atendimentos[index] = {
+        ...atual,
+        ...data,
+      };
     },
 
-    async finalizarAtendimento(senha: string) {
-      const index = this.atendimentos.findIndex((a) => a.senha === senha);
+    // -------------------------
+    // FINALIZAR ATENDIMENTO
+    // -------------------------
+    async finalizarAtendimento(id: number) {
+      const index = this.atendimentos.findIndex((a) => a.id === id);
       if (index === -1) return;
 
       const atual = this.atendimentos[index];
@@ -79,40 +119,51 @@ export const useAtendimentoStore = defineStore('atendimento', {
 
       const finalizadoEm = new Date().toISOString();
 
-      const tempoAtual = {
-        espera: atual.tempoAtendimento?.espera ?? 0,
-        consultando: atual.tempoAtendimento?.consultando ?? 0,
-        total: atual.tempoAtendimento?.total ?? 0,
-      };
+      const consultando = calcularConsulta(atual.inicioConsulta || '', finalizadoEm);
 
       const atualizado: Atendimento = {
         ...atual,
         status: STATUS.concluido,
         finalizadoEm,
-        tempoAtendimento: tempoAtual,
+        tempoAtendimento: {
+          ...atual.tempoAtendimento,
+          consultando,
+          total: calcularTotal(atual.tempoAtendimento.espera, consultando),
+        },
       };
-
-      atualizado.tempoAtendimento.consultando = calcularConsulta(
-        atual.inicioConsulta || '',
-        finalizadoEm,
-      );
-
-      atualizado.tempoAtendimento.total = calcularTotal(
-        atualizado.tempoAtendimento.espera,
-        atualizado.tempoAtendimento.consultando,
-      );
 
       const data = await AtendimentoService.atualizar(atual.id, atualizado);
 
-      this.atendimentos[index] = data;
+      this.atendimentos[index] = {
+        ...atual,
+        ...data,
+      };
+    },
+
+    async removerAtendimento(id: number) {
+      await AtendimentoService.remover(id);
+
+      this.atendimentos = this.atendimentos.filter((a: Atendimento) => a.id !== id);
     },
   },
 
   getters: {
     triagem: (state) => state.atendimentos.filter((a) => a.estagio === ESTAGIO.triagem),
 
-    consulta: (state) => state.atendimentos.filter((a) => a.estagio === ESTAGIO.consulta),
+    consulta: (state) =>
+      state.atendimentos.filter(
+        (a) => a.estagio === ESTAGIO.consulta && a.status === STATUS.emAndamento,
+      ),
 
-    concluidos: (state) => state.atendimentos.filter((a) => a.status === STATUS.concluido),
+    concluidos: (state) =>
+      state.atendimentos.filter(
+        (a) => a.estagio === ESTAGIO.consulta && a.status === STATUS.concluido,
+      ),
+
+    encaminhamentoOptions: () =>
+      Object.entries(ENCAMINHAMENTO).map(([key, value]) => ({
+        label: key,
+        value,
+      })),
   },
 });

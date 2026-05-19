@@ -20,9 +20,8 @@ const store = useAtendimentoStore();
 
 const modal = useModal();
 
-const salvarEdicao = (atendimentoEditado: Atendimento) => {
-  store.atualizarAtendimento(atendimentoEditado);
-
+const salvarEdicao = async (atendimentoEditado: Atendimento) => {
+  await store.atualizarAtendimento(atendimentoEditado);
   modal.fechar();
 };
 </script>

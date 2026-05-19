@@ -45,6 +45,11 @@ const emit = defineEmits<{
   (e: 'salvar', atendimento: Atendimento): void;
 }>();
 
+const gerarSenha = () => {
+  const numero = Math.floor(100 + Math.random() * 900);
+  return `A-${numero}`;
+};
+
 const atendimento = ref<Atendimento>(
   props.atendimento
     ? { ...props.atendimento }
@@ -52,7 +57,7 @@ const atendimento = ref<Atendimento>(
         nome: '',
         status: STATUS.emAndamento,
         estagio: ESTAGIO.triagem,
-        senha: '',
+        senha: gerarSenha(),
         encaminhamento: '',
         observacoes: [],
         criadoEm: new Date().toISOString(),
@@ -96,4 +101,3 @@ const salvar = () => {
   };
 };
 </script>
-<style scoped lang="scss"></style>

@@ -16,7 +16,9 @@ import type { Atendimento } from 'src/types/atendimento';
 
 const store = useAtendimentoStore();
 
-const enviarParaConsulta = (atendimento: Atendimento) => {
-  store.avancarParaConsulta(atendimento.senha);
+const enviarParaConsulta = async (atendimento: Atendimento) => {
+  if (!atendimento.id) return;
+
+  await store.avancarParaConsulta(atendimento.id);
 };
 </script>

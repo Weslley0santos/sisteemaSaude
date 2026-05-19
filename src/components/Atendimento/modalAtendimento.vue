@@ -57,23 +57,25 @@ import editAtendimento from './editAtendimento.vue';
 const { aberto, modo, atendimentoAtual, fechar } = useModal();
 const store = useAtendimentoStore();
 
-const criarAtendimento = (novoAtendimento: Atendimento) => {
-  store.adicionarAtendimento(novoAtendimento);
+const criarAtendimento = async (novoAtendimento: Atendimento) => {
+  await store.adicionarAtendimento(novoAtendimento);
 
   fechar();
 };
-const enviarConsulta = () => {
+const enviarConsulta = async () => {
   if (!atendimentoAtual.value) return;
+  if (!atendimentoAtual.value.id) return;
 
-  store.avancarParaConsulta(atendimentoAtual.value.senha);
+  await store.avancarParaConsulta(atendimentoAtual.value.id);
 
   fechar();
 };
 
-const finalizarAtendimento = () => {
+const finalizarAtendimento = async () => {
   if (!atendimentoAtual.value) return;
+  if (!atendimentoAtual.value.id) return;
 
-  store.finalizarAtendimento(atendimentoAtual.value.senha);
+  await store.finalizarAtendimento(atendimentoAtual.value.id);
 
   fechar();
 };

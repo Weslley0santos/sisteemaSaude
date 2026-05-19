@@ -16,4 +16,8 @@ export const AtendimentoService = {
     const { data } = await api.put(`/atendimentos/${id}`, atendimento);
     return data;
   },
+  remover: async (id: number) => {
+    const { data } = await api.delete(`/atendimentos/${id}`);
+    return data;
+  },
 };

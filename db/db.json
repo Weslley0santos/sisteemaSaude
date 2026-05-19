@@ -1,21 +1,134 @@
 {
   "atendimentos": [
     {
-      "id": 1,
-      "nome": "João Silva",
+      "id": "uEyJ3yDSc8I",
+      "nome": "Carlos",
       "status": "Em andamento",
       "estagio": "Triagem",
-      "senha": "A001",
-      "encaminhamento": "Clinico geral",
-      "criadoEm": "2026-05-18T10:00:00.000Z",
-      "inicioConsulta": null,
-      "finalizadoEm": null,
+      "senha": "A-163",
+      "encaminhamento": "",
       "observacoes": [],
+      "criadoEm": "2026-05-19T14:19:11.833Z",
       "tempoAtendimento": {
         "espera": 0,
         "consultando": 0,
         "total": 0
       }
+    },
+
+    {
+      "id": "a1b2c3d4",
+      "nome": "Mariana Souza",
+      "status": "Em andamento",
+      "estagio": "Triagem",
+      "senha": "A-201",
+      "encaminhamento": "Cardiologia",
+      "observacoes": [
+        {
+          "texto": "Paciente relatando dores no peito.",
+          "estagio": "Triagem"
+        }
+      ],
+      "criadoEm": "2026-05-19T13:40:00.000Z",
+      "tempoAtendimento": {
+        "espera": 12,
+        "consultando": 0,
+        "total": 12
+      }
+    },
+
+    {
+      "id": "e5f6g7h8",
+      "nome": "João Pedro",
+      "status": "Em andamento",
+      "estagio": "Consulta",
+      "senha": "A-202",
+      "encaminhamento": "Ortopedista",
+      "observacoes": [
+        {
+          "texto": "Dor intensa no joelho direito.",
+          "estagio": "Triagem"
+        },
+        {
+          "texto": "Encaminhado para raio-x.",
+          "estagio": "Consulta"
+        }
+      ],
+      "criadoEm": "2026-05-19T12:50:00.000Z",
+      "inicioConsulta": "2026-05-19T13:20:00.000Z",
+      "tempoAtendimento": {
+        "espera": 30,
+        "consultando": 18,
+        "total": 48
+      }
+    },
+
+    {
+      "id": "i9j0k1l2",
+      "nome": "Fernanda Lima",
+      "status": "Concluido",
+      "estagio": "Consulta",
+      "senha": "A-203",
+      "encaminhamento": "Pediatria",
+      "observacoes": [
+        {
+          "texto": "Febre persistente há 2 dias.",
+          "estagio": "Triagem"
+        },
+        {
+          "texto": "Medicamento prescrito.",
+          "estagio": "Consulta"
+        }
+      ],
+      "criadoEm": "2026-05-19T10:00:00.000Z",
+      "inicioConsulta": "2026-05-19T10:25:00.000Z",
+      "finalizadoEm": "2026-05-19T10:50:00.000Z",
+      "tempoAtendimento": {
+        "espera": 25,
+        "consultando": 25,
+        "total": 50
+      }
+    },
+
+    {
+      "id": "m3n4o5p6",
+      "nome": "Lucas Martins",
+      "status": "Concluido",
+      "estagio": "Consulta",
+      "senha": "A-204",
+      "encaminhamento": "Clinico geral",
+      "observacoes": [
+        {
+          "texto": "Paciente com tontura.",
+          "estagio": "Triagem"
+        }
+      ],
+      "criadoEm": "2026-05-19T09:15:00.000Z",
+      "inicioConsulta": "2026-05-19T09:35:00.000Z",
+      "finalizadoEm": "2026-05-19T09:55:00.000Z",
+      "tempoAtendimento": {
+        "espera": 20,
+        "consultando": 20,
+        "total": 40
+      }
+    },
+
+    {
+      "id": "q7r8s9t0",
+      "nome": "Ana Clara",
+      "status": "Em andamento",
+      "estagio": "Consulta",
+      "senha": "A-205",
+      "encaminhamento": "Cardiologia",
+      "observacoes": [],
+      "criadoEm": "2026-05-19T11:10:00.000Z",
+      "inicioConsulta": "2026-05-19T11:40:00.000Z",
+      "tempoAtendimento": {
+        "espera": 30,
+        "consultando": 35,
+        "total": 65
+      }
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

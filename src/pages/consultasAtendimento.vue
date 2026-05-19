@@ -1,7 +1,7 @@
 <template>
   <h1 class="text-primary font-bold text-3xl">Consultas</h1>
   <cardAtendimento
-    v-for="item in store.consultaAtiva"
+    v-for="item in store.consulta"
     :key="item.senha"
     :atendimento="item"
     tipo="consulta"
@@ -15,7 +15,9 @@ import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import type { Atendimento } from 'src/types/atendimento';
 const store = useAtendimentoStore();
 
-const finalizarAtendimento = (atendimento: Atendimento) => {
-  store.finalizarAtendimento(atendimento.senha);
+const finalizarAtendimento = async (atendimento: Atendimento) => {
+  if (!atendimento.id) return;
+
+  await store.finalizarAtendimento(atendimento.id);
 };
 </script>

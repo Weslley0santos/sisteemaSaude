@@ -1,14 +1,27 @@
-// Quasar Sass (& SCSS) Variables
-
 :root {
-  --primary: #14a800;
-  --secondary: #64e264;
-  --background: #fff;
+  --primary: #0353a4;
+  --secondary: #006daa;
+  --accent: #00497a;
+
+  --background: #b9d6f2;
+
+  --text-primary: #061a40;
+  --text-secondary: #00497a;
+
+  --surface: #ffffff;
+  --surface-dark: #061a40;
 }
 
 $primary: var(--primary);
 $secondary: var(--secondary);
+$accent: var(--accent);
+
 $background: var(--background);
 
-$dark: #1d1d1d;
-$dark-page: #121212;
+$text-primary: var(--text-primary);
+$text-secondary: var(--text-secondary);
+
+$surface: var(--surface);
+
+$dark: #061a40;
+$dark-page: #04122e;

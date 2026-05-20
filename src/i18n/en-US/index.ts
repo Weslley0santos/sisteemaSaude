@@ -2,6 +2,31 @@
 // so you can safely delete all default props below
 
 export default {
-  failed: 'Action failed',
-  success: 'Action was successful',
+  comun: {
+    nameApp: '',
+    appointments: '',
+    triage: '',
+    completed: '',
+    dashboard: '',
+  },
+
+  button: {
+    save: '',
+    edit: '',
+    delete: '',
+    finish: '',
+    submit: '',
+  },
+
+  cards: {
+    patient: '',
+    status: '',
+    passoword: '',
+    referral: '',
+    notInfomed: '',
+    time: '',
+    consultation: '',
+    obs: '',
+    wait: '',
+  },
 };

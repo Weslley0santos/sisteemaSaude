@@ -1,6 +1,5 @@
 <template>
   <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
-    <!-- TOTAL -->
     <q-card class="p-3">
       <div class="flex items-center justify-between">
         <div>
@@ -15,7 +14,6 @@
       </div>
     </q-card>
 
-    <!-- TRIAGEM -->
     <q-card class="p-3">
       <div class="flex items-center justify-between">
         <div>
@@ -30,7 +28,6 @@
       </div>
     </q-card>
 
-    <!-- CONSULTA -->
     <q-card class="p-3">
       <div class="flex items-center justify-between">
         <div>
@@ -45,7 +42,6 @@
       </div>
     </q-card>
 
-    <!-- FINALIZADOS -->
     <q-card class="p-3">
       <div class="flex items-center justify-between">
         <div>

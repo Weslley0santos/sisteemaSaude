@@ -3,18 +3,37 @@
   --secondary: #006daa;
   --accent: #00497a;
 
-  --background: #b9d6f2;
+  --background: #f5faff;
+
+  --surface: #ffffff;
 
   --text-primary: #061a40;
   --text-secondary: #00497a;
 
-  --surface: #ffffff;
-  --surface-dark: #061a40;
+  --dark: #061a40;
+  --dark-page: #04122e;
+}
+
+.dark {
+  --background: #04122e;
+
+  --surface: #0b234f;
+
+  --text-primary: #ffffff;
+  --text-secondary: #b9d6f2;
 }
 
 $primary: var(--primary);
 $secondary: var(--secondary);
 $accent: var(--accent);
+
+$dark: var(--dark);
+$dark-page: var(--dark-page);
+
+$positive: #21ba45;
+$negative: #c10015;
+$info: #31ccec;
+$warning: #f2c037;
 
 $background: var(--background);
 
@@ -22,6 +41,3 @@ $text-primary: var(--text-primary);
 $text-secondary: var(--text-secondary);
 
 $surface: var(--surface);
-
-$dark: #061a40;
-$dark-page: #04122e;

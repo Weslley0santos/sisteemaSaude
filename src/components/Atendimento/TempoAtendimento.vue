@@ -3,7 +3,6 @@
     <h2 class="text-lg font-semibold mb-2">Tempo de Atendimento</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-      <!-- ESPERA -->
       <q-card flat bordered class="p-3">
         <p class="text-sm text-gray-500">Espera</p>
 
@@ -12,7 +11,6 @@
         </h3>
       </q-card>
 
-      <!-- CONSULTA -->
       <q-card flat bordered class="p-3">
         <p class="text-sm text-gray-500">Consulta</p>
 
@@ -21,7 +19,6 @@
         </h3>
       </q-card>
 
-      <!-- TOTAL -->
       <q-card flat bordered class="p-3">
         <p class="text-sm text-gray-500">Total</p>
 

@@ -1,26 +1,32 @@
 <template>
-  <q-layout view="hHh lpR fFf">
+  <q-layout view="hHh lpR fFf" class="bg-background text-textPrimary min-h-screen">
     <AppHeader @toggle-menu="sideMenu" />
 
     <AppSidebar v-model="drawer" />
 
-    <q-page-container>
+    <q-page-container class="px-4 py-6">
       <router-view />
     </q-page-container>
 
-    <!-- BOTÃO FAB -->
     <q-page-sticky
       v-if="$route.meta.showBotaoAdd"
       position="bottom-right"
-      :offset="[18, 18]"
+      :offset="[24, 24]"
       class="z-50"
     >
-      <q-btn fab icon="add" color="accent" @click="modal.abrirCreate()" />
+      <q-btn
+        fab
+        icon="add"
+        color="primary"
+        unelevated
+        class="shadow-lg"
+        label="adiconar atendimento"
+        @click="modal.abrirCreate()"
+      />
     </q-page-sticky>
 
-    <!-- FOOTER -->
-    <q-footer class="bg-primary text-white">
-      <div class="p-2 text-center">SaudeS © 2026</div>
+    <q-footer class="bg-accent text-white border-t border-white/10">
+      <div class="py-3 text-center text-sm tracking-wide">SaudeS © 2026</div>
     </q-footer>
 
     <modalAtendimento />

@@ -26,9 +26,6 @@ export const useAtendimentoStore = defineStore('atendimento', {
   }),
 
   actions: {
-    // -------------------------
-    // LOAD INICIAL
-    // -------------------------
     async carregarAtendimentos() {
       const data = await AtendimentoService.listar();
 
@@ -43,9 +40,6 @@ export const useAtendimentoStore = defineStore('atendimento', {
       }));
     },
 
-    // -------------------------
-    // CREATE
-    // -------------------------
     async adicionarAtendimento(atendimento: Atendimento) {
       const data = await AtendimentoService.criar(atendimento);
 
@@ -59,9 +53,6 @@ export const useAtendimentoStore = defineStore('atendimento', {
       });
     },
 
-    // -------------------------
-    // UPDATE GENÉRICO
-    // -------------------------
     async atualizarAtendimento(atualizado: Atendimento) {
       if (!atualizado.id) return;
 
@@ -77,9 +68,6 @@ export const useAtendimentoStore = defineStore('atendimento', {
       }
     },
 
-    // -------------------------
-    // AVANÇAR PARA CONSULTA
-    // -------------------------
     async avancarParaConsulta(id: number) {
       const index = this.atendimentos.findIndex((a) => a.id === id);
       if (index === -1) return;
@@ -107,9 +95,6 @@ export const useAtendimentoStore = defineStore('atendimento', {
       };
     },
 
-    // -------------------------
-    // FINALIZAR ATENDIMENTO
-    // -------------------------
     async finalizarAtendimento(id: number) {
       const index = this.atendimentos.findIndex((a) => a.id === id);
       if (index === -1) return;

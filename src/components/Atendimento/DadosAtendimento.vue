@@ -1,11 +1,36 @@
 <template>
-  <div class="grid grid-cols-2">
-    <p class="border-l-4 border-secondary p-1 mb-1">Nome: {{ props.atendimento.nome }}</p>
-    <p class="border-l-4 border-secondary p-1 mb-1">Status: {{ props.atendimento.status }}</p>
-    <p class="border-l-4 border-secondary p-1 mb-1">Senha: {{ props.atendimento.senha }}</p>
-    <p class="border-l-4 border-secondary p-1 mb-1">
-      Encaminhamento: {{ props.atendimento.encaminhamento }}
-    </p>
+  <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
+    <div class="rounded-xl bg-background p-3 border border-black/5">
+      <p class="text-xs font-medium uppercase tracking-wide text-textSecondary">Paciente</p>
+
+      <p class="mt-1 text-base font-semibold text-textPrimary">
+        {{ props.atendimento.nome }}
+      </p>
+    </div>
+
+    <div class="rounded-xl bg-background p-3 border border-black/5">
+      <p class="text-xs font-medium uppercase tracking-wide text-textSecondary">Status</p>
+
+      <p class="mt-1 text-base font-semibold text-textPrimary">
+        {{ props.atendimento.status }}
+      </p>
+    </div>
+
+    <div class="rounded-xl bg-background p-3 border border-black/5">
+      <p class="text-xs font-medium uppercase tracking-wide text-textSecondary">Senha</p>
+
+      <p class="mt-1 text-base font-semibold text-primary">
+        {{ props.atendimento.senha }}
+      </p>
+    </div>
+
+    <div class="rounded-xl bg-background p-3 border border-black/5">
+      <p class="text-xs font-medium uppercase tracking-wide text-textSecondary">Encaminhamento</p>
+
+      <p class="mt-1 text-base font-semibold text-textPrimary">
+        {{ props.atendimento.encaminhamento || 'Não informado' }}
+      </p>
+    </div>
   </div>
 </template>
 <script setup lang="ts">

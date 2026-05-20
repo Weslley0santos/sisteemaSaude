@@ -3,24 +3,25 @@
     {
       "id": "uEyJ3yDSc8I",
       "nome": "Carlos",
-      "status": "Em andamento",
-      "estagio": "Triagem",
+      "status": "Concluido",
+      "estagio": "Consulta",
       "senha": "A-163",
       "encaminhamento": "",
       "observacoes": [],
       "criadoEm": "2026-05-19T14:19:11.833Z",
       "tempoAtendimento": {
-        "espera": 0,
-        "consultando": 0,
-        "total": 0
-      }
+        "espera": 1328,
+        "consultando": 146,
+        "total": 1474
+      },
+      "inicioConsulta": "2026-05-20T12:28:07.027Z",
+      "finalizadoEm": "2026-05-20T14:55:00.784Z"
     },
-
     {
       "id": "a1b2c3d4",
       "nome": "Mariana Souza",
       "status": "Em andamento",
-      "estagio": "Triagem",
+      "estagio": "Consulta",
       "senha": "A-201",
       "encaminhamento": "Cardiologia",
       "observacoes": [
@@ -31,12 +32,12 @@
       ],
       "criadoEm": "2026-05-19T13:40:00.000Z",
       "tempoAtendimento": {
-        "espera": 12,
+        "espera": 1368,
         "consultando": 0,
         "total": 12
-      }
+      },
+      "inicioConsulta": "2026-05-20T12:28:15.449Z"
     },
-
     {
       "id": "e5f6g7h8",
       "nome": "João Pedro",
@@ -62,7 +63,6 @@
         "total": 48
       }
     },
-
     {
       "id": "i9j0k1l2",
       "nome": "Fernanda Lima",
@@ -89,7 +89,6 @@
         "total": 50
       }
     },
-
     {
       "id": "m3n4o5p6",
       "nome": "Lucas Martins",
@@ -112,7 +111,6 @@
         "total": 40
       }
     },
-
     {
       "id": "q7r8s9t0",
       "nome": "Ana Clara",
@@ -128,6 +126,22 @@
         "consultando": 35,
         "total": 65
       }
+    },
+    {
+      "nome": "wes",
+      "status": "Em andamento",
+      "estagio": "Consulta",
+      "senha": "A-885",
+      "encaminhamento": "Cardiologia",
+      "observacoes": [],
+      "criadoEm": "2026-05-20T13:04:23.254Z",
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "her0s7bm-9w",
+      "inicioConsulta": "2026-05-20T13:04:56.759Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

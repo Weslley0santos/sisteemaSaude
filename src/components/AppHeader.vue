@@ -1,35 +1,20 @@
 <template>
-  <q-header elevated class="bg-primary text-white">
-    <q-toolbar>
+  <q-header bordered class="bg-accent text-white backdrop-blur-md">
+    <q-toolbar class="h-16 px-4">
+      <q-btn flat dense round icon="menu" class="mr-2" @click="emit('toggle-menu')" />
+
+      <q-toolbar-title class="text-xl font-bold tracking-wide"> SaudeS </q-toolbar-title>
 
       <q-btn
         flat
-        dense
         round
-        icon="menu"
-        @click="emit('toggle-menu')"
+        dense
+        :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'"
+        class="mr-1"
+        @click="toggleDarkMode"
       />
 
-      <q-toolbar-title class="p-2 font-semibold">
-        SaudeS
-      </q-toolbar-title>
-
-<q-btn
-  flat
-  dense
-  round
-  :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'"
-  @click="toggleDarkMode"
-/>
-
-      <q-btn
-        flat
-        dense
-        round
-        icon="logout"
-        @click="logout"
-      />
-
+      <q-btn flat round dense icon="logout" @click="logout" />
     </q-toolbar>
   </q-header>
 </template>

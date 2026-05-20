@@ -10,13 +10,11 @@ import FinalizadosAtendimento from 'src/pages/finalizadosAtendimento.vue';
 import LoginPage from 'src/pages/LoginPage.vue';
 
 const routes: RouteRecordRaw[] = [
-  // LOGIN
   {
     path: '/login',
     component: LoginPage,
   },
 
-  // SISTEMA
   {
     path: '/',
     component: PaginaPrincipal,

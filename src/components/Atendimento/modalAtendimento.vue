@@ -33,7 +33,7 @@
           v-if="
             atendimentoAtual &&
             atendimentoAtual.estagio === STAGE.consultation &&
-            atendimentoAtual.status === STATUS.emAndamento
+            atendimentoAtual.status === STATUS.inProgress
           "
           label="Finalizar Atendimento"
           class="w-full"

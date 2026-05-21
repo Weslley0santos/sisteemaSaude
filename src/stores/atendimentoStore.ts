@@ -9,8 +9,8 @@ export const STAGE = {
 };
 
 export const STATUS = {
-  emAndamento: 'Em andamento',
-  concluido: 'Concluido',
+  inProgress: 'inProgress',
+  completed: 'completed',
 };
 
 export const ENCAMINHAMENTO = {
@@ -108,7 +108,7 @@ export const useAtendimentoStore = defineStore('atendimento', {
 
       const atualizado: Atendimento = {
         ...atual,
-        status: STATUS.concluido,
+        status: STATUS.completed,
         finalizadoEm,
         tempoAtendimento: {
           ...atual.tempoAtendimento,
@@ -137,12 +137,12 @@ export const useAtendimentoStore = defineStore('atendimento', {
 
     consulta: (state) =>
       state.atendimentos.filter(
-        (a) => a.estagio === STAGE.consultation && a.status === STATUS.emAndamento,
+        (a) => a.estagio === STAGE.consultation && a.status === STATUS.inProgress,
       ),
 
     concluidos: (state) =>
       state.atendimentos.filter(
-        (a) => a.estagio === STAGE.consultation && a.status === STATUS.concluido,
+        (a) => a.estagio === STAGE.consultation && a.status === STATUS.completed,
       ),
 
     encaminhamentoOptions: () =>

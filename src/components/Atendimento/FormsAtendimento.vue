@@ -63,7 +63,7 @@ const atendimento = ref<Atendimento>(
     ? { ...props.atendimento }
     : {
         nome: '',
-        status: STATUS.emAndamento,
+        status: STATUS.inProgress,
         estagio: STAGE.triage,
         senha: gerarSenha(),
         encaminhamento: '',
@@ -95,7 +95,7 @@ const salvar = () => {
   emit('salvar', { ...atendimento.value });
   atendimento.value = {
     nome: '',
-    status: STATUS.emAndamento,
+    status: STATUS.inProgress,
     estagio: STAGE.triage,
     senha: '',
     encaminhamento: '',

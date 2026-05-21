@@ -2,7 +2,7 @@ export default {
   common: {
     nameApp: 'SaudeS',
     appointments: 'Atenciones',
-    triagem: 'Triaje',
+    triage: 'Triaje',
     consultation: 'Consulta',
     completed: 'Finalizados',
   },
@@ -22,38 +22,54 @@ export default {
   service: {
     name: 'Nombre del Paciente',
     forwarding: 'Derivación (Opcional)',
-    clinical: 'Clínico General',
-    cardiologist: 'Cardiólogo',
-    orthopedist: 'Ortopedista',
+
+    generalClinic: 'Clínico General',
+    cardiology: 'Cardiología',
+    orthopedics: 'Ortopedia',
+    pediatrics: 'Pediatría',
+
+    observation: 'Observación',
     notInformed: 'No Informado',
 
-    pediatrics: 'Pediatría',
-    observation: 'Observación',
     patient: 'Paciente',
     status: 'Estado',
-    progress: 'En Progreso',
+
+    inProgress: 'En Progreso',
     completed: 'Finalizado',
+
     password: 'Contraseña',
+
     time: 'Tiempo de Atención',
     waitingTime: 'Tiempo de Espera',
     consultationTime: 'Tiempo de Consulta',
     totalTime: 'Tiempo Total',
+
+    triage: 'Triaje',
+    consultation: 'Consulta',
   },
 
   dashboard: {
     title: 'Panel',
+
     totalAppointments: 'Total de Consultas',
+
     filter: 'Filtrar por Fecha',
+
     averageTime: 'Tiempo Promedio',
+
     waitingTime: 'Tiempo de Espera',
     consultationTime: 'Tiempo de Consulta',
     totalTime: 'Tiempo Total',
+
     forwarding: 'Derivación',
-    clinical: 'Clínico General',
-    cardiologist: 'Cardiólogo',
-    orthopedist: 'Ortopedista',
+
+    generalClinic: 'Clínico General',
+    cardiology: 'Cardiología',
+    orthopedics: 'Ortopedia',
     pediatrics: 'Pediatría',
+
     notInformed: 'No Informado',
+
     all: 'Todos',
   },
 };

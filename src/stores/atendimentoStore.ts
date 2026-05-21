@@ -3,9 +3,9 @@ import type { Atendimento } from 'src/types/atendimento';
 import { AtendimentoService } from 'src/services/atendimentoService';
 import { calcularEspera, calcularConsulta, calcularTotal } from 'src/utils/tempoAtendimento';
 
-export const ESTAGIO = {
-  triagem: 'Triagem',
-  consulta: 'Consulta',
+export const STAGE = {
+  triage: 'triage',
+  consultation: 'consultation',
 };
 
 export const STATUS = {
@@ -79,7 +79,7 @@ export const useAtendimentoStore = defineStore('atendimento', {
 
       const atualizado: Atendimento = {
         ...atual,
-        estagio: ESTAGIO.consulta,
+        estagio: STAGE.consultation,
         inicioConsulta,
         tempoAtendimento: {
           ...atual.tempoAtendimento,
@@ -133,16 +133,16 @@ export const useAtendimentoStore = defineStore('atendimento', {
   },
 
   getters: {
-    triagem: (state) => state.atendimentos.filter((a) => a.estagio === ESTAGIO.triagem),
+    triagem: (state) => state.atendimentos.filter((a) => a.estagio === STAGE.triage),
 
     consulta: (state) =>
       state.atendimentos.filter(
-        (a) => a.estagio === ESTAGIO.consulta && a.status === STATUS.emAndamento,
+        (a) => a.estagio === STAGE.consultation && a.status === STATUS.emAndamento,
       ),
 
     concluidos: (state) =>
       state.atendimentos.filter(
-        (a) => a.estagio === ESTAGIO.consulta && a.status === STATUS.concluido,
+        (a) => a.estagio === STAGE.consultation && a.status === STATUS.concluido,
       ),
 
     encaminhamentoOptions: () =>

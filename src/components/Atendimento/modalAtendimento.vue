@@ -23,7 +23,7 @@
       </q-card-section>
       <div>
         <q-btn
-          v-if="atendimentoAtual && atendimentoAtual.estagio === ESTAGIO.triagem"
+          v-if="atendimentoAtual && atendimentoAtual.estagio === STAGE.triage"
           label="Enviar para Consulta"
           class="w-full"
           @click="enviarConsulta"
@@ -32,7 +32,7 @@
         <q-btn
           v-if="
             atendimentoAtual &&
-            atendimentoAtual.estagio === ESTAGIO.consulta &&
+            atendimentoAtual.estagio === STAGE.consultation &&
             atendimentoAtual.status === STATUS.emAndamento
           "
           label="Finalizar Atendimento"
@@ -48,7 +48,7 @@
 import { useModal } from 'src/composable/useModal';
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import type { Atendimento } from 'src/types/atendimento';
-import { STATUS, ESTAGIO } from 'src/stores/atendimentoStore';
+import { STATUS, STAGE } from 'src/stores/atendimentoStore';
 
 import FormsAtendimento from './FormsAtendimento.vue';
 import ViewAtendimento from './ViewAtendimento.vue';

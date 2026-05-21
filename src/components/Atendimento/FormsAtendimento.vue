@@ -39,7 +39,7 @@
 import { ref } from 'vue';
 import ObsAtendimento from './ObsAtendimento.vue';
 import type { Atendimento } from 'src/types/atendimento';
-import { useAtendimentoStore, ESTAGIO, STATUS } from 'src/stores/atendimentoStore';
+import { useAtendimentoStore, STAGE, STATUS } from 'src/stores/atendimentoStore';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
@@ -64,7 +64,7 @@ const atendimento = ref<Atendimento>(
     : {
         nome: '',
         status: STATUS.emAndamento,
-        estagio: ESTAGIO.triagem,
+        estagio: STAGE.triage,
         senha: gerarSenha(),
         encaminhamento: '',
         observacoes: [],
@@ -96,7 +96,7 @@ const salvar = () => {
   atendimento.value = {
     nome: '',
     status: STATUS.emAndamento,
-    estagio: ESTAGIO.triagem,
+    estagio: STAGE.triage,
     senha: '',
     encaminhamento: '',
     observacoes: [],

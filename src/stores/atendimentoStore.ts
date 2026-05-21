@@ -13,11 +13,11 @@ export const STATUS = {
   completed: 'completed',
 };
 
-export const ENCAMINHAMENTO = {
-  Clinico_Geral: 'Clinico geral',
-  Cardiologia: 'Cardiologia',
-  Ortopedista: 'Ortopedista',
-  Pediatria: 'Pediatria',
+export const REFERALL = {
+  generalClinic: 'generalClinic',
+  cadiology: 'cadiology',
+  orthopedics: 'orthopedics',
+  pediatrics: 'pediatrics',
 };
 
 export const useAtendimentoStore = defineStore('atendimento', {
@@ -146,7 +146,7 @@ export const useAtendimentoStore = defineStore('atendimento', {
       ),
 
     encaminhamentoOptions: () =>
-      Object.entries(ENCAMINHAMENTO).map(([key, value]) => ({
+      Object.entries(REFERALL).map(([key, value]) => ({
         label: value,
         value: key,
       })),

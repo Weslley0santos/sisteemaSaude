@@ -2,7 +2,7 @@ export default {
   common: {
     nameApp: 'SaudeS',
     appointments: 'Appointments',
-    triagem: 'triagem',
+    triage: 'Triage',
     consultation: 'Consultation',
     completed: 'Completed',
   },
@@ -22,37 +22,54 @@ export default {
   service: {
     name: 'Patient Name',
     forwarding: 'Referral (Optional)',
-    clinical: 'General Practitioner',
-    cardiologist: 'Cardiologist',
-    orthopedist: 'Orthopedist',
+
+    generalClinic: 'General Clinic',
+    cardiology: 'Cardiology',
+    orthopedics: 'Orthopedics',
     pediatrics: 'Pediatrics',
-    notInformed: 'Not Informed',
+
     observation: 'Observation',
+    notInformed: 'Not Informed',
+
     patient: 'Patient',
     status: 'Status',
-    progress: 'In Progress',
+
+    inProgress: 'In Progress',
     completed: 'Completed',
+
     password: 'Password',
+
     time: 'Service Time',
     waitingTime: 'Waiting Time',
     consultationTime: 'Consultation Time',
     totalTime: 'Total Time',
+
+    triage: 'Triage',
+    consultation: 'Consultation',
   },
 
   dashboard: {
     title: 'Dashboard',
+
     totalAppointments: 'Total Appointments',
+
     filter: 'Filter by Date',
+
     averageTime: 'Average Time',
+
     waitingTime: 'Waiting Time',
     consultationTime: 'Consultation Time',
     totalTime: 'Total Time',
+
     forwarding: 'Referral',
-    clinical: 'General Practitioner',
-    cardiologist: 'Cardiologist',
-    orthopedist: 'Orthopedist',
+
+    generalClinic: 'General Clinic',
+    cardiology: 'Cardiology',
+    orthopedics: 'Orthopedics',
     pediatrics: 'Pediatrics',
+
     notInformed: 'Not Informed',
+
     all: 'All',
   },
 };

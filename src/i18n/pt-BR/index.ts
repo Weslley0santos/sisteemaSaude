@@ -2,7 +2,7 @@ export default {
   common: {
     nameApp: 'SaudeS',
     appointments: 'Atendimentos',
-    triagem: 'triagem',
+    triage: 'Triagem',
     consultation: 'Consulta',
     completed: 'Finalizados',
   },
@@ -15,45 +15,61 @@ export default {
     edit: 'Editar Atendimento',
     delete: 'Excluir Atendimento',
     finish: 'Finalizar Atendimento',
-    send: 'Enviar para consulta',
+    send: 'Enviar para Consulta',
     saveNote: 'Salvar Observação',
   },
 
   service: {
-    name: 'Nome do paciente',
+    name: 'Nome do Paciente',
     forwarding: 'Encaminhamento (Opcional)',
-    clinical: 'Clinico Geral',
-    cardiologist: 'Cadiologista',
-    orthopedist: 'Ortopedista',
+
+    generalClinic: 'Clínico Geral',
+    cardiology: 'Cardiologia',
+    orthopedics: 'Ortopedia',
     pediatrics: 'Pediatria',
+
     observation: 'Observação',
-    notInformed: 'Não informado',
+    notInformed: 'Não Informado',
 
     patient: 'Paciente',
     status: 'Status',
-    progress: 'Em andamento',
-    completed: 'Concluido',
+
+    inProgress: 'Em Andamento',
+    completed: 'Concluído',
+
     password: 'Senha',
+
     time: 'Tempo de Atendimento',
-    waitingTime: 'Espera',
-    consultationTime: 'Tempo de consulta',
-    totalTime: 'Tempo total',
+    waitingTime: 'Tempo de Espera',
+    consultationTime: 'Tempo de Consulta',
+    totalTime: 'Tempo Total',
+
+    triage: 'Triagem',
+    consultation: 'Consulta',
   },
 
   dashboard: {
     title: 'Painel',
-    totalAppointments: 'Total de consultas',
-    filter: 'Filtrar por data',
-    averageTime: 'Tempo médio',
-    waitingTime: 'Espera',
-    consultationTime: 'Tempo de consulta',
-    totalTime: 'Tempo total',
+
+    totalAppointments: 'Total de Consultas',
+
+    filter: 'Filtrar por Data',
+
+    averageTime: 'Tempo Médio',
+
+    waitingTime: 'Tempo de Espera',
+    consultationTime: 'Tempo de Consulta',
+    totalTime: 'Tempo Total',
+
     forwarding: 'Encaminhamento',
-    clinical: 'Clinico Geral',
-    cardiologist: 'Cadiologista',
-    orthopedist: 'Ortopedista',
+
+    generalClinic: 'Clínico Geral',
+    cardiology: 'Cardiologia',
+    orthopedics: 'Ortopedia',
     pediatrics: 'Pediatria',
-    notInformed: 'Não informado',
+
+    notInformed: 'Não Informado',
+
     all: 'Todos',
   },
 };

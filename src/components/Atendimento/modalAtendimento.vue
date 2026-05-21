@@ -2,7 +2,7 @@
   <q-dialog v-model="aberto">
     <q-card class="min-w-[100px] sm:min-w-[700px]">
       <q-card-section class="flex justify-between items-center">
-        <h2 class="text-xl font-bold">{{ atendimentoAtual?.estagio }}</h2>
+        <h2 class="text-xl font-bold">{{ t(`service.${atendimentoAtual?.estagio}`) }}</h2>
 
         <q-btn flat round dense icon="close" @click="fechar()" />
       </q-card-section>
@@ -53,6 +53,9 @@ import { STATUS, ESTAGIO } from 'src/stores/atendimentoStore';
 import FormsAtendimento from './FormsAtendimento.vue';
 import ViewAtendimento from './ViewAtendimento.vue';
 import editAtendimento from './editAtendimento.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const { aberto, modo, atendimentoAtual, fechar } = useModal();
 const store = useAtendimentoStore();

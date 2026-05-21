@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-primary font-bold text-3xl">Triagem</h1>
+  <h1 class="text-primary font-bold text-3xl">{{ t('common.triagem') }}</h1>
   <cardAtendimento
     v-for="item in store.triagem"
     :key="item.senha"
@@ -13,6 +13,9 @@
 import cardAtendimento from 'src/components/Atendimento/cardAtendimento.vue';
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import type { Atendimento } from 'src/types/atendimento';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const store = useAtendimentoStore();
 

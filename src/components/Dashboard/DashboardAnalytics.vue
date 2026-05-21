@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
     <q-card class="p-3">
-      <h2 class="text-base font-semibold mb-3">Filtrar por Data</h2>
+      <h2 class="text-base font-semibold mb-3">{{ t('dashboard.filter') }}</h2>
 
       <q-date
         :model-value="dataSelecionada"
@@ -12,23 +12,23 @@
 
     <q-card class="p-4 flex flex-col gap-4">
       <div>
-        <h2 class="text-base font-semibold mb-2">Tempo Médio</h2>
+        <h2 class="text-base font-semibold mb-2">{{ t('dashboard.averageTime') }}</h2>
 
         <div class="flex flex-col gap-2 text-sm">
           <div class="flex justify-between">
-            <span>Espera</span>
+            <span>{{ t('dashboard.waitingTime') }}</span>
 
             <strong> {{ tempoMedioEspera }} min </strong>
           </div>
 
           <div class="flex justify-between">
-            <span>Consulta</span>
+            <span>{{ t('dashboard.consultationTime') }}</span>
 
             <strong> {{ tempoMedioConsulta }} min </strong>
           </div>
 
           <div class="flex justify-between">
-            <span>Total</span>
+            <span>{{ t('dashboard.totalTime') }}</span>
 
             <strong> {{ tempoMedioTotal }} min </strong>
           </div>
@@ -38,7 +38,7 @@
       <q-separator />
 
       <div>
-        <h2 class="text-base font-semibold mb-2">Encaminhamentos</h2>
+        <h2 class="text-base font-semibold mb-2">{{ t('dashboard.forwarding') }}</h2>
 
         <div class="flex flex-col gap-2 text-sm">
           <div
@@ -64,7 +64,9 @@
 import { computed } from 'vue';
 
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n();
 const store = useAtendimentoStore();
 
 defineProps<{

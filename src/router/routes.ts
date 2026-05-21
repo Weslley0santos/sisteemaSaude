@@ -3,7 +3,7 @@ import type { RouteRecordRaw } from 'vue-router';
 import PaginaPrincipal from 'layouts/PaginaPrincipal.vue';
 
 import DashboardAtendimento from 'src/pages/DashboardAtendimento.vue';
-import TriagemAtendimentos from 'src/pages/triagemAtendimentos.vue';
+import triagemAtendimentos from 'src/pages/triagemAtendimentos.vue';
 import ConsultasAtendimento from 'src/pages/consultasAtendimento.vue';
 import FinalizadosAtendimento from 'src/pages/finalizadosAtendimento.vue';
 
@@ -35,7 +35,7 @@ const routes: RouteRecordRaw[] = [
 
       {
         path: 'triagem',
-        component: TriagemAtendimentos,
+        component: triagemAtendimentos,
         meta: {
           showBotaoAdd: true,
         },

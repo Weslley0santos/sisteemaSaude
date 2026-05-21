@@ -1,12 +1,12 @@
 import type { Atendimento } from 'src/types/atendimento';
 
 export function calcularEspera(atendimento: Atendimento, inicioConsulta: string) {
-  const inicioTriagem = new Date(atendimento.criadoEm).getTime();
+  const iniciotriagem = new Date(atendimento.criadoEm).getTime();
   const inicio = new Date(inicioConsulta).getTime();
 
-  if (isNaN(inicioTriagem) || isNaN(inicio)) return 0;
+  if (isNaN(iniciotriagem) || isNaN(inicio)) return 0;
 
-  return Math.floor((inicio - inicioTriagem) / 1000 / 60);
+  return Math.floor((inicio - iniciotriagem) / 1000 / 60);
 }
 
 export function calcularConsulta(inicioConsulta: string, finalizadoEm: string) {

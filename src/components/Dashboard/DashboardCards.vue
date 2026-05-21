@@ -3,7 +3,7 @@
     <q-card class="p-3">
       <div class="flex items-center justify-between">
         <div>
-          <p class="text-sm text-gray-500">Total</p>
+          <p class="text-sm text-gray-500">{{ t('dashboard.totalAppointments') }}</p>
 
           <h2 class="text-2xl font-bold">
             {{ store.atendimentos.length }}
@@ -17,7 +17,7 @@
     <q-card class="p-3">
       <div class="flex items-center justify-between">
         <div>
-          <p class="text-sm text-gray-500">Triagem</p>
+          <p class="text-sm text-gray-500">{{ t('common.triagem') }}</p>
 
           <h2 class="text-2xl font-bold">
             {{ store.triagem.length }}
@@ -31,7 +31,7 @@
     <q-card class="p-3">
       <div class="flex items-center justify-between">
         <div>
-          <p class="text-sm text-gray-500">Consulta</p>
+          <p class="text-sm text-gray-500">{{ t('common.consultation') }}</p>
 
           <h2 class="text-2xl font-bold">
             {{ store.consulta.length }}
@@ -45,7 +45,7 @@
     <q-card class="p-3">
       <div class="flex items-center justify-between">
         <div>
-          <p class="text-sm text-gray-500">Finalizados</p>
+          <p class="text-sm text-gray-500">{{ t('common.completed') }}</p>
 
           <h2 class="text-2xl font-bold">
             {{ store.concluidos.length }}
@@ -63,6 +63,9 @@ import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiStethoscope, mdiHospitalBoxOutline, mdiBookmarkCheckOutline } from '@mdi/js';
 const store = useAtendimentoStore();
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 </script>
 
 <style scoped lang="scss">

@@ -147,8 +147,8 @@ export const useAtendimentoStore = defineStore('atendimento', {
 
     encaminhamentoOptions: () =>
       Object.entries(ENCAMINHAMENTO).map(([key, value]) => ({
-        label: key,
-        value,
+        label: value,
+        value: key,
       })),
   },
 });

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h2 class="text-2xl font-bold mb-4">Editar Atendimento</h2>
+    <h2 class="text-2xl font-bold mb-4">
+      {{ t('button.edit') }}
+    </h2>
 
     <FormsAtendimento :atendimento="props.atendimento" modo="edit" @salvar="salvarEdicao" />
   </div>
@@ -12,6 +14,9 @@ import type { Atendimento } from 'src/types/atendimento';
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import { useModal } from 'src/composable/useModal';
 
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 const props = defineProps<{
   atendimento: Atendimento;
 }>();

@@ -10,7 +10,7 @@
         >
           <svg-icon class="mr-3" type="mdi" :path="mdiHomeHeart" />
 
-          <q-item-section> Atendimentos </q-item-section>
+          <q-item-section> {{ t('common.appointments') }} </q-item-section>
         </q-item>
 
         <q-item
@@ -21,7 +21,7 @@
         >
           <svg-icon class="mr-3" type="mdi" :path="mdiHospitalBoxOutline" />
 
-          <q-item-section> Triagem </q-item-section>
+          <q-item-section> {{ t('common.triagem') }}</q-item-section>
         </q-item>
 
         <q-item
@@ -32,7 +32,7 @@
         >
           <svg-icon class="mr-3" type="mdi" :path="mdiStethoscope" />
 
-          <q-item-section> Consulta </q-item-section>
+          <q-item-section> {{ t('common.consultation') }} </q-item-section>
         </q-item>
 
         <q-item
@@ -43,7 +43,7 @@
         >
           <svg-icon class="mr-3" type="mdi" :path="mdiBookmarkCheckOutline" />
 
-          <q-item-section> Finalizados </q-item-section>
+          <q-item-section> {{ t('common.completed') }} </q-item-section>
         </q-item>
       </q-list>
     </div>
@@ -59,6 +59,10 @@ import {
   mdiHomeHeart,
   mdiBookmarkCheckOutline,
 } from '@mdi/js';
+
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const drawer = ref<boolean | null>(false);
 </script>

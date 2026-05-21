@@ -1,7 +1,7 @@
 <template>
   <q-page class="p-4">
     <div class="mb-4">
-      <h1 class="text-2xl font-bold text-primary">Dashboard</h1>
+      <h1 class="text-2xl font-bold text-primary">{{ t('dashboard.title') }}</h1>
     </div>
 
     <DashboardCards />
@@ -29,6 +29,10 @@ import DashboardCards from 'src/components/Dashboard/DashboardCards.vue';
 import DashboardAnalytics from 'src/components/Dashboard/DashboardAnalytics.vue';
 import DashboardTable from 'src/components/Dashboard/DashboardTable.vue';
 import DashboardTabs from 'src/components/Dashboard/DashboardTabs.vue';
+
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const store = useAtendimentoStore();
 

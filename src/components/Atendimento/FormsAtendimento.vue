@@ -1,31 +1,37 @@
 <template>
   <q-form>
-    <p></p>
     <div class="input-conteiner">
-      <q-input v-model="atendimento.nome" label="Nome do paciente"></q-input>
+      <q-input v-model="atendimento.nome" :label="t('service.name')" />
     </div>
 
     <div class="input-conteiner">
       <q-select
         v-model="atendimento.encaminhamento"
         :options="store.encaminhamentoOptions"
-        label="Encaminhamento (Opcional)"
+        :label="t('service.forwarding')"
         emit-value
         map-options
       />
     </div>
 
     <ObsAtendimento :observacoes="atendimento.observacoes" />
+
     <q-btn v-if="!mostrarObs" class="m-2 bg-green-300" @click="mostrarObs = true">
-      Adicionar observação
+      {{ t('button.addNote') }}
     </q-btn>
+
     <div v-if="mostrarObs" class="input-conteiner">
-      <q-input v-model="novaObs" label="Adicionar observação" type="textarea"></q-input>
+      <q-input v-model="novaObs" :label="t('service.observation')" type="textarea" />
     </div>
-    <q-btn v-if="mostrarObs" class="m-2 bg-green-300" @click="adicionarObs"
-      >Salvar Observação</q-btn
-    >
-    <q-btn :label="modo === 'edit' ? 'Salvar Alterações' : 'Criar Atendimento'" @click="salvar" />
+
+    <q-btn v-if="mostrarObs" class="m-2 bg-green-300" @click="adicionarObs">
+      {{ t('button.saveNote') }}
+    </q-btn>
+
+    <q-btn
+      :label="modo === 'edit' ? t('button.saveChanges') : t('button.create')"
+      @click="salvar"
+    />
   </q-form>
 </template>
 
@@ -34,7 +40,9 @@ import { ref } from 'vue';
 import ObsAtendimento from './ObsAtendimento.vue';
 import type { Atendimento } from 'src/types/atendimento';
 import { useAtendimentoStore, ESTAGIO, STATUS } from 'src/stores/atendimentoStore';
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n();
 const store = useAtendimentoStore();
 const props = defineProps<{
   atendimento?: Atendimento;

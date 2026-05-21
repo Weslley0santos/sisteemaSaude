@@ -18,10 +18,7 @@ defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (
-    e: 'abrir-atendimento',
-    atendimento: Atendimento
-  ): void;
+  (e: 'abrir-atendimento', atendimento: Atendimento): void;
 }>();
 
 const columns = [
@@ -40,9 +37,9 @@ const columns = [
   },
 
   {
-    name: 'estagio',
+    name: 'ESTAGIO',
     label: 'Estágio',
-    field: 'estagio',
+    field: 'ESTAGIO',
     align: 'left' as const,
   },
 
@@ -54,10 +51,7 @@ const columns = [
   },
 ];
 
-const abrirAtendimento = (
-  event: Event,
-  atendimento: Atendimento
-) => {
+const abrirAtendimento = (event: Event, atendimento: Atendimento) => {
   emit('abrir-atendimento', atendimento);
 };
 </script>

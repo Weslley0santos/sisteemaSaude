@@ -17,10 +17,10 @@
       <q-btn
         fab
         icon="add"
-        color="primary"
+        color="green"
         unelevated
         class="shadow-lg"
-        label="adiconar atendimento"
+        aria-label="adiconar atendimento"
         @click="modal.abrirCreate()"
       />
     </q-page-sticky>

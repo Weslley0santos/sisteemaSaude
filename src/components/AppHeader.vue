@@ -3,7 +3,9 @@
     <q-toolbar class="h-16 px-4">
       <q-btn flat dense round icon="menu" class="mr-2" @click="emit('toggle-menu')" />
 
-      <q-toolbar-title class="text-xl font-bold tracking-wide"> SaudeS </q-toolbar-title>
+      <q-toolbar-title class="text-xl font-bold tracking-wide">
+        {{ t('common.nameApp') }}
+      </q-toolbar-title>
 
       <q-btn
         flat
@@ -21,6 +23,9 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const router = useRouter();
 

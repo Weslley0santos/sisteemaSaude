@@ -6,7 +6,7 @@
     <div><DadosAtendimento :atendimento="props.atendimento" /></div>
 
     <div v-if="props.atendimento.observacoes?.length">
-      <p class="font-semibold">Observações:</p>
+      <p class="font-semibold">{{ t('service.observation') }}</p>
       <ObsAtendimento :observacoes="props.atendimento.observacoes" />
     </div>
   </div>
@@ -16,6 +16,9 @@ import DadosAtendimento from './DadosAtendimento.vue';
 import ObsAtendimento from './ObsAtendimento.vue';
 import type { Atendimento } from 'src/types/atendimento';
 import { useModal } from 'src/composable/useModal';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const props = defineProps<{
   atendimento: Atendimento;

@@ -4,14 +4,14 @@
 
     <AppSidebar v-model="drawer" />
 
-    <q-page-container class="px-4 py-6">
+    <q-page-container class="px-3 py-4 md:px-6 md:py-6">
       <router-view />
     </q-page-container>
 
     <q-page-sticky
       v-if="$route.meta.showBotaoAdd"
       position="bottom-right"
-      :offset="[24, 24]"
+      :offset="$q.screen.lt.md ? [16, 16] : [24, 24]"
       class="z-50"
     >
       <q-btn
@@ -20,13 +20,13 @@
         color="green"
         unelevated
         class="shadow-lg"
-        aria-label="adiconar atendimento"
+        aria-label="adicionar atendimento"
         @click="modal.abrirCreate()"
       />
     </q-page-sticky>
 
-    <q-footer class="bg-accent text-white border-t border-white/10">
-      <div class="py-3 text-center text-sm tracking-wide">SaudeS © 2026</div>
+    <q-footer class="bg-accent text-white border-t border-white/10 text-xs md:text-sm">
+      <div class="py-2 md:py-3 text-center tracking-wide">SaudeS © 2026</div>
     </q-footer>
 
     <modalAtendimento />

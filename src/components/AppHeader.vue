@@ -1,22 +1,31 @@
 <template>
   <q-header bordered class="bg-accent text-white backdrop-blur-md">
-    <q-toolbar class="h-16 px-4">
+    <q-toolbar class="h-14 px-3 md:h-16 md:px-4">
+      <!-- Menu -->
       <q-btn flat dense round icon="menu" class="mr-2" @click="emit('toggle-menu')" />
 
-      <q-toolbar-title class="text-xl font-bold tracking-wide">
+      <!-- Título -->
+      <q-toolbar-title class="text-base md:text-xl font-bold tracking-wide">
         {{ t('common.nameApp') }}
       </q-toolbar-title>
 
-      <q-btn
-        flat
-        round
-        dense
-        :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'"
-        class="mr-1"
-        @click="toggleDarkMode"
-      />
+      <!-- Ações (agrupadas no mobile) -->
+      <div class="flex items-center gap-1 md:gap-2">
+        <!-- Dark mode sempre visível -->
+        <q-btn
+          flat
+          round
+          dense
+          :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'"
+          @click="toggleDarkMode"
+        />
 
-      <q-btn flat round dense icon="logout" @click="logout" />
+        <!-- Logout só no desktop -->
+        <q-btn v-if="$q.screen.md" flat round dense icon="logout" @click="logout" />
+
+        <!-- Mobile: menu secundário (opcional futuro) -->
+        <q-btn v-else flat round dense icon="more_vert" />
+      </div>
     </q-toolbar>
   </q-header>
 </template>

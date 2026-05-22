@@ -1,42 +1,58 @@
 <template>
-  <q-dialog v-model="aberto">
-    <q-card class="min-w-[100px] sm:min-w-[700px]">
-      <q-card-section class="flex justify-between items-center">
-        <h2 class="text-xl font-bold">{{ t(`common.${atendimentoAtual?.estagio ?? 'form'}`) }}</h2>
+  <q-dialog v-model="aberto" transition-show="scale" transition-hide="scale">
+    <q-card
+      class="bg-surface text-textPrimary rounded-3xl shadow-2xl overflow-hidden min-w-[340px] sm:min-w-[720px]"
+    >
+      <q-card-section class="flex justify-between items-center bg-accent text-white px-6 py-4">
+        <div>
+          <h2 class="text-lg font-bold tracking-wide">
+            {{ t(`common.${atendimentoAtual?.estagio ?? 'form'}`) }}
+          </h2>
+        </div>
 
-        <q-btn flat round dense icon="close" @click="fechar()" />
+        <q-btn flat round dense icon="close" class="hover:bg-white/10" @click="fechar()" />
       </q-card-section>
 
-      <q-separator />
+      <q-card-section class="px-6 py-6 max-h-[70vh] overflow-y-auto">
+        <div class="space-y-4">
+          <FormsAtendimento v-if="modo === 'create'" @salvar="criarAtendimento" />
 
-      <q-card-section>
-        <FormsAtendimento v-if="modo === 'create'" @salvar="criarAtendimento" />
+          <ViewAtendimento
+            v-if="modo === 'view' && atendimentoAtual"
+            :atendimento="atendimentoAtual"
+          />
 
-        <ViewAtendimento
-          v-if="modo === 'view' && atendimentoAtual"
-          :atendimento="atendimentoAtual"
-        />
-        <editAtendimento
-          v-if="modo === 'edit' && atendimentoAtual"
-          :atendimento="atendimentoAtual"
-        />
+          <editAtendimento
+            v-if="modo === 'edit' && atendimentoAtual"
+            :atendimento="atendimentoAtual"
+          />
+        </div>
       </q-card-section>
-      <div>
+
+      <div
+        v-if="atendimentoAtual"
+        class="border-t border-black/5 bg-background px-6 py-4 flex justify-end gap-2"
+      >
         <q-btn
-          v-if="atendimentoAtual && atendimentoAtual.estagio === STAGE.triage"
-          label="Enviar para Consulta"
-          class="w-full"
+          v-if="atendimentoAtual.estagio === STAGE.triage"
+          :label="t('button.send')"
+          color="primary"
+          unelevated
+          rounded
+          class="px-6"
           @click="enviarConsulta"
         />
 
         <q-btn
           v-if="
-            atendimentoAtual &&
             atendimentoAtual.estagio === STAGE.consultation &&
             atendimentoAtual.status === STATUS.inProgress
           "
-          label="Finalizar Atendimento"
-          class="w-full"
+          :label="t('button.finish')"
+          color="positive"
+          unelevated
+          rounded
+          class="px-6"
           @click="finalizarAtendimento"
         />
       </div>

@@ -1,17 +1,19 @@
 <template>
-  <q-page class="p-4">
-    <div class="mb-4">
-      <h1 class="text-2xl font-bold text-primary">{{ t('dashboard.title') }}</h1>
+  <q-page class="p-3 md:p-4 lg:p-6">
+    <div class="mb-3 md:mb-4">
+      <h1 class="text-xl md:text-2xl font-bold text-primary">
+        {{ t('dashboard.title') }}
+      </h1>
     </div>
 
     <DashboardCards />
+
+    <DashboardTabs :tab="tab" @update:tab="tab = $event" />
 
     <DashboardAnalytics
       :dataSelecionada="dataSelecionada"
       @update:dataSelecionada="dataSelecionada = $event"
     />
-
-    <DashboardTabs :tab="tab" @update:tab="tab = $event" />
 
     <DashboardTable :rows="atendimentosFiltrados" @abrir-atendimento="abrirAtendimento" />
   </q-page>

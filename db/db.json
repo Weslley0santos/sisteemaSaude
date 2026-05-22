@@ -24,17 +24,33 @@
     {
       "nome": "adsad",
       "status": "inProgress",
-      "estagio": "triage",
+      "estagio": "consultation",
       "senha": "A-454",
       "encaminhamento": "",
       "observacoes": [],
       "criadoEm": "2026-05-22T10:53:28.342Z",
       "tempoAtendimento": {
+        "espera": 35,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "F51gnD8jnRc",
+      "inicioConsulta": "2026-05-22T11:28:32.997Z"
+    },
+    {
+      "nome": "fadfafa",
+      "status": "inProgress",
+      "estagio": "triage",
+      "senha": "A-848",
+      "encaminhamento": "",
+      "observacoes": [],
+      "criadoEm": "2026-05-22T11:29:17.477Z",
+      "tempoAtendimento": {
         "espera": 0,
         "consultando": 0,
         "total": 0
       },
-      "id": "F51gnD8jnRc"
+      "id": "mUDB_R63zZM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

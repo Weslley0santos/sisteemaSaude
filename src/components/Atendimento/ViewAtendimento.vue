@@ -11,7 +11,7 @@
       <tempoAtendimento :atendimento="props.atendimento" />
     </div>
     <div class="flex justify-end">
-      <q-btn color="primary" label="Editar" @click="editar" />
+      <q-btn color="primary" :label="t('button.edit')" @click="editar" />
       <q-btn icon="delete" color="negative" flat @click="remover" />
     </div>
   </div>

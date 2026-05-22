@@ -2,10 +2,11 @@
   <q-tabs
     :model-value="tab"
     @update:model-value="emit('update:tab', $event)"
-    class="text-primary mb-3"
+    class="text-primary mb-3 text-sm md:text-base overflow-x-auto"
     active-color="primary"
     indicator-color="primary"
     align="left"
+    shrink
   >
     <q-tab name="todos" :label="t('dashboard.all')" />
 

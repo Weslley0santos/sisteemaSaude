@@ -1,36 +1,40 @@
 <template>
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-    <q-card class="p-3">
-      <h2 class="text-base font-semibold mb-3">{{ t('dashboard.filter') }}</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-4">
+    <!-- Filtro de data -->
+    <q-card class="p-3 md:p-4">
+      <h2 class="text-sm md:text-base font-semibold mb-3">
+        {{ t('dashboard.filter') }}
+      </h2>
 
       <q-date
         :model-value="dataSelecionada"
         @update:model-value="emit('update:dataSelecionada', $event)"
         minimal
+        class="w-full"
       />
     </q-card>
 
-    <q-card class="p-4 flex flex-col gap-4">
+    <!-- Métricas -->
+    <q-card class="p-3 md:p-4 flex flex-col gap-3 md:gap-4">
       <div>
-        <h2 class="text-base font-semibold mb-2">{{ t('dashboard.averageTime') }}</h2>
+        <h2 class="text-sm md:text-base font-semibold mb-2">
+          {{ t('dashboard.averageTime') }}
+        </h2>
 
         <div class="flex flex-col gap-2 text-sm">
           <div class="flex justify-between">
             <span>{{ t('dashboard.waitingTime') }}</span>
-
-            <strong> {{ tempoMedioEspera }} min </strong>
+            <strong>{{ tempoMedioEspera }} min</strong>
           </div>
 
           <div class="flex justify-between">
             <span>{{ t('dashboard.consultationTime') }}</span>
-
-            <strong> {{ tempoMedioConsulta }} min </strong>
+            <strong>{{ tempoMedioConsulta }} min</strong>
           </div>
 
           <div class="flex justify-between">
             <span>{{ t('dashboard.totalTime') }}</span>
-
-            <strong> {{ tempoMedioTotal }} min </strong>
+            <strong>{{ tempoMedioTotal }} min</strong>
           </div>
         </div>
       </div>
@@ -38,7 +42,9 @@
       <q-separator />
 
       <div>
-        <h2 class="text-base font-semibold mb-2">{{ t('dashboard.forwarding') }}</h2>
+        <h2 class="text-sm md:text-base font-semibold mb-2">
+          {{ t('dashboard.forwarding') }}
+        </h2>
 
         <div class="flex flex-col gap-2 text-sm">
           <div
@@ -46,9 +52,7 @@
             :key="item.nome"
             class="flex justify-between items-center"
           >
-            <span>
-              {{ item.nome }}
-            </span>
+            <span>{{ item.nome }}</span>
 
             <q-badge color="primary">
               {{ item.total }}

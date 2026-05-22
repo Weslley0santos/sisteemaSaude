@@ -5,71 +5,55 @@ export default {
     triage: 'Triage',
     consultation: 'Consultation',
     completed: 'Completed',
+    form: 'Registration form',
   },
 
   button: {
-    newService: 'New Appointment',
+    newService: 'New Service',
     addNote: 'Add Note',
-    create: 'Create Appointment',
-    save: 'Save Appointment',
-    edit: 'Edit Appointment',
-    delete: 'Delete Appointment',
-    finish: 'Finish Appointment',
-    send: 'Send to Consultation',
+    create: 'Create Service',
+    save: 'Save',
+    edit: 'Edit',
+    delete: 'Delete',
+    finish: 'Finish',
+    send: 'Send to consultation',
     saveNote: 'Save Note',
   },
 
   service: {
-    name: 'Patient Name',
-    forwarding: 'Referral (Optional)',
-
-    generalClinic: 'General Clinic',
-    cardiology: 'Cardiology',
-    orthopedics: 'Orthopedics',
+    name: 'Patient name',
+    forwarding: 'Forwarding (Optional)',
+    clinical: 'General Clinic',
+    cardiologist: 'Cardiologist',
+    orthopedist: 'Orthopedist',
     pediatrics: 'Pediatrics',
-
     observation: 'Observation',
-    notInformed: 'Not Informed',
-
+    notInformed: 'Not informed',
     patient: 'Patient',
     status: 'Status',
-
-    inProgress: 'In Progress',
+    progress: 'In progress',
     completed: 'Completed',
-
     password: 'Password',
-
-    time: 'Service Time',
-    waitingTime: 'Waiting Time',
-    consultationTime: 'Consultation Time',
-    totalTime: 'Total Time',
-
-    triage: 'Triage',
-    consultation: 'Consultation',
+    time: 'Service time',
+    waitingTime: 'Waiting time',
+    consultationTime: 'Consultation time',
+    totalTime: 'Total time',
   },
 
   dashboard: {
     title: 'Dashboard',
-
-    totalAppointments: 'Total Appointments',
-
-    filter: 'Filter by Date',
-
-    averageTime: 'Average Time',
-
-    waitingTime: 'Waiting Time',
-    consultationTime: 'Consultation Time',
-    totalTime: 'Total Time',
-
-    forwarding: 'Referral',
-
-    generalClinic: 'General Clinic',
-    cardiology: 'Cardiology',
-    orthopedics: 'Orthopedics',
+    totalAppointments: 'Total appointments',
+    filter: 'Filter by date',
+    averageTime: 'Average time',
+    waitingTime: 'Waiting time',
+    consultationTime: 'Consultation time',
+    totalTime: 'Total time',
+    forwarding: 'Forwarding',
+    clinical: 'General Clinic',
+    cardiologist: 'Cardiologist',
+    orthopedist: 'Orthopedist',
     pediatrics: 'Pediatrics',
-
-    notInformed: 'Not Informed',
-
+    notInformed: 'Not informed',
     all: 'All',
   },
 };

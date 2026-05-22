@@ -9,7 +9,7 @@
   >
     <q-tab name="todos" :label="t('dashboard.all')" />
 
-    <q-tab name="triagem" :label="t('common.triagem')" />
+    <q-tab name="triagem" :label="t('common.triage')" />
 
     <q-tab name="consulta" :label="t('common.consultation')" />
 

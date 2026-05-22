@@ -6,7 +6,9 @@ import { calcularEspera, calcularConsulta, calcularTotal } from 'src/utils/tempo
 export const STAGE = {
   triage: 'triage',
   consultation: 'consultation',
-};
+} as const;
+
+export type Stage = (typeof STAGE)[keyof typeof STAGE];
 
 export const STATUS = {
   inProgress: 'inProgress',

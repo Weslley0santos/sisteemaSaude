@@ -17,7 +17,7 @@
     <q-card class="p-3">
       <div class="flex items-center justify-between">
         <div>
-          <p class="text-sm text-gray-500">{{ t('common.triagem') }}</p>
+          <p class="text-sm text-gray-500">{{ t('common.triage') }}</p>
 
           <h2 class="text-2xl font-bold">
             {{ store.triagem.length }}

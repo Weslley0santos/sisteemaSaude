@@ -21,7 +21,7 @@
         >
           <svg-icon class="mr-3" type="mdi" :path="mdiHospitalBoxOutline" />
 
-          <q-item-section> {{ t('common.triagem') }}</q-item-section>
+          <q-item-section> {{ t('common.triage') }}</q-item-section>
         </q-item>
 
         <q-item

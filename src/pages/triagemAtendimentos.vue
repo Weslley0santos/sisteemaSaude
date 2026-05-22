@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-primary font-bold text-3xl">{{ t('common.triagem') }}</h1>
+  <h1 class="text-primary font-bold text-3xl">{{ t('common.triage') }}</h1>
   <cardAtendimento
     v-for="item in store.triagem"
     :key="item.senha"

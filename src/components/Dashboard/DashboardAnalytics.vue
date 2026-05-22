@@ -114,7 +114,7 @@ const encaminhamentos = computed(() => {
   const contagem: Record<string, number> = {};
 
   store.atendimentos.forEach((atendimento) => {
-    const nome = atendimento.encaminhamento || 'Não informado';
+    const nome = atendimento.encaminhamento || t('service.notInformed');
 
     contagem[nome] = (contagem[nome] || 0) + 1;
   });

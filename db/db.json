@@ -1,4 +1,41 @@
 {
-  "atendimentos": [],
+  "atendimentos": [
+    {
+      "nome": "ewsadsa",
+      "status": "inProgress",
+      "estagio": "consultation",
+      "senha": "A-402",
+      "encaminhamento": "generalClinic",
+      "observacoes": [
+        {
+          "texto": "adasda",
+          "estagio": "triage"
+        }
+      ],
+      "criadoEm": "2026-05-22T10:39:54.609Z",
+      "tempoAtendimento": {
+        "espera": 1,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "aWK726BnpeM",
+      "inicioConsulta": "2026-05-22T10:41:33.413Z"
+    },
+    {
+      "nome": "adsad",
+      "status": "inProgress",
+      "estagio": "triage",
+      "senha": "A-454",
+      "encaminhamento": "",
+      "observacoes": [],
+      "criadoEm": "2026-05-22T10:53:28.342Z",
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "F51gnD8jnRc"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

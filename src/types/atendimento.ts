@@ -1,8 +1,10 @@
+import type { Stage } from 'src/stores/atendimentoStore';
+
 export interface Atendimento {
   id?: number;
   nome: string;
   status: string;
-  estagio: string;
+  estagio: Stage;
   senha: string;
   encaminhamento: string;
   observacoes: Observacoes[];

@@ -3,10 +3,7 @@
 @tailwind utilities;
 
 body {
-  background: var(--background);
-  color: var(--text-primary);
-
-  transition:
-    background 0.3s,
-    color 0.3s;
+  .page-transition {
+    transition: 0.2s ease;
+  }
 }

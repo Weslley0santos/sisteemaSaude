@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- 📱 MOBILE: CARDS -->
     <div v-if="$q.screen.lt.md" class="flex flex-col gap-3">
       <q-card
         v-for="row in rows"
@@ -27,7 +26,6 @@
       </q-card>
     </div>
 
-    <!-- 💻 DESKTOP: TABLE -->
     <q-table
       v-else
       :title="t('common.appointments')"
@@ -72,7 +70,7 @@ const columns = [
 
   {
     name: 'estagio',
-    label: t('service.status'),
+    label: t('service.stage'),
     field: 'estagio',
     align: 'left' as const,
   },

@@ -30,6 +30,7 @@ export default {
     notInformed: 'No informado',
     patient: 'Paciente',
     status: 'Estado',
+    stage: 'Etapa',
     progress: 'En progreso',
     completed: 'Completado',
     password: 'Contraseña',
@@ -55,5 +56,8 @@ export default {
     pediatrics: 'Pediatría',
     notInformed: 'No informado',
     all: 'Todos',
+  },
+  validation: {
+    required: 'Campo obligatorio',
   },
 };

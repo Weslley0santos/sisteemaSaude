@@ -21,17 +21,17 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useAuthStore } from 'src/stores/authStore';
 import logo from 'src/assets/logo-saude.png';
 
 const router = useRouter();
+const auth = useAuthStore();
 
 const email = ref('');
 const senha = ref('');
 
 const login = () => {
-  const fakeToken = 'token_fake';
-
-  localStorage.setItem('token', fakeToken);
+  auth.login();
 
   void router.push('/dashboard');
 };

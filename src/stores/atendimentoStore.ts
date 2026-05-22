@@ -147,6 +147,20 @@ export const useAtendimentoStore = defineStore('atendimento', {
         (a) => a.estagio === STAGE.consultation && a.status === STATUS.completed,
       ),
 
+    filtrar: (state) => (params: { estagio?: string | null; data?: string | null }) => {
+      let dados = state.atendimentos;
+
+      if (params.estagio) {
+        dados = dados.filter((a) => a.estagio === params.estagio);
+      }
+
+      if (params.data) {
+        dados = dados.filter((a) => a.criadoEm?.startsWith(params.data!));
+      }
+
+      return dados;
+    },
+
     encaminhamentoOptions: () =>
       Object.entries(REFERALL).map(([key, value]) => ({
         label: value,

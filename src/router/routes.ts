@@ -3,7 +3,7 @@ import type { RouteRecordRaw } from 'vue-router';
 import PaginaPrincipal from 'layouts/PaginaPrincipal.vue';
 
 import DashboardAtendimento from 'src/pages/DashboardAtendimento.vue';
-import triagemAtendimentos from 'src/pages/triagemAtendimentos.vue';
+import TriagemAtendimentos from 'src/pages/triagemAtendimentos.vue';
 import ConsultasAtendimento from 'src/pages/consultasAtendimento.vue';
 import FinalizadosAtendimento from 'src/pages/finalizadosAtendimento.vue';
 
@@ -18,6 +18,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: PaginaPrincipal,
+    meta: { requiresAuth: true },
 
     children: [
       {
@@ -29,14 +30,16 @@ const routes: RouteRecordRaw[] = [
         path: 'dashboard',
         component: DashboardAtendimento,
         meta: {
+          requiresAuth: true,
           showBotaoAdd: true,
         },
       },
 
       {
         path: 'triagem',
-        component: triagemAtendimentos,
+        component: TriagemAtendimentos,
         meta: {
+          requiresAuth: true,
           showBotaoAdd: true,
         },
       },
@@ -45,6 +48,7 @@ const routes: RouteRecordRaw[] = [
         path: 'consulta',
         component: ConsultasAtendimento,
         meta: {
+          requiresAuth: true,
           showBotaoAdd: true,
         },
       },
@@ -53,10 +57,16 @@ const routes: RouteRecordRaw[] = [
         path: 'finalizados',
         component: FinalizadosAtendimento,
         meta: {
+          requiresAuth: true,
           showBotaoAdd: true,
         },
       },
     ],
+  },
+
+  {
+    path: '/:catchAll(.*)*',
+    redirect: '/login',
   },
 ];
 

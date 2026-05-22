@@ -1,6 +1,12 @@
 <template>
-  <q-drawer v-model="drawer" show-if-above :breakpoint="1024" bordered class="bg-accent text-white">
-    <div class="flex h-full flex-col">
+  <q-drawer
+    v-model="drawer"
+    show-if-above
+    :breakpoint="1024"
+    bordered
+    class="bg-accent text-white h-screen flex flex-col"
+  >
+    <div class="flex flex-col h-full overflow-hidden">
       <q-list class="px-2 md:px-3 py-3 md:py-4 space-y-1 md:space-y-2">
         <q-item
           clickable

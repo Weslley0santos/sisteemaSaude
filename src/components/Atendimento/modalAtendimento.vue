@@ -3,7 +3,6 @@
     <q-card
       class="bg-surface text-textPrimary rounded-3xl shadow-2xl overflow-hidden w-full min-w-[300px] sm:min-w-[640px] md:min-w-[720px] max-w-[95vw] max-h-[90vh]"
     >
-      <!-- HEADER (NORMAL, SEM FLEX NO CARD) -->
       <q-card-section
         class="flex justify-between items-center bg-accent text-white px-4 sm:px-6 py-3 sm:py-4"
       >
@@ -11,10 +10,17 @@
           {{ t(`common.${atendimentoAtual?.estagio ?? 'form'}`) }}
         </h2>
 
-        <q-btn flat round dense icon="close" class="hover:bg-white/10" @click="fechar()" />
+        <q-btn
+          flat
+          round
+          dense
+          icon="close"
+          aria-label="Fechar modal"
+          class="hover:bg-white/10"
+          @click="fechar()"
+        />
       </q-card-section>
 
-      <!-- CONTENT (AQUI SIM O SCROLL) -->
       <q-card-section
         class="px-4 sm:px-6 py-4 sm:py-6 overflow-y-auto"
         style="max-height: calc(90vh - 140px)"
@@ -34,7 +40,6 @@
         </div>
       </q-card-section>
 
-      <!-- FOOTER (NORMAL FLUXO) -->
       <q-card-section
         v-if="atendimentoAtual"
         class="border-t border-black/5 bg-background px-4 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row sm:justify-end gap-2"

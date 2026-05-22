@@ -237,19 +237,19 @@
       }
     },
     {
-      "nome": "",
+      "nome": "fadofoajf",
       "status": "inProgress",
       "estagio": "triage",
-      "senha": "A-239",
-      "encaminhamento": "",
+      "senha": "A-711",
+      "encaminhamento": "cadiology",
       "observacoes": [],
-      "criadoEm": "2026-05-22T14:02:16.209Z",
+      "criadoEm": "2026-05-22T15:57:44.805Z",
       "tempoAtendimento": {
         "espera": 0,
         "consultando": 0,
         "total": 0
       },
-      "id": "EdXH0P0pce4"
+      "id": "YHVfHmQ-GMU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

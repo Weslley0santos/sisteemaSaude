@@ -1,11 +1,9 @@
 <template>
   <div class="flex flex-col gap-3 sm:gap-4 w-full min-w-[300px]">
-    <!-- DADOS -->
     <section>
       <DadosAtendimento :atendimento="props.atendimento" />
     </section>
 
-    <!-- OBSERVAÇÕES -->
     <section v-if="props.atendimento.observacoes?.length">
       <p class="text-sm sm:text-base font-semibold mb-2">
         {{ t('service.observation') }}
@@ -14,16 +12,27 @@
       <ObsAtendimento :observacoes="props.atendimento.observacoes" />
     </section>
 
-    <!-- TEMPO -->
     <section>
       <tempoAtendimento :atendimento="props.atendimento" />
     </section>
 
-    <!-- AÇÕES -->
     <section class="flex flex-col sm:flex-row sm:justify-end gap-2 pt-2">
-      <q-btn color="primary" :label="t('button.edit')" class="w-full sm:w-auto" @click="editar" />
+      <q-btn
+        color="primary"
+        :label="t('button.edit')"
+        class="w-full sm:w-auto"
+        aria-label="Editar atendimento"
+        @click="editar"
+      />
 
-      <q-btn icon="delete" color="negative" flat class="w-full sm:w-auto" @click="remover" />
+      <q-btn
+        icon="delete"
+        color="negative"
+        flat
+        class="w-full sm:w-auto"
+        aria-label="Excluir atendimento"
+        @click="remover"
+      />
     </section>
   </div>
 </template>

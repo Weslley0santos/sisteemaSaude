@@ -5,7 +5,6 @@
         {{ t('dashboard.title') }}
       </h1>
     </div>
-
     <DashboardCards />
 
     <DashboardAnalytics
@@ -47,23 +46,36 @@ const tab = ref('todos');
 const dataSelecionada = ref('');
 
 const atendimentosFiltrados = computed(() => {
+  let dados: Atendimento[] = [];
+
   if (tab.value === 'todos') {
-    return store.atendimentos;
+    dados = store.atendimentos;
+  }
+
+  if (tab.value === 'triagem') {
+    dados = store.triagem;
+  }
+
+  if (tab.value === 'consulta') {
+    dados = store.consulta;
   }
 
   if (tab.value === 'finalizados') {
-    return store.concluidos;
+    dados = store.concluidos;
   }
 
-  return store.atendimentos.filter(
-    (atendimento) => atendimento.estagio.toLowerCase() === tab.value,
-  );
-});
+  if (dataSelecionada.value) {
+    const dataFormatada = dataSelecionada.value.replaceAll('/', '-');
 
+    dados = dados.filter((a) => a.criadoEm?.startsWith(dataFormatada));
+  }
+
+  return dados;
+});
 const abrirAtendimento = (atendimento: Atendimento) => {
   modal.abrirView(atendimento);
 };
-
+console.log(store.atendimentos.map((a) => a.estagio));
 onMounted(async () => {
   await store.carregarAtendimentos();
 });

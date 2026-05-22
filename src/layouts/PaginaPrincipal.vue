@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh lpR fFf" class="bg-background text-textPrimary min-h-screen">
+  <q-layout view="hHh Lpr lFf" class="overflow-hidden">
     <AppHeader @toggle-menu="sideMenu" />
 
     <AppSidebar v-model="drawer" />
@@ -20,7 +20,7 @@
         color="green"
         unelevated
         class="shadow-lg"
-        aria-label="adicionar atendimento"
+        aria-label="Adicionar atendimento"
         @click="modal.abrirCreate()"
       />
     </q-page-sticky>

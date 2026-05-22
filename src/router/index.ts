@@ -5,6 +5,7 @@ import {
   createWebHashHistory,
   createWebHistory,
 } from 'vue-router';
+
 import routes from './routes';
 
 export default defineRouter(() => {
@@ -23,13 +24,17 @@ export default defineRouter(() => {
   Router.beforeEach((to) => {
     const token = localStorage.getItem('token');
 
-    if (to.path !== '/login' && !token) {
+    const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+
+    if (requiresAuth && !token) {
       return '/login';
     }
 
     if (to.path === '/login' && token) {
       return '/dashboard';
     }
+
+    return true;
   });
 
   return Router;

@@ -1,19 +1,30 @@
 <template>
-  <div class="grid gap-4">
-    <DadosAtendimento :atendimento="props.atendimento" />
+  <div class="flex flex-col gap-3 sm:gap-4 w-full min-w-[300px]">
+    <!-- DADOS -->
+    <section>
+      <DadosAtendimento :atendimento="props.atendimento" />
+    </section>
 
-    <div v-if="atendimento.observacoes?.length">
-      <p class="font-semibold mb-2">{{ t('service.observation') }}</p>
+    <!-- OBSERVAÇÕES -->
+    <section v-if="props.atendimento.observacoes?.length">
+      <p class="text-sm sm:text-base font-semibold mb-2">
+        {{ t('service.observation') }}
+      </p>
 
       <ObsAtendimento :observacoes="props.atendimento.observacoes" />
-    </div>
-    <div>
+    </section>
+
+    <!-- TEMPO -->
+    <section>
       <tempoAtendimento :atendimento="props.atendimento" />
-    </div>
-    <div class="flex justify-end">
-      <q-btn color="primary" :label="t('button.edit')" @click="editar" />
-      <q-btn icon="delete" color="negative" flat @click="remover" />
-    </div>
+    </section>
+
+    <!-- AÇÕES -->
+    <section class="flex flex-col sm:flex-row sm:justify-end gap-2 pt-2">
+      <q-btn color="primary" :label="t('button.edit')" class="w-full sm:w-auto" @click="editar" />
+
+      <q-btn icon="delete" color="negative" flat class="w-full sm:w-auto" @click="remover" />
+    </section>
   </div>
 </template>
 

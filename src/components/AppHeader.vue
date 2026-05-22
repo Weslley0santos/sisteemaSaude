@@ -5,8 +5,11 @@
       <q-btn flat dense round icon="menu" class="mr-2" @click="emit('toggle-menu')" />
 
       <!-- Título -->
-      <q-toolbar-title class="text-base md:text-xl font-bold tracking-wide">
-        {{ t('common.nameApp') }}
+      <q-toolbar-title class="flex items-center gap-2">
+        <q-img :src="logo" class="w-8 h-8" />
+        <span class="text-base md:text-xl font-bold tracking-wide">
+          {{ t('common.nameApp') }}
+        </span>
       </q-toolbar-title>
 
       <!-- Ações (agrupadas no mobile) -->
@@ -33,6 +36,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
+import logo from 'src/assets/logo-saude.png';
 
 const { t } = useI18n();
 

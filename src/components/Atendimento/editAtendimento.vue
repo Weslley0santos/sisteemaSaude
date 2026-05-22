@@ -1,10 +1,12 @@
 <template>
-  <div>
-    <h2 class="text-2xl font-bold mb-4">
+  <div class="p-3 md:p-4 lg:p-6">
+    <h2 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-textPrimary">
       {{ t('button.edit') }}
     </h2>
 
-    <FormsAtendimento :atendimento="props.atendimento" modo="edit" @salvar="salvarEdicao" />
+    <div class="bg-surface rounded-2xl p-3 md:p-4 shadow-sm border border-black/5">
+      <FormsAtendimento :atendimento="props.atendimento" modo="edit" @salvar="salvarEdicao" />
+    </div>
   </div>
 </template>
 

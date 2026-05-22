@@ -1,19 +1,24 @@
 <template>
   <q-dialog v-model="aberto" transition-show="scale" transition-hide="scale">
     <q-card
-      class="bg-surface text-textPrimary rounded-3xl shadow-2xl overflow-hidden min-w-[340px] sm:min-w-[720px]"
+      class="bg-surface text-textPrimary rounded-3xl shadow-2xl overflow-hidden w-full min-w-[300px] sm:min-w-[640px] md:min-w-[720px] max-w-[95vw] max-h-[90vh]"
     >
-      <q-card-section class="flex justify-between items-center bg-accent text-white px-6 py-4">
-        <div>
-          <h2 class="text-lg font-bold tracking-wide">
-            {{ t(`common.${atendimentoAtual?.estagio ?? 'form'}`) }}
-          </h2>
-        </div>
+      <!-- HEADER (NORMAL, SEM FLEX NO CARD) -->
+      <q-card-section
+        class="flex justify-between items-center bg-accent text-white px-4 sm:px-6 py-3 sm:py-4"
+      >
+        <h2 class="text-base sm:text-lg font-bold tracking-wide truncate">
+          {{ t(`common.${atendimentoAtual?.estagio ?? 'form'}`) }}
+        </h2>
 
         <q-btn flat round dense icon="close" class="hover:bg-white/10" @click="fechar()" />
       </q-card-section>
 
-      <q-card-section class="px-6 py-6 max-h-[70vh] overflow-y-auto">
+      <!-- CONTENT (AQUI SIM O SCROLL) -->
+      <q-card-section
+        class="px-4 sm:px-6 py-4 sm:py-6 overflow-y-auto"
+        style="max-height: calc(90vh - 140px)"
+      >
         <div class="space-y-4">
           <FormsAtendimento v-if="modo === 'create'" @salvar="criarAtendimento" />
 
@@ -29,9 +34,10 @@
         </div>
       </q-card-section>
 
-      <div
+      <!-- FOOTER (NORMAL FLUXO) -->
+      <q-card-section
         v-if="atendimentoAtual"
-        class="border-t border-black/5 bg-background px-6 py-4 flex justify-end gap-2"
+        class="border-t border-black/5 bg-background px-4 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row sm:justify-end gap-2"
       >
         <q-btn
           v-if="atendimentoAtual.estagio === STAGE.triage"
@@ -39,7 +45,7 @@
           color="primary"
           unelevated
           rounded
-          class="px-6"
+          class="w-full sm:w-auto px-6"
           @click="enviarConsulta"
         />
 
@@ -52,10 +58,10 @@
           color="positive"
           unelevated
           rounded
-          class="px-6"
+          class="w-full sm:w-auto px-6"
           @click="finalizarAtendimento"
         />
-      </div>
+      </q-card-section>
     </q-card>
   </q-dialog>
 </template>

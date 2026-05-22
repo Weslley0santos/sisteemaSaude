@@ -8,14 +8,16 @@
 
     <DashboardCards />
 
-    <DashboardTabs :tab="tab" @update:tab="tab = $event" />
-
     <DashboardAnalytics
       :dataSelecionada="dataSelecionada"
       @update:dataSelecionada="dataSelecionada = $event"
     />
-
-    <DashboardTable :rows="atendimentosFiltrados" @abrir-atendimento="abrirAtendimento" />
+    <DashboardTabs :tab="tab" @update:tab="tab = $event" />
+    <DashboardTable
+      :rows="atendimentosFiltrados"
+      :tab="tab"
+      @abrir-atendimento="abrirAtendimento"
+    />
   </q-page>
 </template>
 

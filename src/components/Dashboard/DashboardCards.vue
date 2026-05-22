@@ -70,18 +70,8 @@
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiStethoscope, mdiHospitalBoxOutline, mdiBookmarkCheckOutline } from '@mdi/js';
-const store = useAtendimentoStore();
 import { useI18n } from 'vue-i18n';
+const store = useAtendimentoStore();
 
 const { t } = useI18n();
 </script>
-
-<style scoped lang="scss">
-.q-card {
-  transition: 0.2s ease;
-}
-
-.q-card:hover {
-  transform: translateY(-2px);
-}
-</style>

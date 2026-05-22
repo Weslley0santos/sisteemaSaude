@@ -5,7 +5,6 @@
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
-      <!-- ESPERA -->
       <q-card flat bordered class="p-2 sm:p-3">
         <p class="text-xs sm:text-sm text-textSecondary">
           {{ t('service.waitingTime') }}
@@ -16,7 +15,6 @@
         </h3>
       </q-card>
 
-      <!-- CONSULTA -->
       <q-card flat bordered class="p-2 sm:p-3">
         <p class="text-xs sm:text-sm text-textSecondary">
           {{ t('service.consultationTime') }}
@@ -27,7 +25,6 @@
         </h3>
       </q-card>
 
-      <!-- TOTAL -->
       <q-card flat bordered class="p-2 sm:p-3">
         <p class="text-xs sm:text-sm text-textSecondary">
           {{ t('service.totalTime') }}
@@ -43,12 +40,11 @@
 
 <script setup lang="ts">
 import type { Atendimento } from 'src/types/atendimento';
-
 import { useI18n } from 'vue-i18n';
-
-const { t } = useI18n();
 
 defineProps<{
   atendimento: Atendimento;
 }>();
+
+const { t } = useI18n();
 </script>

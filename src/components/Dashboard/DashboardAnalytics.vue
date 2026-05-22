@@ -70,9 +70,6 @@ import { computed } from 'vue';
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import { useI18n } from 'vue-i18n';
 
-const { t } = useI18n();
-const store = useAtendimentoStore();
-
 const props = defineProps<{
   dataSelecionada: string;
 }>();
@@ -81,18 +78,8 @@ const emit = defineEmits<{
   (e: 'update:dataSelecionada', value: string): void;
 }>();
 
-const isSameDay = (dateA: string, dateB: string) => {
-  if (!dateA || !dateB) return false;
-
-  const a = new Date(dateA);
-  const b = new Date(dateB);
-
-  return (
-    a.getFullYear() === b.getFullYear() &&
-    a.getMonth() === b.getMonth() &&
-    a.getDate() === b.getDate()
-  );
-};
+const { t } = useI18n();
+const store = useAtendimentoStore();
 
 const atendimentosFiltrados = computed(() => {
   if (!props.dataSelecionada) return store.atendimentos;
@@ -147,4 +134,17 @@ const encaminhamentos = computed(() => {
     total,
   }));
 });
+
+const isSameDay = (dateA: string, dateB: string) => {
+  if (!dateA || !dateB) return false;
+
+  const a = new Date(dateA);
+  const b = new Date(dateB);
+
+  return (
+    a.getFullYear() === b.getFullYear() &&
+    a.getMonth() === b.getMonth() &&
+    a.getDate() === b.getDate()
+  );
+};
 </script>

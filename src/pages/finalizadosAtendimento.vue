@@ -1,11 +1,9 @@
 <template>
   <div class="w-full min-w-[300px] p-3 sm:p-4 lg:p-6">
-    <!-- HEADER -->
     <h1 class="text-primary font-bold text-xl sm:text-2xl lg:text-3xl mb-4">
       {{ t('common.completed') }}
     </h1>
 
-    <!-- LISTA -->
     <div class="flex flex-col gap-3 sm:gap-4">
       <cardAtendimento
         v-for="item in store.concluidos"

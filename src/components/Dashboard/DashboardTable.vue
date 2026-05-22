@@ -44,7 +44,6 @@ import type { Atendimento } from 'src/types/atendimento';
 
 import { useI18n } from 'vue-i18n';
 
-const { t } = useI18n();
 defineProps<{
   rows: Atendimento[];
 }>();
@@ -52,6 +51,8 @@ defineProps<{
 const emit = defineEmits<{
   (e: 'abrir-atendimento', atendimento: Atendimento): void;
 }>();
+
+const { t } = useI18n();
 
 const columns = [
   {

@@ -18,11 +18,10 @@ import { useModal } from 'src/composable/useModal';
 
 import { useI18n } from 'vue-i18n';
 
-const { t } = useI18n();
 const props = defineProps<{
   atendimento: Atendimento;
 }>();
-
+const { t } = useI18n();
 const store = useAtendimentoStore();
 
 const modal = useModal();

@@ -46,7 +46,7 @@ import { useModal } from 'src/composable/useModal';
 
 const $q = useQuasar();
 
-const store = useAtendimentoStore(); // ✅ CORRIGIDO
+const store = useAtendimentoStore();
 const modal = useModal();
 
 const drawer = ref(false);
@@ -55,6 +55,9 @@ const sideMenu = () => {
   drawer.value = !drawer.value;
 };
 
+onMounted(async () => {
+  await store.carregarAtendimentos();
+});
 watch(
   () => $q.dark.isActive,
   (isDark) => {
@@ -62,8 +65,4 @@ watch(
   },
   { immediate: true },
 );
-
-onMounted(async () => {
-  await store.carregarAtendimentos();
-});
 </script>

@@ -1,7 +1,6 @@
 <template>
   <q-header bordered class="bg-accent text-white backdrop-blur-md">
     <q-toolbar class="h-14 px-3 md:h-16 md:px-4">
-      <!-- Menu -->
       <q-btn
         flat
         dense
@@ -49,14 +48,12 @@
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import logo from 'src/assets/logo-saude.png';
-
-const { t } = useI18n();
-
-const router = useRouter();
-
-const emit = defineEmits(['toggle-menu']);
 import { useQuasar } from 'quasar';
 
+const emit = defineEmits(['toggle-menu']);
+
+const { t } = useI18n();
+const router = useRouter();
 const $q = useQuasar();
 
 const toggleDarkMode = () => {

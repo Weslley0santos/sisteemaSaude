@@ -48,13 +48,13 @@ import ObsAtendimento from './ObsAtendimento.vue';
 import TempoAtendimento from './TempoAtendimento.vue';
 import { useI18n } from 'vue-i18n';
 
-const { t } = useI18n();
 const props = defineProps<{
   atendimento: Atendimento;
 }>();
 
 const modal = useModal();
 const store = useAtendimentoStore();
+const { t } = useI18n();
 
 const editar = () => {
   modal.abrirEdit(props.atendimento);

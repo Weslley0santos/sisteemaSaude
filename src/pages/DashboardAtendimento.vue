@@ -25,7 +25,6 @@ import { computed, ref, onMounted } from 'vue';
 
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import { useModal } from 'src/composable/useModal';
-
 import type { Atendimento } from 'src/types/atendimento';
 
 import DashboardCards from 'src/components/Dashboard/DashboardCards.vue';
@@ -38,11 +37,8 @@ import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 
 const store = useAtendimentoStore();
-
 const modal = useModal();
-
 const tab = ref('todos');
-
 const dataSelecionada = ref('');
 
 const atendimentosFiltrados = computed(() => {
@@ -72,6 +68,7 @@ const atendimentosFiltrados = computed(() => {
 
   return dados;
 });
+
 const abrirAtendimento = (atendimento: Atendimento) => {
   modal.abrirView(atendimento);
 };

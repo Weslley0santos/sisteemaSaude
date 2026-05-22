@@ -37,12 +37,10 @@ import type { Atendimento } from 'src/types/atendimento';
 import { useModal } from 'src/composable/useModal';
 import { useI18n } from 'vue-i18n';
 
-const { t } = useI18n();
-
 const props = defineProps<{
   atendimento: Atendimento;
   tipo?: 'dashboard' | 'triagem' | 'consulta' | 'finalizados';
 }>();
-
+const { t } = useI18n();
 const modal = useModal();
 </script>

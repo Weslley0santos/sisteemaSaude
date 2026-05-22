@@ -5,12 +5,10 @@
       :key="index"
       class="rounded-xl border border-black/5 bg-background p-2 sm:p-3"
     >
-      <!-- TEXTO -->
       <p class="text-sm sm:text-base text-textPrimary leading-snug">
         {{ obs.texto }}
       </p>
 
-      <!-- ESTÁGIO -->
       <div class="mt-1">
         <span
           class="text-xs font-semibold px-2 py-1 rounded-full bg-primary/10 text-primary inline-block"

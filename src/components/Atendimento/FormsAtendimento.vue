@@ -67,12 +67,6 @@ import { useAtendimentoStore, STAGE, STATUS } from 'src/stores/atendimentoStore'
 
 import { useI18n } from 'vue-i18n';
 
-const { t } = useI18n();
-
-const store = useAtendimentoStore();
-
-const formRef = ref();
-
 const props = defineProps<{
   atendimento?: Atendimento;
   modo?: 'create' | 'edit';
@@ -81,6 +75,12 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: 'salvar', atendimento: Atendimento): void;
 }>();
+
+const { t } = useI18n();
+const store = useAtendimentoStore();
+const formRef = ref();
+const mostrarObs = ref(false);
+const novaObs = ref('');
 
 const gerarSenha = () => {
   const numero = Math.floor(100 + Math.random() * 900);
@@ -106,10 +106,6 @@ const atendimento = ref<Atendimento>(
         },
       },
 );
-
-const mostrarObs = ref(false);
-
-const novaObs = ref('');
 
 const adicionarObs = () => {
   if (!novaObs.value.trim()) return;

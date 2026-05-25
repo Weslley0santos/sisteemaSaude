@@ -57,7 +57,9 @@ const router = useRouter();
 const $q = useQuasar();
 
 const toggleDarkMode = () => {
-  $q.dark.toggle();
+  $q.dark.set(!$q.dark.isActive);
+
+  localStorage.setItem('darkMode', JSON.stringify($q.dark.isActive));
 };
 
 const logout = () => {

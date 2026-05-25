@@ -8,11 +8,11 @@
           </p>
 
           <h2 class="text-xl md:text-2xl font-bold">
-            {{ store.atendimentos.length }}
+            {{ props.rows.length }}
           </h2>
         </div>
 
-        <q-icon name="groups" :size="$q.screen.lt.md ? '24px' : '30px'" color="primary" />
+        <q-icon name="groups" :size="$q.screen.lt.md ? '24px' : '30px'" color="white" />
       </div>
     </q-card>
 
@@ -24,7 +24,7 @@
           </p>
 
           <h2 class="text-xl md:text-2xl font-bold">
-            {{ store.triagem.length }}
+            {{ props.rows.filter((a) => a.estagio === STAGE.triage).length }}
           </h2>
         </div>
 
@@ -40,7 +40,11 @@
           </p>
 
           <h2 class="text-xl md:text-2xl font-bold">
-            {{ store.consulta.length }}
+            {{
+              props.rows.filter(
+                (a) => a.estagio === STAGE.consultation && a.status === STATUS.inProgress,
+              ).length
+            }}
           </h2>
         </div>
 
@@ -56,7 +60,11 @@
           </p>
 
           <h2 class="text-xl md:text-2xl font-bold">
-            {{ store.concluidos.length }}
+            {{
+              props.rows.filter(
+                (a) => a.estagio === STAGE.consultation && a.status === STATUS.completed,
+              ).length
+            }}
           </h2>
         </div>
 
@@ -67,11 +75,16 @@
 </template>
 
 <script setup lang="ts">
-import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiStethoscope, mdiHospitalBoxOutline, mdiBookmarkCheckOutline } from '@mdi/js';
 import { useI18n } from 'vue-i18n';
-const store = useAtendimentoStore();
+
+import { STATUS, STAGE } from 'src/stores/atendimentoStore';
 
 const { t } = useI18n();
+import type { Atendimento } from 'src/types/atendimento';
+
+const props = defineProps<{
+  rows: Atendimento[];
+}>();
 </script>

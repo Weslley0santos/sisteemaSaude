@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-slate-100 dark:bg-dark p-4">
+  <div class="min-h-screen flex items-center justify-center bg-slate-100 dark:bg-surface p-4">
     <q-card class="w-full max-w-md p-6 rounded-2xl shadow-lg">
       <div class="flex flex-col items-center mb-6">
         <q-img :src="logo" class="w-24 h-24" fit="contain" alt="Logo SaudeS" />

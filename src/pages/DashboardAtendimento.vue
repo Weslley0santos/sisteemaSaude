@@ -5,7 +5,7 @@
         {{ t('dashboard.title') }}
       </h1>
     </div>
-    <DashboardCards />
+    <DashboardCards :rows="atendimentosFiltrados" />
 
     <DashboardAnalytics
       :dataSelecionada="dataSelecionada"

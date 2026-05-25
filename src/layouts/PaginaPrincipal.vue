@@ -57,12 +57,27 @@ const sideMenu = () => {
 
 onMounted(async () => {
   await store.carregarAtendimentos();
+
+  // ✅ pega valor salvo
+  const darkMode = localStorage.getItem('darkMode');
+
+  // ✅ aplica antes do watch agir
+  if (darkMode !== null) {
+    const isDark = JSON.parse(darkMode);
+
+    $q.dark.set(isDark);
+
+    document.documentElement.classList.toggle('dark', isDark);
+  }
 });
+
+// ✅ observa mudanças do dark mode
 watch(
   () => $q.dark.isActive,
   (isDark) => {
     document.documentElement.classList.toggle('dark', isDark);
+
+    localStorage.setItem('darkMode', JSON.stringify(isDark));
   },
-  { immediate: true },
 );
 </script>

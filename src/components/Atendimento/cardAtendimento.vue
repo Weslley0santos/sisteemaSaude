@@ -12,12 +12,10 @@
       </div>
     </div>
 
-    <!-- TOPO -->
     <div class="flex items-start gap-3">
       <DadosAtendimento class="w-full" :atendimento="props.atendimento" />
     </div>
 
-    <!-- OBSERVAÇÕES (APENAS DESKTOP) -->
     <div
       v-if="$q.screen.md && props.atendimento.observacoes?.length"
       class="mt-3 md:mt-4 p-2 md:p-3 rounded-xl bg-background border border-black/5"

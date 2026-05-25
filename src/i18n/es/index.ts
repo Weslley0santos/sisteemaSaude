@@ -5,6 +5,10 @@ export default {
     triage: 'Triaje',
     consultation: 'Consulta',
     completed: 'Finalizados',
+    form: 'Formulario de registro',
+    cancel: 'Cancelar',
+    confirm: 'Confirmar',
+    deleteConfirmation: 'Confirmación de eliminación',
   },
 
   button: {
@@ -17,12 +21,16 @@ export default {
     finish: 'Finalizar',
     send: 'Enviar a consulta',
     saveNote: 'Guardar Observación',
+    cancel: 'Cancelar',
+    confirmDelete: 'Confirmar eliminación',
+    logout: 'Cerrar sesión',
+    login: 'Ingresar',
   },
 
   service: {
     name: 'Nombre del paciente',
     forwarding: 'Derivación (Opcional)',
-    clinical: 'Clínico General',
+    clinical: 'Clínica General',
     cardiologist: 'Cardiólogo',
     orthopedist: 'Ortopedista',
     pediatrics: 'Pediatría',
@@ -32,32 +40,44 @@ export default {
     status: 'Estado',
     stage: 'Etapa',
     progress: 'En progreso',
-    completed: 'Completado',
+    completed: 'Finalizado',
     password: 'Contraseña',
     time: 'Tiempo de atención',
     waitingTime: 'Tiempo de espera',
     consultationTime: 'Tiempo de consulta',
     totalTime: 'Tiempo total',
-    form: 'Formulario de registro',
   },
 
   dashboard: {
-    title: 'Panel',
-    totalAppointments: 'Total de consultas',
+    title: 'Dashboard',
+    totalAppointments: 'Total de atenciones',
     filter: 'Filtrar por fecha',
     averageTime: 'Tiempo promedio',
     waitingTime: 'Tiempo de espera',
     consultationTime: 'Tiempo de consulta',
     totalTime: 'Tiempo total',
     forwarding: 'Derivación',
-    clinical: 'Clínico General',
+    clinical: 'Clínica General',
     cardiologist: 'Cardiólogo',
     orthopedist: 'Ortopedista',
     pediatrics: 'Pediatría',
     notInformed: 'No informado',
     all: 'Todos',
   },
+
   validation: {
     required: 'Campo obligatorio',
+  },
+
+  dialog: {
+    deleteTitle: 'Eliminar atención',
+    deleteMessage: '¿Está seguro de que desea eliminar esta atención?',
+  },
+
+  auth: {
+    loginTitle: 'Inicio de sesión',
+    email: 'Correo electrónico',
+    password: 'Contraseña',
+    welcome: 'Sistema Hospitalario',
   },
 };

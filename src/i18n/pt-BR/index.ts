@@ -6,6 +6,9 @@ export default {
     consultation: 'Consulta',
     completed: 'Finalizados',
     form: 'Formulário de cadastro',
+    cancel: 'Cancelar',
+    confirm: 'Confirmar',
+    deleteConfirmation: 'Confirmação de exclusão',
   },
 
   button: {
@@ -18,6 +21,10 @@ export default {
     finish: 'Finalizar',
     send: 'Enviar para consulta',
     saveNote: 'Salvar Observação',
+    cancel: 'Cancelar',
+    confirmDelete: 'Confirmar exclusão',
+    logout: 'Sair',
+    login: 'Entrar',
   },
 
   service: {
@@ -33,20 +40,20 @@ export default {
     status: 'Status',
     stage: 'Estágio',
     progress: 'Em andamento',
-    completed: 'Concluído',
+    completed: 'Finalizado',
     password: 'Senha',
-    time: 'Tempo de Atendimento',
-    waitingTime: 'Tempo de Espera',
-    consultationTime: 'Tempo de Consulta',
-    totalTime: 'Tempo Total',
+    time: 'Tempo de atendimento',
+    waitingTime: 'Tempo de espera',
+    consultationTime: 'Tempo de consulta',
+    totalTime: 'Tempo total',
   },
 
   dashboard: {
-    title: 'Painel',
-    totalAppointments: 'Total de consultas',
+    title: 'Dashboard',
+    totalAppointments: 'Total de atendimentos',
     filter: 'Filtrar por data',
     averageTime: 'Tempo médio',
-    waitingTime: 'Espera',
+    waitingTime: 'Tempo de espera',
     consultationTime: 'Tempo de consulta',
     totalTime: 'Tempo total',
     forwarding: 'Encaminhamento',
@@ -57,7 +64,20 @@ export default {
     notInformed: 'Não informado',
     all: 'Todos',
   },
+
   validation: {
     required: 'Campo obrigatório',
+  },
+
+  dialog: {
+    deleteTitle: 'Excluir atendimento',
+    deleteMessage: 'Tem certeza que deseja excluir este atendimento?',
+  },
+
+  auth: {
+    loginTitle: 'Login',
+    email: 'E-mail',
+    password: 'Senha',
+    welcome: 'Sistema Hospitalar',
   },
 };

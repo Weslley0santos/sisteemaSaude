@@ -1,5 +1,5 @@
 <template>
-  <q-dialog v-model="aberto" transition-show="scale" transition-hide="scale">
+  <q-dialog v-model="aberto" persistent transition-show="scale" transition-hide="scale">
     <q-card
       class="bg-surface text-textPrimary rounded-3xl shadow-2xl overflow-hidden w-full min-w-[300px] sm:min-w-[640px] md:min-w-[720px] max-w-[95vw] max-h-[90vh]"
     >

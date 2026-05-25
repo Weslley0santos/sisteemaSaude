@@ -6,6 +6,9 @@ export default {
     consultation: 'Consultation',
     completed: 'Completed',
     form: 'Registration form',
+    cancel: 'Cancel',
+    confirm: 'Confirm',
+    deleteConfirmation: 'Delete confirmation',
   },
 
   button: {
@@ -18,6 +21,10 @@ export default {
     finish: 'Finish',
     send: 'Send to consultation',
     saveNote: 'Save Note',
+    cancel: 'Cancel',
+    confirmDelete: 'Confirm delete',
+    logout: 'Logout',
+    login: 'Login',
   },
 
   service: {
@@ -57,7 +64,20 @@ export default {
     notInformed: 'Not informed',
     all: 'All',
   },
+
   validation: {
     required: 'Required field',
+  },
+
+  dialog: {
+    deleteTitle: 'Delete appointment',
+    deleteMessage: 'Are you sure you want to delete this appointment?',
+  },
+
+  auth: {
+    loginTitle: 'Login',
+    email: 'E-mail',
+    password: 'Password',
+    welcome: 'Hospital System',
   },
 };

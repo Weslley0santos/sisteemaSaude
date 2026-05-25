@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh Lpr lFf" class="overflow-hidden">
+  <q-layout view="hHh Lpr lFf" class="min-h-screen flex flex-col overflow-hidden">
     <AppHeader @toggle-menu="sideMenu" />
 
     <AppSidebar v-model="drawer" />
@@ -24,10 +24,11 @@
         @click="modal.abrirCreate()"
       />
     </q-page-sticky>
-
-    <q-footer class="bg-accent text-white border-t border-white/10 text-xs md:text-sm">
+    <div
+      class="mt-auto border-t border-black/5 dark:border-white/10 bg-accent text-white text-xs md:text-sm"
+    >
       <div class="py-2 md:py-3 text-center tracking-wide">SaudeS © 2026</div>
-    </q-footer>
+    </div>
 
     <modalAtendimento />
   </q-layout>
@@ -58,10 +59,8 @@ const sideMenu = () => {
 onMounted(async () => {
   await store.carregarAtendimentos();
 
-  // ✅ pega valor salvo
   const darkMode = localStorage.getItem('darkMode');
 
-  // ✅ aplica antes do watch agir
   if (darkMode !== null) {
     const isDark = JSON.parse(darkMode);
 
@@ -71,7 +70,6 @@ onMounted(async () => {
   }
 });
 
-// ✅ observa mudanças do dark mode
 watch(
   () => $q.dark.isActive,
   (isDark) => {

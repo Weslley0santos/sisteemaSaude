@@ -12,7 +12,7 @@
           </h2>
         </div>
 
-        <q-icon name="groups" :size="$q.screen.lt.md ? '24px' : '30px'" color="white" />
+        <q-icon name="groups" :size="$q.screen.lt.md ? '24px' : '30px'" color="primary" />
       </div>
     </q-card>
 

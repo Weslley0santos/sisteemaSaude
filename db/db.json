@@ -143,8 +143,8 @@
     {
       "id": "7",
       "nome": "Lucas Almeida",
-      "status": "inProgress",
-      "estagio": "triage",
+      "status": "completed",
+      "estagio": "consultation",
       "senha": "A007",
       "encaminhamento": "orthopedics",
       "observacoes": [
@@ -154,12 +154,12 @@
         }
       ],
       "criadoEm": "2026-05-21T08:00:00Z",
-      "inicioConsulta": null,
-      "finalizadoEm": null,
+      "inicioConsulta": "2026-05-25T18:59:00.875Z",
+      "finalizadoEm": "2026-05-25T19:13:49.962Z",
       "tempoAtendimento": {
-        "espera": 10,
-        "consultando": 0,
-        "total": 10
+        "espera": 6419,
+        "consultando": 14,
+        "total": 6433
       }
     },
     {
@@ -238,7 +238,7 @@
     },
     {
       "nome": "Carlos",
-      "status": "inProgress",
+      "status": "completed",
       "estagio": "consultation",
       "senha": "A-292",
       "encaminhamento": "",
@@ -251,11 +251,12 @@
       "criadoEm": "2026-05-25T16:24:38.044Z",
       "tempoAtendimento": {
         "espera": 0,
-        "consultando": 0,
-        "total": 0
+        "consultando": 168,
+        "total": 168
       },
       "id": "aJpHkYsLAkI",
-      "inicioConsulta": "2026-05-25T16:25:25.339Z"
+      "inicioConsulta": "2026-05-25T16:25:25.339Z",
+      "finalizadoEm": "2026-05-25T19:13:53.504Z"
     },
     {
       "nome": "fdafdaa",
@@ -263,7 +264,12 @@
       "estagio": "triage",
       "senha": "A-334",
       "encaminhamento": "cadiology",
-      "observacoes": [],
+      "observacoes": [
+        {
+          "texto": "sadadad",
+          "estagio": "triage"
+        }
+      ],
       "criadoEm": "2026-05-25T17:03:52.867Z",
       "tempoAtendimento": {
         "espera": 0,
@@ -291,6 +297,56 @@
         "total": 0
       },
       "id": "7xcBLAxj-g8"
+    },
+    {
+      "nome": "carlos",
+      "status": "completed",
+      "estagio": "consultation",
+      "senha": "A-187",
+      "encaminhamento": "",
+      "observacoes": [
+        {
+          "texto": "Dor de cabeça",
+          "estagio": "triage"
+        },
+        {
+          "texto": "Remedio ",
+          "estagio": "triage"
+        },
+        {
+          "texto": "Paracetamol",
+          "estagio": "consultation"
+        }
+      ],
+      "criadoEm": "2026-05-25T18:07:51.521Z",
+      "tempoAtendimento": {
+        "espera": 2,
+        "consultando": 0,
+        "total": 2
+      },
+      "id": "fCOzV2IhHpY",
+      "inicioConsulta": "2026-05-25T18:09:53.350Z",
+      "finalizadoEm": "2026-05-25T18:10:39.754Z"
+    },
+    {
+      "nome": "dsadad",
+      "status": "inProgress",
+      "estagio": "triage",
+      "senha": "A-727",
+      "encaminhamento": "cadiology",
+      "observacoes": [
+        {
+          "texto": "dsada",
+          "estagio": "triage"
+        }
+      ],
+      "criadoEm": "2026-05-25T18:58:44.022Z",
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "MiRIeajT5dg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

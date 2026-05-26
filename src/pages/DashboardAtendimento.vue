@@ -1,7 +1,7 @@
 <template>
-  <q-page class="p-3 md:p-4 lg:p-6">
+  <q-page class="p-3 md:p-4 lg:p-6 bg-background">
     <div class="mb-3 md:mb-4">
-      <h1 class="text-xl md:text-2xl font-bold text-primary">
+      <h1 class="text-xl md:text-2xl font-bold text-text-primary">
         {{ t('dashboard.title') }}
       </h1>
     </div>

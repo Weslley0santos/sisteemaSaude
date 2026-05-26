@@ -3,7 +3,7 @@
     <div
       v-for="(obs, index) in props.observacoes"
       :key="index"
-      class="rounded-xl border border-black/5 bg-background p-2 sm:p-3"
+      class="rounded-xl border border-border bg-secondary p-2 sm:p-3"
     >
       <p class="text-sm sm:text-base text-textPrimary leading-snug">
         {{ obs.texto }}
@@ -11,7 +11,7 @@
 
       <div class="mt-1">
         <span
-          class="text-xs font-semibold px-2 py-1 rounded-full bg-primary/10 text-primary inline-block"
+          class="text-xs font-semibold px-2 py-1 rounded-full bg-primary/10 text-textPrimary inline-block"
         >
           {{ obs.estagio }}
         </span>

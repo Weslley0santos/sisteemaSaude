@@ -24,7 +24,7 @@ export default {
 
         textPrimary: 'var(--text-primary)',
         textSecondary: 'var(--text-secondary)',
-
+        border: 'var(--border)',
         dark: 'var(--dark)',
       },
 

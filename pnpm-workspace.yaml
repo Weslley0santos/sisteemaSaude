@@ -4,3 +4,6 @@ shamefullyHoist: true
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - esbuild
+
+allowBuilds:
+  esbuild: true

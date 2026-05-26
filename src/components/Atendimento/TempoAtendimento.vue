@@ -1,12 +1,12 @@
 <template>
-  <div class="mt-4">
+  <div class="mt-4 text-textPrimary">
     <h2 class="text-base md:text-lg font-semibold mb-2">
       {{ t('service.time') }}
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
       <q-card flat bordered class="p-2 sm:p-3">
-        <p class="text-xs sm:text-sm text-textSecondary">
+        <p class="text-xs sm:text-sm text-textPrimary">
           {{ t('service.waitingTime') }}
         </p>
 
@@ -16,7 +16,7 @@
       </q-card>
 
       <q-card flat bordered class="p-2 sm:p-3">
-        <p class="text-xs sm:text-sm text-textSecondary">
+        <p class="text-xs sm:text-sm">
           {{ t('service.consultationTime') }}
         </p>
 
@@ -26,7 +26,7 @@
       </q-card>
 
       <q-card flat bordered class="p-2 sm:p-3">
-        <p class="text-xs sm:text-sm text-textSecondary">
+        <p class="text-xs sm:text-sm">
           {{ t('service.totalTime') }}
         </p>
 

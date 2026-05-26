@@ -4,14 +4,14 @@
     show-if-above
     :breakpoint="1024"
     bordered
-    class="bg-accent text-white h-screen flex flex-col"
+    class="bg-primary text-white h-screen flex flex-col"
   >
     <div class="flex flex-col h-full overflow-hidden">
       <q-list class="px-2 md:px-3 py-3 md:py-4 space-y-1 md:space-y-2">
         <q-item
           clickable
           to="/dashboard"
-          active-class="bg-primary shadow-md"
+          active-class="bg-secondary shadow-md"
           class="rounded-xl px-3 py-2 md:px-4 md:py-3 text-white transition-all duration-200 md:hover:bg-primary/70"
         >
           <svg-icon class="mr-3" type="mdi" :path="mdiHomeHeart" />

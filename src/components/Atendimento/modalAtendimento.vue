@@ -42,7 +42,7 @@
 
       <q-card-section
         v-if="atendimentoAtual"
-        class="border-t border-black/5 bg-background px-4 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row sm:justify-end gap-2"
+        class="border border-border bg-surface px-4 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row sm:justify-end gap-2"
       >
         <q-btn
           v-if="atendimentoAtual.estagio === STAGE.triage"

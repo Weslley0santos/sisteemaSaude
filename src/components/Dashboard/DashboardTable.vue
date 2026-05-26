@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="border-2 border-border">
     <div v-if="$q.screen.lt.md" class="flex flex-col gap-3">
       <q-card
         v-for="row in rows"

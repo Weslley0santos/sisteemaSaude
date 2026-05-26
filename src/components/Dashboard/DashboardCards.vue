@@ -1,9 +1,9 @@
 <template>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
-    <q-card class="p-3 md:p-4">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-4 text-textPrimary">
+    <q-card class="p-3 md:p-4 bg-surface border-2 border-border">
       <div class="flex items-center justify-between">
         <div>
-          <p class="text-xs md:text-sm text-gray-500">
+          <p class="text-xs md:text-sm">
             {{ t('dashboard.totalAppointments') }}
           </p>
 
@@ -12,14 +12,14 @@
           </h2>
         </div>
 
-        <q-icon name="groups" :size="$q.screen.lt.md ? '24px' : '30px'" color="primary" />
+        <q-icon name="groups" :size="$q.screen.lt.md ? '24px' : '30px'" />
       </div>
     </q-card>
 
-    <q-card class="p-3 md:p-4">
+    <q-card class="p-3 md:p-4 bg-surface border-2 border-border">
       <div class="flex items-center justify-between">
         <div>
-          <p class="text-xs md:text-sm text-gray-500">
+          <p class="text-xs md:text-sm">
             {{ t('common.triage') }}
           </p>
 
@@ -32,10 +32,10 @@
       </div>
     </q-card>
 
-    <q-card class="p-3 md:p-4">
+    <q-card class="p-3 md:p-4 bg-surface border-2 border-border">
       <div class="flex items-center justify-between">
         <div>
-          <p class="text-xs md:text-sm text-gray-500">
+          <p class="text-xs md:text-sm">
             {{ t('common.consultation') }}
           </p>
 
@@ -52,10 +52,10 @@
       </div>
     </q-card>
 
-    <q-card class="p-3 md:p-4">
+    <q-card class="p-3 md:p-4 bg-surface border-2 border-border">
       <div class="flex items-center justify-between">
         <div>
-          <p class="text-xs md:text-sm text-gray-500">
+          <p class="text-xs md:text-sm">
             {{ t('common.completed') }}
           </p>
 

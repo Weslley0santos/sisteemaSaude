@@ -1,0 +1,10 @@
+logo maior, horizontal, icon na barra
+tabalhar mix w
+colocar os tabs dentro da seção das tabelas 
+arrumar footer 
+
+
+botões de ação embaixo no modal, junto com o enviar consulta
+cores do modo dark estão boas 
+cores de fundo do modo claro pode ser branco no accent e bg cinza 
+

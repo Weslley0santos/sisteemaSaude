@@ -1,5 +1,5 @@
 <template>
-  <q-header bordered class="bg-accent text-white backdrop-blur-md">
+  <q-header bordered class="bg-primary text-white backdrop-blur-md">
     <q-toolbar class="h-8 px-3 md:h-12 md:px-4">
       <q-btn
         flat

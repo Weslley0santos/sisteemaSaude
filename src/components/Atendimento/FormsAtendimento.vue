@@ -4,7 +4,7 @@
     class="w-full min-w-[300px] flex flex-col gap-3 sm:gap-4"
     @submit.prevent="salvar"
   >
-    <div class="flex flex-col gap-3">
+    <div class="flex flex-col gap-3 text-textPrimary">
       <q-input
         v-model="atendimento.nome"
         :label="t('service.name')"

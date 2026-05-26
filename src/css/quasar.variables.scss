@@ -1,32 +1,36 @@
 :root {
-  --primary: #066ed6;
-  --secondary: #006daa;
-  --accent: #05314e;
+  --primary: #1e4691; /* ações principais (botões, confirmações, destaques importantes) */
+  --secondary: #006daa; /* ações secundárias (apoio visual, variações de ação) */
+  --accent: #1e4691; /* detalhes visuais (hover, pequenos destaques, elementos decorativos controlados) */
 
-  --background: #f5faff;
+  --background: #f5faff; /* fundo geral da aplicação (base da página inteira) */
+  --surface: #5674ac; /* superfícies elevadas (cards, modais, tabelas, containers) */
 
-  --surface: #ffffff;
+  --text-primary: #000000; /* texto principal (títulos, leitura forte, conteúdo importante) */
+  --text-secondary: #ffffff; /* texto secundário (descrições, labels, informações auxiliares) */
 
-  --text-primary: #061a40;
-  --text-secondary: #00497a;
-
-  --dark: #061a40;
-  --dark-page: #04122e;
+  --border: #000000;
 }
 
 .dark {
-  --background: #050d1d;
+  --primary: #066ed6; /* mantém identidade visual */
+  --secondary: #1e4691; /* mantém consistência */
+  --accent: #5674ac; /* mais visível no escuro */
 
-  --surface: #1e4691;
+  --background: #0f172a; /* fundo escuro neutro (mais confortável que preto puro) */
+  --surface: #1e293b; /* cartões/modais com contraste suave */
 
-  --text-primary: #ffffff;
-  --text-secondary: #b9d6f2;
+  --text-primary: #ffffff; /* leitura principal no escuro */
+  --text-secondary: #b9d6f2; /* texto auxiliar com menor destaque */
+
+  --border: rgba(255, 255, 255, 0.08); /* borda sutil no dark */
 }
 
 $primary: var(--primary);
 $secondary: var(--secondary);
 $accent: var(--accent);
 
+$border: var(--border);
 $dark: var(--dark);
 $dark-page: var(--dark-page);
 

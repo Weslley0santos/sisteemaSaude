@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-4">
-    <q-card class="p-3 md:p-4">
-      <h2 class="text-sm md:text-base font-semibold mb-3">
+    <q-card class="p-3 md:p-4 bg-surface border-2 border-border">
+      <h2 class="text-textPrimary text-sm md:text-base font-semibold mb-3">
         {{ t('dashboard.filter') }}
       </h2>
 
@@ -10,19 +10,19 @@
           :model-value="dataSelecionada"
           @update:model-value="emit('update:dataSelecionada', $event)"
           minimal
-          class="min-w-[260px] w-full"
+          class="min-w-[260px] w-full bg-surface text-textSecondary"
         />
       </div>
     </q-card>
 
     <!-- MÉTRICAS -->
-    <q-card class="p-3 md:p-4 flex flex-col gap-3 md:gap-4">
+    <q-card class="p-3 md:p-4 flex flex-col gap-3 md:gap-4 bg-surface border-2 border-border">
       <div>
-        <h2 class="text-sm md:text-base font-semibold mb-2">
+        <h2 class="text-textPrimary text-sm md:text-base font-semibold mb-2">
           {{ t('dashboard.averageTime') }}
         </h2>
 
-        <div class="flex flex-col gap-2 text-sm">
+        <div class="text-textSecondary flex flex-col gap-2 text-sm">
           <div class="flex justify-between">
             <span>{{ t('dashboard.waitingTime') }}</span>
             <strong>{{ tempoMedioEspera }} min</strong>
@@ -42,8 +42,8 @@
 
       <q-separator />
 
-      <div>
-        <h2 class="text-sm md:text-base font-semibold mb-2">
+      <div class="text-textSecondary">
+        <h2 class="text-textPrimary text-sm md:text-base font-semibold mb-2">
           {{ t('dashboard.forwarding') }}
         </h2>
 

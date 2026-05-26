@@ -30,7 +30,7 @@
         color="negative"
         flat
         type="button"
-        class="w-full sm:w-auto"
+        class="w-full sm:w-auto bg-primary border-4 border-border"
         aria-label="Excluir atendimento"
         @click.stop.prevent="abrirConfirmacao"
       />
@@ -59,10 +59,9 @@ const props = defineProps<{
   atendimento: Atendimento;
 }>();
 
+const { t } = useI18n();
 const modal = useModal();
 const store = useAtendimentoStore();
-const { t } = useI18n();
-
 const confirmarDelete = ref(false);
 
 const editar = () => {

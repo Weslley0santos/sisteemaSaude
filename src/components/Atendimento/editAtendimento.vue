@@ -4,7 +4,7 @@
       {{ t('button.edit') }}
     </h2>
 
-    <div class="bg-surface rounded-2xl p-3 md:p-4 shadow-sm border border-black/5">
+    <div>
       <FormsAtendimento :atendimento="props.atendimento" modo="edit" @salvar="salvarEdicao" />
     </div>
   </div>

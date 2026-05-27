@@ -1,352 +1,189 @@
 {
   "atendimentos": [
     {
-      "id": "1",
       "nome": "João Silva",
-      "status": "inProgress",
-      "estagio": "consultation",
-      "senha": "A001",
-      "encaminhamento": "generalClinic",
-      "observacoes": [
-        {
-          "texto": "Dor de cabeça intensa",
-          "estagio": "triage"
-        }
-      ],
-      "criadoEm": "2026-05-18T08:10:00Z",
-      "inicioConsulta": "2026-05-27T12:49:41.807Z",
-      "finalizadoEm": null,
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-101",
+      "encaminhamento": "general_clinic",
+      "observacoes": [],
+      "criadoEm": "2026-05-19T08:10:00.000Z",
       "tempoAtendimento": {
-        "espera": 13239,
+        "espera": 12,
         "consultando": 0,
-        "total": 20
-      }
+        "total": 12
+      },
+      "id": "a1b2c3d4"
     },
     {
-      "id": "2",
       "nome": "Maria Oliveira",
       "status": "completed",
       "estagio": "consultation",
-      "senha": "A002",
-      "encaminhamento": "cadiology",
+      "senha": "A-102",
+      "encaminhamento": "cardiology",
       "observacoes": [
         {
-          "texto": "Pressão alta",
+          "texto": "Paciente relatou pressão alta",
           "estagio": "triage"
-        },
-        {
-          "texto": "Encaminhada para cardiologia",
-          "estagio": "consultation"
         }
       ],
-      "criadoEm": "2026-05-18T09:00:00Z",
-      "inicioConsulta": "2026-05-18T09:20:00Z",
-      "finalizadoEm": "2026-05-18T09:55:00Z",
+      "criadoEm": "2026-05-19T09:00:00.000Z",
+      "inicioConsulta": "2026-05-19T09:20:00.000Z",
+      "finalizadoEm": "2026-05-19T09:55:00.000Z",
       "tempoAtendimento": {
         "espera": 20,
         "consultando": 35,
         "total": 55
-      }
+      },
+      "id": "e5f6g7h8"
     },
     {
-      "id": "3",
       "nome": "Carlos Souza",
-      "status": "inProgress",
+      "status": "in_progress",
       "estagio": "triage",
-      "senha": "A003",
+      "senha": "A-103",
       "encaminhamento": "orthopedics",
-      "observacoes": [
-        {
-          "texto": "Dor no joelho",
-          "estagio": "triage"
-        }
-      ],
-      "criadoEm": "2026-05-19T10:15:00Z",
-      "inicioConsulta": null,
-      "finalizadoEm": null,
+      "observacoes": [],
+      "criadoEm": "2026-05-20T10:15:00.000Z",
       "tempoAtendimento": {
-        "espera": 15,
+        "espera": 8,
         "consultando": 0,
-        "total": 15
-      }
+        "total": 8
+      },
+      "id": "i9j0k1l2"
     },
     {
-      "id": "4",
       "nome": "Ana Pereira",
       "status": "completed",
       "estagio": "consultation",
-      "senha": "A004",
+      "senha": "A-104",
       "encaminhamento": "pediatrics",
       "observacoes": [
         {
-          "texto": "Consulta infantil acompanhada",
-          "estagio": "triage"
+          "texto": "Consulta infantil finalizada",
+          "estagio": "consultation"
         }
       ],
-      "criadoEm": "2026-05-19T11:00:00Z",
-      "inicioConsulta": "2026-05-19T11:20:00Z",
-      "finalizadoEm": "2026-05-19T11:50:00Z",
+      "criadoEm": "2026-05-20T11:30:00.000Z",
+      "inicioConsulta": "2026-05-20T11:45:00.000Z",
+      "finalizadoEm": "2026-05-20T12:15:00.000Z",
       "tempoAtendimento": {
-        "espera": 20,
+        "espera": 15,
         "consultando": 30,
-        "total": 50
-      }
+        "total": 45
+      },
+      "id": "m3n4o5p6"
     },
     {
-      "id": "5",
       "nome": "Pedro Santos",
-      "status": "inProgress",
+      "status": "in_progress",
       "estagio": "triage",
-      "senha": "A005",
-      "encaminhamento": "generalClinic",
-      "observacoes": [
-        {
-          "texto": "Febre e mal-estar",
-          "estagio": "triage"
-        }
-      ],
-      "criadoEm": "2026-05-20T07:40:00Z",
-      "inicioConsulta": "2026-05-20T08:00:00Z",
-      "finalizadoEm": null,
-      "tempoAtendimento": {
-        "espera": 20,
-        "consultando": 0,
-        "total": 20
-      }
-    },
-    {
-      "id": "6",
-      "nome": "Juliana Costa",
-      "status": "completed",
-      "estagio": "consultation",
-      "senha": "A006",
-      "encaminhamento": "cadiology",
-      "observacoes": [
-        {
-          "texto": "Dor no peito",
-          "estagio": "triage"
-        },
-        {
-          "texto": "Exames solicitados",
-          "estagio": "consultation"
-        }
-      ],
-      "criadoEm": "2026-05-20T09:10:00Z",
-      "inicioConsulta": "2026-05-20T09:30:00Z",
-      "finalizadoEm": "2026-05-20T10:10:00Z",
-      "tempoAtendimento": {
-        "espera": 20,
-        "consultando": 40,
-        "total": 60
-      }
-    },
-    {
-      "id": "7",
-      "nome": "Lucas Almeida",
-      "status": "completed",
-      "estagio": "consultation",
-      "senha": "A007",
-      "encaminhamento": "orthopedics",
-      "observacoes": [
-        {
-          "texto": "Torção no tornozelo",
-          "estagio": "triage"
-        }
-      ],
-      "criadoEm": "2026-05-21T08:00:00Z",
-      "inicioConsulta": "2026-05-25T18:59:00.875Z",
-      "finalizadoEm": "2026-05-25T19:13:49.962Z",
-      "tempoAtendimento": {
-        "espera": 6419,
-        "consultando": 14,
-        "total": 6433
-      }
-    },
-    {
-      "id": "8",
-      "nome": "Fernanda Lima",
-      "status": "completed",
-      "estagio": "consultation",
-      "senha": "A008",
-      "encaminhamento": "pediatrics",
-      "observacoes": [
-        {
-          "texto": "Febre em criança",
-          "estagio": "triage"
-        },
-        {
-          "texto": "Medicação prescrita",
-          "estagio": "consultation"
-        }
-      ],
-      "criadoEm": "2026-05-21T10:20:00Z",
-      "inicioConsulta": "2026-05-21T10:40:00Z",
-      "finalizadoEm": "2026-05-21T11:15:00Z",
-      "tempoAtendimento": {
-        "espera": 20,
-        "consultando": 35,
-        "total": 55
-      }
-    },
-    {
-      "id": "9",
-      "nome": "Rafael Martins",
-      "status": "inProgress",
-      "estagio": "triage",
-      "senha": "A009",
-      "encaminhamento": "generalClinic",
-      "observacoes": [
-        {
-          "texto": "Tontura",
-          "estagio": "triage"
-        }
-      ],
-      "criadoEm": "2026-05-22T08:05:00Z",
-      "inicioConsulta": null,
-      "finalizadoEm": null,
+      "senha": "A-105",
+      "encaminhamento": "general_clinic",
+      "observacoes": [],
+      "criadoEm": "2026-05-21T07:40:00.000Z",
       "tempoAtendimento": {
         "espera": 5,
         "consultando": 0,
         "total": 5
-      }
+      },
+      "id": "q7r8s9t0"
     },
     {
-      "id": "10",
-      "nome": "Beatriz Rocha",
+      "nome": "Juliana Costa",
       "status": "completed",
       "estagio": "consultation",
-      "senha": "A010",
+      "senha": "A-106",
+      "encaminhamento": "cardiology",
+      "observacoes": [
+        {
+          "texto": "Exames cardíacos solicitados",
+          "estagio": "consultation"
+        }
+      ],
+      "criadoEm": "2026-05-21T09:10:00.000Z",
+      "inicioConsulta": "2026-05-21T09:25:00.000Z",
+      "finalizadoEm": "2026-05-21T10:00:00.000Z",
+      "tempoAtendimento": {
+        "espera": 15,
+        "consultando": 35,
+        "total": 50
+      },
+      "id": "u1v2w3x4"
+    },
+    {
+      "nome": "Lucas Almeida",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-107",
+      "encaminhamento": "orthopedics",
+      "observacoes": [],
+      "criadoEm": "2026-05-22T08:00:00.000Z",
+      "tempoAtendimento": {
+        "espera": 18,
+        "consultando": 0,
+        "total": 18
+      },
+      "id": "y5z6a7b8"
+    },
+    {
+      "nome": "Fernanda Lima",
+      "status": "completed",
+      "estagio": "consultation",
+      "senha": "A-108",
       "encaminhamento": "pediatrics",
       "observacoes": [
         {
-          "texto": "Consulta de rotina",
-          "estagio": "triage"
-        },
-        {
-          "texto": "Alta médica",
+          "texto": "Paciente liberado após avaliação",
           "estagio": "consultation"
         }
       ],
-      "criadoEm": "2026-05-22T09:30:00Z",
-      "inicioConsulta": "2026-05-22T09:50:00Z",
-      "finalizadoEm": "2026-05-22T10:25:00Z",
+      "criadoEm": "2026-05-22T10:20:00.000Z",
+      "inicioConsulta": "2026-05-22T10:40:00.000Z",
+      "finalizadoEm": "2026-05-22T11:10:00.000Z",
       "tempoAtendimento": {
         "espera": 20,
-        "consultando": 35,
-        "total": 55
-      }
+        "consultando": 30,
+        "total": 50
+      },
+      "id": "c9d0e1f2"
     },
     {
-      "nome": "Carlos",
+      "nome": "Rafael Martins",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-109",
+      "encaminhamento": "general_clinic",
+      "observacoes": [],
+      "criadoEm": "2026-05-23T08:05:00.000Z",
+      "tempoAtendimento": {
+        "espera": 7,
+        "consultando": 0,
+        "total": 7
+      },
+      "id": "g3h4i5j6"
+    },
+    {
+      "nome": "Beatriz Rocha",
       "status": "completed",
       "estagio": "consultation",
-      "senha": "A-292",
-      "encaminhamento": "",
+      "senha": "A-110",
+      "encaminhamento": "pediatrics",
       "observacoes": [
         {
-          "texto": "Ruim da barriga",
-          "estagio": "triage"
-        }
-      ],
-      "criadoEm": "2026-05-25T16:24:38.044Z",
-      "tempoAtendimento": {
-        "espera": 0,
-        "consultando": 168,
-        "total": 168
-      },
-      "id": "aJpHkYsLAkI",
-      "inicioConsulta": "2026-05-25T16:25:25.339Z",
-      "finalizadoEm": "2026-05-25T19:13:53.504Z"
-    },
-    {
-      "nome": "fdafdaa",
-      "status": "inProgress",
-      "estagio": "triage",
-      "senha": "A-334",
-      "encaminhamento": "cadiology",
-      "observacoes": [
-        {
-          "texto": "sadadad",
-          "estagio": "triage"
-        }
-      ],
-      "criadoEm": "2026-05-25T17:03:52.867Z",
-      "tempoAtendimento": {
-        "espera": 0,
-        "consultando": 0,
-        "total": 0
-      },
-      "id": "z2Ct8jUYH2U"
-    },
-    {
-      "nome": "asdasd",
-      "status": "inProgress",
-      "estagio": "triage",
-      "senha": "A-834",
-      "encaminhamento": "generalClinic",
-      "observacoes": [
-        {
-          "texto": "dadada",
-          "estagio": "triage"
-        }
-      ],
-      "criadoEm": "2026-05-25T17:14:25.658Z",
-      "tempoAtendimento": {
-        "espera": 0,
-        "consultando": 0,
-        "total": 0
-      },
-      "id": "7xcBLAxj-g8"
-    },
-    {
-      "nome": "carlos",
-      "status": "completed",
-      "estagio": "consultation",
-      "senha": "A-187",
-      "encaminhamento": "",
-      "observacoes": [
-        {
-          "texto": "Dor de cabeça",
-          "estagio": "triage"
-        },
-        {
-          "texto": "Remedio ",
-          "estagio": "triage"
-        },
-        {
-          "texto": "Paracetamol",
+          "texto": "Consulta de rotina realizada",
           "estagio": "consultation"
         }
       ],
-      "criadoEm": "2026-05-25T18:07:51.521Z",
+      "criadoEm": "2026-05-23T09:30:00.000Z",
+      "inicioConsulta": "2026-05-23T09:45:00.000Z",
+      "finalizadoEm": "2026-05-23T10:20:00.000Z",
       "tempoAtendimento": {
-        "espera": 2,
-        "consultando": 0,
-        "total": 2
+        "espera": 15,
+        "consultando": 35,
+        "total": 50
       },
-      "id": "fCOzV2IhHpY",
-      "inicioConsulta": "2026-05-25T18:09:53.350Z",
-      "finalizadoEm": "2026-05-25T18:10:39.754Z"
-    },
-    {
-      "nome": "dsadad",
-      "status": "inProgress",
-      "estagio": "triage",
-      "senha": "A-727",
-      "encaminhamento": "cadiology",
-      "observacoes": [
-        {
-          "texto": "dsada",
-          "estagio": "triage"
-        }
-      ],
-      "criadoEm": "2026-05-25T18:58:44.022Z",
-      "tempoAtendimento": {
-        "espera": 0,
-        "consultando": 0,
-        "total": 0
-      },
-      "id": "MiRIeajT5dg"
+      "id": "k7l8m9n0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

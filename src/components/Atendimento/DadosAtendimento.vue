@@ -16,7 +16,7 @@
       </p>
 
       <p class="mt-1 text-sm md:text-base font-semibold text-textPrimary">
-        {{ props.atendimento.status }}
+        {{ t(`status.${props.atendimento.status}`) }}
       </p>
     </div>
 
@@ -36,7 +36,11 @@
       </p>
 
       <p class="mt-1 text-sm md:text-base font-semibold text-textPrimary">
-        {{ props.atendimento.encaminhamento || t('service.notInformed') }}
+        {{
+          props.atendimento.encaminhamento
+            ? t(`referral.${props.atendimento.encaminhamento}`)
+            : t('service.notInformed')
+        }}
       </p>
     </div>
   </div>
@@ -49,4 +53,5 @@ const props = defineProps<{
   atendimento: Atendimento;
 }>();
 const { t } = useI18n();
+console.log(props.atendimento.encaminhamento);
 </script>

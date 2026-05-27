@@ -5,8 +5,6 @@
       v-if="!rowsFiltradas.length"
       class="flex items-center justify-center h-[300px] text-textSecondary"
     >
-      <q-icon name="search_off" size="40px" />
-
       <p>
         {{ t('dashboard.noAppointments') }}
       </p>
@@ -80,17 +78,17 @@ const tab = ref('todos');
 
 const rowsFiltradas = computed(() => {
   if (tab.value === 'triagem') {
-    return props.rows.filter((a) => a.estagio === STAGE.triage);
+    return props.rows.filter((a) => a.estagio === STAGE.TRIAGE);
   }
 
   if (tab.value === 'consulta') {
     return props.rows.filter(
-      (a) => a.estagio === STAGE.consultation && a.status === STATUS.inProgress,
+      (a) => a.estagio === STAGE.CONSULTATION && a.status === STATUS.IN_PROGRESS,
     );
   }
 
   if (tab.value === 'finalizados') {
-    return props.rows.filter((a) => a.status === STATUS.completed);
+    return props.rows.filter((a) => a.status === STATUS.COMPLETED);
   }
 
   return props.rows;
@@ -116,6 +114,8 @@ const columns = [
     label: t('service.stage'),
     field: 'estagio',
     align: 'left' as const,
+
+    format: (val: string) => t(`stage.${val}`),
   },
 
   {
@@ -123,6 +123,8 @@ const columns = [
     label: t('service.status'),
     field: 'status',
     align: 'left' as const,
+
+    format: (val: string) => t(`status.${val}`),
   },
 ];
 

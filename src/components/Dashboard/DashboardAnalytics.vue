@@ -124,13 +124,14 @@ const encaminhamentos = computed(() => {
   const contagem: Record<string, number> = {};
 
   atendimentosFiltrados.value.forEach((atendimento) => {
-    const nome = atendimento.encaminhamento || t('service.notInformed');
+    const key = atendimento.encaminhamento || 'not_informed';
 
-    contagem[nome] = (contagem[nome] || 0) + 1;
+    contagem[key] = (contagem[key] || 0) + 1;
   });
 
-  return Object.entries(contagem).map(([nome, total]) => ({
-    nome,
+  return Object.entries(contagem).map(([key, total]) => ({
+    nome: key === 'not_informed' ? t('service.notInformed') : t(`referral.${key}`),
+
     total,
   }));
 });

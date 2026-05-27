@@ -10,7 +10,7 @@
           {{ t('service.waitingTime') }}
         </p>
 
-        <h3 class="text-lg sm:text-xl font-bold text-primary">
+        <h3 class="text-lg sm:text-xl font-bold text-textSecondary">
           {{ atendimento.tempoAtendimento.espera }} min
         </h3>
       </q-card>

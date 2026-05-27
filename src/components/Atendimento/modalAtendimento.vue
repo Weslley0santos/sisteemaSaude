@@ -7,7 +7,7 @@
         class="flex justify-between items-center bg-accent text-white px-4 sm:px-6 py-3 sm:py-4"
       >
         <h2 class="text-base sm:text-lg font-bold tracking-wide truncate">
-          {{ t(`common.${atendimentoAtual?.estagio ?? 'form'}`) }}
+          {{ t(`stage.${atendimentoAtual?.estagio ?? 'form'}`) }}
         </h2>
 
         <q-btn
@@ -41,32 +41,56 @@
       </q-card-section>
 
       <q-card-section
-        v-if="atendimentoAtual"
-        class="border border-border bg-surface px-4 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row sm:justify-end gap-2"
+        v-if="atendimentoAtual && modo === 'view'"
+        class="border-t border-border bg-accent px-4 sm:px-6 py-4"
       >
-        <q-btn
-          v-if="atendimentoAtual.estagio === STAGE.triage"
-          :label="t('button.send')"
-          color="primary"
-          unelevated
-          rounded
-          class="w-full sm:w-auto px-6"
-          @click="enviarConsulta"
-        />
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+          <div class="flex flex-col sm:flex-row gap-2">
+            <q-btn
+              flat
+              round
+              icon="delete"
+              color="negative"
+              class="border border-border"
+              @click="abrirConfirmacao"
+            />
 
-        <q-btn
-          v-if="
-            atendimentoAtual.estagio === STAGE.consultation &&
-            atendimentoAtual.status === STATUS.inProgress
-          "
-          :label="t('button.finish')"
-          color="positive"
-          unelevated
-          rounded
-          class="w-full sm:w-auto px-6"
-          @click="finalizarAtendimento"
-        />
+            <q-btn
+              outline
+              color="white"
+              :label="t('button.edit')"
+              class="w-full sm:w-auto rounded-xl px-4 bg-warning"
+              @click="editar"
+            />
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-2">
+            <q-btn
+              v-if="atendimentoAtual.estagio === STAGE.TRIAGE"
+              :label="t('button.send')"
+              color="secondary"
+              unelevated
+              rounded
+              class="w-full sm:w-auto px-6 font-semibold"
+              @click="enviarConsulta"
+            />
+
+            <q-btn
+              v-if="
+                atendimentoAtual.estagio === STAGE.CONSULTATION &&
+                atendimentoAtual.status === STATUS.IN_PROGRESS
+              "
+              :label="t('button.finish')"
+              color="positive"
+              unelevated
+              rounded
+              class="w-full sm:w-auto px-6 font-semibold"
+              @click="finalizarAtendimento"
+            />
+          </div>
+        </div>
       </q-card-section>
+      <ConfirmDelete v-model="confirmarDelete" @confirmar="remover" />
     </q-card>
   </q-dialog>
 </template>
@@ -76,15 +100,36 @@ import { useModal } from 'src/composable/useModal';
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import type { Atendimento } from 'src/types/atendimento';
 import { STATUS, STAGE } from 'src/stores/atendimentoStore';
-
+import ConfirmDelete from './ConfirmDelete.vue';
 import FormsAtendimento from './FormsAtendimento.vue';
 import ViewAtendimento from './ViewAtendimento.vue';
 import editAtendimento from './editAtendimento.vue';
 import { useI18n } from 'vue-i18n';
-
+import { ref } from 'vue';
 const { t } = useI18n();
 const { aberto, modo, atendimentoAtual, fechar } = useModal();
 const store = useAtendimentoStore();
+const confirmarDelete = ref(false);
+
+const editar = () => {
+  if (!atendimentoAtual.value) return;
+
+  useModal().abrirEdit(atendimentoAtual.value);
+};
+
+const abrirConfirmacao = () => {
+  confirmarDelete.value = true;
+};
+
+const remover = async () => {
+  if (!atendimentoAtual.value?.id) return;
+
+  await store.removerAtendimento(atendimentoAtual.value.id);
+
+  confirmarDelete.value = false;
+
+  fechar();
+};
 
 const criarAtendimento = async (novoAtendimento: Atendimento) => {
   await store.adicionarAtendimento(novoAtendimento);

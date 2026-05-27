@@ -10,11 +10,11 @@
   >
     <q-tab name="todos" :label="t('dashboard.all')" />
 
-    <q-tab name="triagem" :label="t('common.triage')" />
+    <q-tab name="triagem" :label="t('stage.triage')" />
 
-    <q-tab name="consulta" :label="t('common.consultation')" />
+    <q-tab name="consulta" :label="t('stage.consultation')" />
 
-    <q-tab name="finalizados" :label="t('common.completed')" />
+    <q-tab name="finalizados" :label="t('status.completed')" />
   </q-tabs>
 </template>
 

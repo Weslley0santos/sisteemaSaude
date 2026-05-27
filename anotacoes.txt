@@ -1,11 +1,11 @@
 logo maior, horizontal, icon na barra
 tabalhar mix w //feito
 colocar os tabs dentro da seção das tabelas //feito
-mudar o stage e status de variavel para palavras
+mudar o stage e status de variavel para palavras // feito
 arrumar footer 
 
 
-botões de ação embaixo no modal, junto com o enviar consulta
+botões de ação embaixo no modal, junto com o enviar consulta //feito
 cores do modo dark estão boas // feito
 cores de fundo do modo claro pode ser branco no accent e bg cinza  // feito
 

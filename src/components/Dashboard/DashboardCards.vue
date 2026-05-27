@@ -20,11 +20,11 @@
       <div class="flex items-center justify-between">
         <div>
           <p class="text-xs md:text-sm">
-            {{ t('common.triage') }}
+            {{ t('stage.triage') }}
           </p>
 
           <h2 class="text-xl md:text-2xl font-bold">
-            {{ props.rows.filter((a) => a.estagio === STAGE.triage).length }}
+            {{ props.rows.filter((a) => a.estagio === STAGE.TRIAGE).length }}
           </h2>
         </div>
 
@@ -36,13 +36,13 @@
       <div class="flex items-center justify-between">
         <div>
           <p class="text-xs md:text-sm">
-            {{ t('common.consultation') }}
+            {{ t('stage.consultation') }}
           </p>
 
           <h2 class="text-xl md:text-2xl font-bold">
             {{
               props.rows.filter(
-                (a) => a.estagio === STAGE.consultation && a.status === STATUS.inProgress,
+                (a) => a.estagio === STAGE.CONSULTATION && a.status === STATUS.IN_PROGRESS,
               ).length
             }}
           </h2>
@@ -56,13 +56,13 @@
       <div class="flex items-center justify-between">
         <div>
           <p class="text-xs md:text-sm">
-            {{ t('common.completed') }}
+            {{ t('status.completed') }}
           </p>
 
           <h2 class="text-xl md:text-2xl font-bold">
             {{
               props.rows.filter(
-                (a) => a.estagio === STAGE.consultation && a.status === STATUS.completed,
+                (a) => a.estagio === STAGE.CONSULTATION && a.status === STATUS.COMPLETED,
               ).length
             }}
           </h2>

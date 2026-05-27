@@ -30,7 +30,7 @@
           <svg-icon class="mr-3" type="mdi" :path="mdiHospitalBoxOutline" />
 
           <q-item-section class="text-sm md:text-base">
-            {{ t('common.triage') }}
+            {{ t('stage.triage') }}
           </q-item-section>
         </q-item>
 
@@ -43,7 +43,7 @@
           <svg-icon class="mr-3" type="mdi" :path="mdiStethoscope" />
 
           <q-item-section class="text-sm md:text-base">
-            {{ t('common.consultation') }}
+            {{ t('stage.consultation') }}
           </q-item-section>
         </q-item>
 
@@ -56,7 +56,7 @@
           <svg-icon class="mr-3" type="mdi" :path="mdiBookmarkCheckOutline" />
 
           <q-item-section class="text-sm md:text-base">
-            {{ t('common.completed') }}
+            {{ t('status.completed') }}
           </q-item-section>
         </q-item>
       </q-list>

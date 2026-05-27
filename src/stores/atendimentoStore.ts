@@ -4,22 +4,22 @@ import { AtendimentoService } from 'src/services/atendimentoService';
 import { calcularEspera, calcularConsulta, calcularTotal } from 'src/utils/tempoAtendimento';
 
 export const STAGE = {
-  triage: 'triage',
-  consultation: 'consultation',
+  TRIAGE: 'triage',
+  CONSULTATION: 'consultation',
 } as const;
 
 export type Stage = (typeof STAGE)[keyof typeof STAGE];
 
 export const STATUS = {
-  inProgress: 'inProgress',
-  completed: 'completed',
+  IN_PROGRESS: 'in_progress',
+  COMPLETED: 'completed',
 };
 
-export const REFERALL = {
-  generalClinic: 'generalClinic',
-  cadiology: 'cadiology',
-  orthopedics: 'orthopedics',
-  pediatrics: 'pediatrics',
+export const REFERRAL = {
+  GENERAL_CLINIC: 'general_clinic',
+  CARDIOLOGY: 'cardiology',
+  ORTHOPEDICS: 'orthopedics',
+  PEDIATRICS: 'pediatrics',
 };
 
 export const useAtendimentoStore = defineStore('atendimento', {
@@ -31,7 +31,6 @@ export const useAtendimentoStore = defineStore('atendimento', {
     async carregarAtendimentos() {
       const data = await AtendimentoService.listar();
 
-      // proteção contra dados incompletos da API
       this.atendimentos = data.map((a: Atendimento) => ({
         ...a,
         tempoAtendimento: {
@@ -81,7 +80,7 @@ export const useAtendimentoStore = defineStore('atendimento', {
 
       const atualizado: Atendimento = {
         ...atual,
-        estagio: STAGE.consultation,
+        estagio: STAGE.CONSULTATION,
         inicioConsulta,
         tempoAtendimento: {
           ...atual.tempoAtendimento,
@@ -110,7 +109,7 @@ export const useAtendimentoStore = defineStore('atendimento', {
 
       const atualizado: Atendimento = {
         ...atual,
-        status: STATUS.completed,
+        status: STATUS.COMPLETED,
         finalizadoEm,
         tempoAtendimento: {
           ...atual.tempoAtendimento,
@@ -135,16 +134,16 @@ export const useAtendimentoStore = defineStore('atendimento', {
   },
 
   getters: {
-    triagem: (state) => state.atendimentos.filter((a) => a.estagio === STAGE.triage),
+    triagem: (state) => state.atendimentos.filter((a) => a.estagio === STAGE.TRIAGE),
 
     consulta: (state) =>
       state.atendimentos.filter(
-        (a) => a.estagio === STAGE.consultation && a.status === STATUS.inProgress,
+        (a) => a.estagio === STAGE.CONSULTATION && a.status === STATUS.IN_PROGRESS,
       ),
 
     concluidos: (state) =>
       state.atendimentos.filter(
-        (a) => a.estagio === STAGE.consultation && a.status === STATUS.completed,
+        (a) => a.estagio === STAGE.CONSULTATION && a.status === STATUS.COMPLETED,
       ),
 
     filtrar: (state) => (params: { estagio?: string | null; data?: string | null }) => {
@@ -162,9 +161,9 @@ export const useAtendimentoStore = defineStore('atendimento', {
     },
 
     encaminhamentoOptions: () =>
-      Object.entries(REFERALL).map(([key, value]) => ({
+      Object.entries(REFERRAL).map(([, value]) => ({
         label: value,
-        value: key,
+        value,
       })),
   },
 });

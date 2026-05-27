@@ -12,7 +12,7 @@
       </q-card-section>
 
       <q-card-actions align="right">
-        <q-btn flat :label="t('button.cancel')" aria-label="Cancelar exclusão" v-close-popup />
+        <q-btn flat :label="t('common.cancel')" aria-label="Cancelar exclusão" v-close-popup />
         <q-btn
           color="negative"
           :label="t('button.delete')"

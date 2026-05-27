@@ -15,7 +15,7 @@
 
       <q-select
         v-model="atendimento.encaminhamento"
-        :options="store.encaminhamentoOptions"
+        :options="encaminhamentoOptions"
         :label="t('service.forwarding')"
         emit-value
         map-options
@@ -57,13 +57,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 import ObsAtendimento from './ObsAtendimento.vue';
 
 import type { Atendimento } from 'src/types/atendimento';
 
-import { useAtendimentoStore, STAGE, STATUS } from 'src/stores/atendimentoStore';
+import { REFERRAL, STAGE, STATUS } from 'src/stores/atendimentoStore';
 
 import { useI18n } from 'vue-i18n';
 
@@ -77,10 +77,31 @@ const emit = defineEmits<{
 }>();
 
 const { t } = useI18n();
-const store = useAtendimentoStore();
 const formRef = ref();
 const mostrarObs = ref(false);
 const novaObs = ref('');
+
+const encaminhamentoOptions = computed(() => [
+  {
+    label: t('referral.general_clinic'),
+    value: REFERRAL.GENERAL_CLINIC,
+  },
+
+  {
+    label: t('referral.cardiology'),
+    value: REFERRAL.CARDIOLOGY,
+  },
+
+  {
+    label: t('referral.orthopedics'),
+    value: REFERRAL.ORTHOPEDICS,
+  },
+
+  {
+    label: t('referral.pediatrics'),
+    value: REFERRAL.PEDIATRICS,
+  },
+]);
 
 const gerarSenha = () => {
   const numero = Math.floor(100 + Math.random() * 900);
@@ -93,8 +114,8 @@ const atendimento = ref<Atendimento>(
     ? { ...props.atendimento }
     : {
         nome: '',
-        status: STATUS.inProgress,
-        estagio: STAGE.triage,
+        status: STATUS.IN_PROGRESS,
+        estagio: STAGE.TRIAGE,
         senha: gerarSenha(),
         encaminhamento: '',
         observacoes: [],
@@ -129,8 +150,8 @@ const salvar = async () => {
 
   atendimento.value = {
     nome: '',
-    status: STATUS.inProgress,
-    estagio: STAGE.triage,
+    status: STATUS.IN_PROGRESS,
+    estagio: STAGE.TRIAGE,
     senha: gerarSenha(),
     encaminhamento: '',
     observacoes: [],

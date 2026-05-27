@@ -1,6 +1,8 @@
 <template>
   <q-dialog v-model="aberto" persistent no-backdrop-dismiss no-esc-dismiss>
-    <q-card class="w-full max-w-sm rounded-2xl">
+    <q-card
+      class="w-full max-w-sm rounded-2xl bg-surface text-textPrimary border border-border shadow-2xl"
+    >
       <q-card-section>
         <h2 class="text-lg font-bold">
           {{ t('dialog.deleteTitle') }}

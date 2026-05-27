@@ -184,6 +184,51 @@
         "total": 50
       },
       "id": "k7l8m9n0"
+    },
+    {
+      "nome": "adfdafa",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-242",
+      "encaminhamento": "general_clinic",
+      "observacoes": [],
+      "criadoEm": "2026-05-27T14:39:09.454Z",
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "u1BHJbP9Fz4"
+    },
+    {
+      "nome": "Pedro",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-138",
+      "encaminhamento": "orthopedics",
+      "observacoes": [],
+      "criadoEm": "2026-05-27T14:53:39.159Z",
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "fUmY0MN1ON4"
+    },
+    {
+      "nome": "Henrique",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-103",
+      "encaminhamento": "general_clinic",
+      "observacoes": [],
+      "criadoEm": "2026-05-27T14:56:51.480Z",
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "tfFKdAYiwMU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

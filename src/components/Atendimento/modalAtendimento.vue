@@ -7,7 +7,9 @@
         class="flex justify-between items-center bg-accent text-white px-4 sm:px-6 py-3 sm:py-4"
       >
         <h2 class="text-base sm:text-lg font-bold tracking-wide truncate">
-          {{ t(`stage.${atendimentoAtual?.estagio ?? 'form'}`) }}
+          {{
+            atendimentoAtual?.estagio ? t(`stage.${atendimentoAtual.estagio}`) : t('common.form')
+          }}
         </h2>
 
         <q-btn

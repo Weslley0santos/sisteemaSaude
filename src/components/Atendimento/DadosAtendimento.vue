@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3">
-    <div class="rounded-xl p-2 md:p-3 bg-primary">
+    <div class="rounded-xl p-2 md:p-3 bg-surface">
       <p class="text-xs font-medium uppercase tracking-wide text-textSecondary">
         {{ t('service.patient') }}
       </p>
@@ -10,7 +10,7 @@
       </p>
     </div>
 
-    <div class="rounded-xl p-2 md:p-3 bg-secondary border border-border">
+    <div class="rounded-xl p-2 md:p-3 bg-surface">
       <p class="text-xs font-medium uppercase tracking-wide text-textSecondary">
         {{ t('service.status') }}
       </p>
@@ -20,7 +20,7 @@
       </p>
     </div>
 
-    <div class="rounded-xl p-2 md:p-3 bg-primary">
+    <div class="rounded-xl p-2 md:p-3 bg-surface">
       <p class="text-xs font-medium uppercase tracking-wide text-textSecondary">
         {{ t('service.password') }}
       </p>
@@ -30,7 +30,7 @@
       </p>
     </div>
 
-    <div class="rounded-xl p-2 md:p-3 bg-secondary border border-border">
+    <div class="rounded-xl p-2 md:p-3 bg-surface">
       <p class="text-xs font-medium uppercase tracking-wide text-textSecondary">
         {{ t('service.forwarding') }}
       </p>

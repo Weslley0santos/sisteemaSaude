@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-surface border-2 border-border rounded-2xl p-3 md:p-4 shadow-sm cursor-pointer transition-all duration-200 md:hover:shadow-xl md:hover:-translate-y-1"
+    class="bg-surface border-t border-border rounded-2xl p-3 md:p-4 shadow-sm cursor-pointer transition-all duration-200 md:hover:shadow-xl md:hover:-translate-y-1"
     v-ripple
     @click="modal.abrirView(props.atendimento)"
   >
@@ -10,7 +10,7 @@
 
     <div
       v-if="$q.screen.md && props.atendimento.observacoes?.length"
-      class="mt-3 md:mt-4 p-2 md:p-3 rounded-xl bg-surface border border-black/5"
+      class="mt-3 md:mt-4 p-2 md:p-3 bg-surface border-t border-border/5"
     >
       <p class="text-xs font-semibold text-textPrimary mb-2">
         {{ t('service.observation') }}

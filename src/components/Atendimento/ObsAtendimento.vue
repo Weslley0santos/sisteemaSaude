@@ -3,9 +3,9 @@
     <div
       v-for="(obs, index) in props.observacoes"
       :key="index"
-      class="rounded-xl border border-border bg-secondary p-2 sm:p-3"
+      class="rounded-xl bg-surface p-2 sm:p-3"
     >
-      <p class="text-sm sm:text-base text-textPrimary leading-snug">
+      <p class="text-sm sm:text-base text-textPrimary leading-snug border-l-2 pl-2">
         {{ obs.texto }}
       </p>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="p-3 md:p-4 lg:p-6 bg-background">
-    <h1 class="text-primary font-bold text-xl md:text-2xl lg:text-3xl mb-4">
+    <h1 class="text-textPrimary font-bold text-xl md:text-2xl lg:text-3xl mb-4">
       {{ t('common.triage') }}
     </h1>
 

@@ -1,26 +1,26 @@
 <template>
-  <div class="border-2 border-border">
+  <div>
     <div v-if="$q.screen.lt.md" class="flex flex-col gap-3">
       <q-card
         v-for="row in rows"
         :key="row.senha"
-        class="p-3 cursor-pointer"
+        class="p-3 cursor-pointer bg-surface"
         clickable
         v-ripple
         @click="abrirAtendimento(row)"
       >
         <div class="flex justify-between items-center">
           <div>
-            <p class="text-xs text-gray-500">Senha</p>
+            <p class="text-xs text-textSecondary">Senha</p>
             <p class="font-bold">{{ row.senha }}</p>
           </div>
 
-          <q-badge color="primary">
+          <q-badge color="textSecondary">
             {{ row.status }}
           </q-badge>
         </div>
 
-        <div class="mt-2 text-sm text-gray-600">
+        <div class="mt-2 text-sm text-textSecondary">
           {{ row.nome }}
         </div>
       </q-card>
@@ -34,6 +34,7 @@
       row-key="senha"
       flat
       bordered
+      class="p-3 bg-surface"
       @row-click="(_, row) => abrirAtendimento(row)"
     />
   </div>

@@ -17,7 +17,7 @@
       <q-btn
         fab
         icon="add"
-        color="green"
+        color="accent"
         unelevated
         class="shadow-lg"
         aria-label="Adicionar atendimento"

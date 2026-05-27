@@ -3,17 +3,17 @@
   --secondary: #006daa; /* ações secundárias (apoio visual, variações de ação) */
   --accent: #1e4691; /* detalhes visuais (hover, pequenos destaques, elementos decorativos controlados) */
 
-  --background: #f5faff; /* fundo geral da aplicação (base da página inteira) */
-  --surface: #5674ac; /* superfícies elevadas (cards, modais, tabelas, containers) */
+  --background: #f1eded; /* fundo geral da aplicação (base da página inteira) */
+  --surface: #ffffff; /* superfícies elevadas (cards, modais, tabelas, containers) */
 
   --text-primary: #000000; /* texto principal (títulos, leitura forte, conteúdo importante) */
-  --text-secondary: #ffffff; /* texto secundário (descrições, labels, informações auxiliares) */
+  --text-secondary: #525255; /* texto secundário (descrições, labels, informações auxiliares) */
 
-  --border: #000000;
+  --border: #c0c0c0;
 }
 
 .dark {
-  --primary: #066ed6; /* mantém identidade visual */
+  --primary: #1e293b; /* mantém identidade visual */
   --secondary: #1e4691; /* mantém consistência */
   --accent: #5674ac; /* mais visível no escuro */
 

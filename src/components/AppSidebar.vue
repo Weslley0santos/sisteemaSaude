@@ -24,7 +24,7 @@
         <q-item
           clickable
           to="/triagem"
-          active-class="bg-primary shadow-md"
+          active-class="bg-secondary shadow-md"
           class="rounded-xl px-3 py-2 md:px-4 md:py-3 text-white transition-all duration-200 md:hover:bg-primary/70"
         >
           <svg-icon class="mr-3" type="mdi" :path="mdiHospitalBoxOutline" />
@@ -37,7 +37,7 @@
         <q-item
           clickable
           to="/consulta"
-          active-class="bg-primary shadow-md"
+          active-class="bg-secondary shadow-md"
           class="rounded-xl px-3 py-2 md:px-4 md:py-3 text-white transition-all duration-200 md:hover:bg-primary/70"
         >
           <svg-icon class="mr-3" type="mdi" :path="mdiStethoscope" />
@@ -50,7 +50,7 @@
         <q-item
           clickable
           to="/finalizados"
-          active-class="bg-primary shadow-md"
+          active-class="bg-secondary shadow-md"
           class="rounded-xl px-3 py-2 md:px-4 md:py-3 text-white transition-all duration-200 md:hover:bg-primary/70"
         >
           <svg-icon class="mr-3" type="mdi" :path="mdiBookmarkCheckOutline" />

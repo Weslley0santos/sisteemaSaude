@@ -2,9 +2,9 @@
   <q-tabs
     :model-value="tab"
     @update:model-value="emit('update:tab', $event)"
-    class="text-primary mb-3 text-sm md:text-base overflow-x-auto"
-    active-color="primary"
-    indicator-color="primary"
+    class="text-textPrimary mb-3 text-sm md:text-base overflow-x-auto"
+    active-color="secondary"
+    indicator-color="secondary"
     align="left"
     shrink
   >

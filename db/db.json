@@ -4,7 +4,7 @@
       "id": "1",
       "nome": "João Silva",
       "status": "inProgress",
-      "estagio": "triage",
+      "estagio": "consultation",
       "senha": "A001",
       "encaminhamento": "generalClinic",
       "observacoes": [
@@ -14,10 +14,10 @@
         }
       ],
       "criadoEm": "2026-05-18T08:10:00Z",
-      "inicioConsulta": "2026-05-18T08:30:00Z",
+      "inicioConsulta": "2026-05-27T12:49:41.807Z",
       "finalizadoEm": null,
       "tempoAtendimento": {
-        "espera": 20,
+        "espera": 13239,
         "consultando": 0,
         "total": 20
       }

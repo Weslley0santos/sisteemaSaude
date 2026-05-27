@@ -1,51 +1,72 @@
 <template>
-  <div>
-    <div v-if="$q.screen.lt.md" class="flex flex-col gap-3">
-      <q-card
-        v-for="row in rows"
-        :key="row.senha"
-        class="p-3 cursor-pointer bg-surface"
-        clickable
-        v-ripple
-        @click="abrirAtendimento(row)"
-      >
-        <div class="flex justify-between items-center">
-          <div>
-            <p class="text-xs text-textSecondary">Senha</p>
-            <p class="font-bold">{{ row.senha }}</p>
+  <div class="bg-surface rounded-xl p-3 min-h-[300px] md:min-h-[450px]">
+    <DashboardTabs v-model:tab="tab" />
+    <div
+      v-if="!rowsFiltradas.length"
+      class="flex items-center justify-center h-[300px] text-textSecondary"
+    >
+      <q-icon name="search_off" size="40px" />
+
+      <p>
+        {{ t('dashboard.noAppointments') }}
+      </p>
+    </div>
+    <template v-else>
+      <div v-if="$q.screen.lt.md" class="flex flex-col gap-3">
+        <q-card
+          v-for="row in rowsFiltradas"
+          :key="row.senha"
+          class="p-3 cursor-pointer bg-surface"
+          clickable
+          v-ripple
+          @click="abrirAtendimento(row)"
+        >
+          <div class="flex justify-between items-center">
+            <div>
+              <p class="text-xs text-textSecondary">
+                {{ t('service.password') }}
+              </p>
+
+              <p class="font-bold">
+                {{ row.senha }}
+              </p>
+            </div>
+
+            <q-badge color="secondary">
+              {{ row.status }}
+            </q-badge>
           </div>
 
-          <q-badge color="textSecondary">
-            {{ row.status }}
-          </q-badge>
-        </div>
+          <div class="mt-2 text-sm text-textSecondary">
+            {{ row.nome }}
+          </div>
+        </q-card>
+      </div>
 
-        <div class="mt-2 text-sm text-textSecondary">
-          {{ row.nome }}
-        </div>
-      </q-card>
-    </div>
-
-    <q-table
-      v-else
-      :title="t('common.appointments')"
-      :rows="rows"
-      :columns="columns"
-      row-key="senha"
-      flat
-      bordered
-      class="p-3 bg-surface"
-      @row-click="(_, row) => abrirAtendimento(row)"
-    />
+      <q-table
+        v-else
+        :rows="rowsFiltradas"
+        :columns="columns"
+        row-key="senha"
+        flat
+        class="p-3 bg-surface"
+        @row-click="(_, row) => abrirAtendimento(row)"
+      />
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { Atendimento } from 'src/types/atendimento';
-
+import { computed, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-defineProps<{
+import type { Atendimento } from 'src/types/atendimento';
+
+import DashboardTabs from './DashboardTabs.vue';
+
+import { STATUS, STAGE } from 'src/stores/atendimentoStore';
+
+const props = defineProps<{
   rows: Atendimento[];
 }>();
 
@@ -54,6 +75,26 @@ const emit = defineEmits<{
 }>();
 
 const { t } = useI18n();
+
+const tab = ref('todos');
+
+const rowsFiltradas = computed(() => {
+  if (tab.value === 'triagem') {
+    return props.rows.filter((a) => a.estagio === STAGE.triage);
+  }
+
+  if (tab.value === 'consulta') {
+    return props.rows.filter(
+      (a) => a.estagio === STAGE.consultation && a.status === STATUS.inProgress,
+    );
+  }
+
+  if (tab.value === 'finalizados') {
+    return props.rows.filter((a) => a.status === STATUS.completed);
+  }
+
+  return props.rows;
+});
 
 const columns = [
   {

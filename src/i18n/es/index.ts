@@ -63,6 +63,7 @@ export default {
     pediatrics: 'Pediatría',
     notInformed: 'No informado',
     all: 'Todos',
+    noAppointments: 'No se encontraron atenciones',
   },
 
   validation: {

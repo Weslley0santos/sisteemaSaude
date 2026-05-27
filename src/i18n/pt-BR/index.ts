@@ -9,6 +9,7 @@ export default {
     cancel: 'Cancelar',
     confirm: 'Confirmar',
     deleteConfirmation: 'Confirmação de exclusão',
+    noAppointments: 'Nenhum atendimento encontrado',
   },
 
   button: {
@@ -63,6 +64,7 @@ export default {
     pediatrics: 'Pediatria',
     notInformed: 'Não informado',
     all: 'Todos',
+    noAppointments: 'Nenhum atendimento encontrado',
   },
 
   validation: {

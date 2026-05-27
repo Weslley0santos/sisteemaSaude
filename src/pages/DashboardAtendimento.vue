@@ -11,12 +11,7 @@
       :dataSelecionada="dataSelecionada"
       @update:dataSelecionada="dataSelecionada = $event"
     />
-    <DashboardTabs :tab="tab" @update:tab="tab = $event" />
-    <DashboardTable
-      :rows="atendimentosFiltrados"
-      :tab="tab"
-      @abrir-atendimento="abrirAtendimento"
-    />
+    <DashboardTable :rows="atendimentosFiltrados" @abrir-atendimento="abrirAtendimento" />
   </q-page>
 </template>
 
@@ -30,7 +25,6 @@ import type { Atendimento } from 'src/types/atendimento';
 import DashboardCards from 'src/components/Dashboard/DashboardCards.vue';
 import DashboardAnalytics from 'src/components/Dashboard/DashboardAnalytics.vue';
 import DashboardTable from 'src/components/Dashboard/DashboardTable.vue';
-import DashboardTabs from 'src/components/Dashboard/DashboardTabs.vue';
 
 import { useI18n } from 'vue-i18n';
 
@@ -38,27 +32,10 @@ const { t } = useI18n();
 
 const store = useAtendimentoStore();
 const modal = useModal();
-const tab = ref('todos');
 const dataSelecionada = ref('');
 
 const atendimentosFiltrados = computed(() => {
-  let dados: Atendimento[] = [];
-
-  if (tab.value === 'todos') {
-    dados = store.atendimentos;
-  }
-
-  if (tab.value === 'triagem') {
-    dados = store.triagem;
-  }
-
-  if (tab.value === 'consulta') {
-    dados = store.consulta;
-  }
-
-  if (tab.value === 'finalizados') {
-    dados = store.concluidos;
-  }
+  let dados: Atendimento[] = store.atendimentos;
 
   if (dataSelecionada.value) {
     const dataFormatada = dataSelecionada.value.replaceAll('/', '-');

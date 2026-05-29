@@ -1,12 +1,21 @@
 {
   "atendimentos": [
     {
-      "nome": "João Silva",
+      "nome": "João Silva ttttaaaaaaaaaaaasdadasd",
       "status": "in_progress",
       "estagio": "triage",
       "senha": "A-101",
       "encaminhamento": "general_clinic",
-      "observacoes": [],
+      "observacoes": [
+        {
+          "texto": "dafafaf",
+          "estagio": "triage"
+        },
+        {
+          "texto": "afdafafafafaf",
+          "estagio": "triage"
+        }
+      ],
       "criadoEm": "2026-05-19T08:10:00.000Z",
       "tempoAtendimento": {
         "espera": 12,
@@ -191,7 +200,12 @@
       "estagio": "triage",
       "senha": "A-242",
       "encaminhamento": "general_clinic",
-      "observacoes": [],
+      "observacoes": [
+        {
+          "texto": "adfafaf",
+          "estagio": "triage"
+        }
+      ],
       "criadoEm": "2026-05-27T14:39:09.454Z",
       "tempoAtendimento": {
         "espera": 0,
@@ -229,6 +243,94 @@
         "total": 0
       },
       "id": "tfFKdAYiwMU"
+    },
+    {
+      "nome": "shdud",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-238",
+      "encaminhamento": "cardiology",
+      "observacoes": [],
+      "criadoEm": "2026-05-28T16:41:13.624Z",
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "W2Gmn3UxE98"
+    },
+    {
+      "nome": "testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-893",
+      "encaminhamento": "",
+      "observacoes": [
+        {
+          "texto": "daafafa",
+          "estagio": "triage"
+        },
+        {
+          "texto": "fafadfafaf",
+          "estagio": "triage"
+        },
+        {
+          "texto": "adfafafafa",
+          "estagio": "triage"
+        }
+      ],
+      "criadoEm": "2026-05-28T17:11:14.288Z",
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "sdacnL1DZH0"
+    },
+    {
+      "nome": "testebotaofuncina?",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-503",
+      "encaminhamento": "",
+      "observacoes": [],
+      "criadoEm": "2026-05-28T20:51:43.809Z",
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "V1XeF3B9c4Q"
+    },
+    {
+      "nome": "dsadasdasd",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-613",
+      "encaminhamento": "cardiology",
+      "observacoes": [],
+      "criadoEm": "2026-05-28T20:54:30.482Z",
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "P0wEM08U5CE"
+    },
+    {
+      "nome": "teste dsadjiajida",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-218",
+      "encaminhamento": "",
+      "observacoes": [],
+      "criadoEm": "2026-05-29T11:31:37.527Z",
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "1zfAykDrYiw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

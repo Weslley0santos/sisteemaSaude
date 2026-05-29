@@ -1,57 +1,64 @@
 <template>
   <q-form
     ref="formRef"
-    class="w-full min-w-[300px] flex flex-col gap-3 sm:gap-4"
+    class="w-full min-w-[300px] h-[70vh] flex flex-col overflow-hidden bg-yellow"
     @submit.prevent="salvar"
   >
-    <div class="flex flex-col gap-3 text-textPrimary">
-      <q-input
-        v-model="atendimento.nome"
-        :label="t('service.name')"
-        class="w-full"
-        lazy-rules
-        :rules="[(val) => !!val?.trim() || t('validation.required')]"
-      />
-
-      <q-select
-        v-model="atendimento.encaminhamento"
-        :options="encaminhamentoOptions"
-        :label="t('service.forwarding')"
-        emit-value
-        map-options
-        class="w-full"
-      />
-    </div>
-
-    <div class="border border-black/5 rounded-xl p-3 sm:p-4 bg-surface">
-      <ObsAtendimento :observacoes="atendimento.observacoes" />
-
-      <q-btn v-if="!mostrarObs" class="mt-3 w-full sm:w-auto bg-green" @click="mostrarObs = true">
-        {{ t('button.addNote') }}
-      </q-btn>
-
-      <div v-if="mostrarObs" class="mt-3 flex flex-col gap-2">
+    <div class="flex-1 p-1">
+      <div class="flex flex-col gap-3 text-textPrimary bg-slate-500 p-4 rounded-xl">
         <q-input
-          v-model="novaObs"
-          :label="t('service.observation')"
-          type="textarea"
-          autogrow
+          v-model="atendimento.nome"
+          :label="t('service.name')"
+          class="w-full"
+          lazy-rules
+          :rules="[(val) => !!val?.trim() || t('validation.required')]"
+        />
+
+        <q-select
+          v-model="atendimento.encaminhamento"
+          :options="encaminhamentoOptions"
+          :label="t('service.forwarding')"
+          emit-value
+          map-options
           class="w-full"
         />
 
-        <q-btn class="bg-green w-full sm:w-auto" @click="adicionarObs">
-          {{ t('button.saveNote') }}
-        </q-btn>
-      </div>
-    </div>
+        <!-- INPUT OBS -->
+        <div v-if="mostrarObs" class="mt-2">
+          <q-input
+            v-model="novaObs"
+            :label="t('service.observation')"
+            type="textarea"
+            autogrow
+            class="w-full"
+          />
+        </div>
 
-    <div class="pt-2 flex flex-col sm:flex-row sm:justify-end gap-2">
-      <q-btn
-        color="primary"
-        :label="modo === 'edit' ? t('button.save') : t('button.create')"
-        class="w-full sm:w-auto"
-        type="submit"
-      />
+        <!-- LISTA OBS -->
+        <ObsAtendimento :observacoes="atendimento.observacoes" class="bg-red rounded-xl" />
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <!-- ESQUERDA -->
+
+          <!-- DIREITA -->
+          <div class="flex flex-col sm:flex-row gap-2 sm:ml-auto">
+            <q-btn
+              v-if="mostrarObs"
+              flat
+              :label="t('common.cancel')"
+              color="white"
+              class="bg-red"
+              @click="mostrarObs = false"
+            />
+
+            <q-btn
+              v-if="mostrarObs"
+              color="blue"
+              :label="t('button.saveNote')"
+              @click="adicionarObs"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </q-form>
 </template>
@@ -163,4 +170,15 @@ const salvar = async () => {
     },
   };
 };
+
+const abrirObs = () => {
+  mostrarObs.value = true;
+};
+
+defineExpose({
+  abrirObs,
+  adicionarObs,
+  salvar,
+  mostrarObs,
+});
 </script>

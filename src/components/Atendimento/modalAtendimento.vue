@@ -105,25 +105,20 @@
         class="shrink-0 min-h-[70px] border-t border-border bg-accent px-4 sm:px-6 py-4"
       >
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div>
-            <q-btn
-              v-if="!currentFormRef?.mostrarObs"
-              outline
-              color="white"
-              icon="add"
-              :label="t('button.addNote')"
-              @click="currentFormRef?.abrirObs()"
-            />
-          </div>
-
           <div
             v-if="!currentFormRef?.mostrarObs"
             class="flex flex-col sm:flex-row gap-2 sm:ml-auto"
           >
-            <q-btn flat color="white" :label="t('common.cancel')" @click="fechar" />
+            <q-btn
+              flat
+              class="bg-negative rounded"
+              color="white"
+              :label="t('common.cancel')"
+              @click="fechar"
+            />
 
             <q-btn
-              color="red"
+              color="secondary"
               unelevated
               rounded
               class="min-w-[180px] font-semibold"

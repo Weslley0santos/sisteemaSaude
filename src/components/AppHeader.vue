@@ -14,7 +14,7 @@
       <q-toolbar-title class="flex items-center gap-2">
         <q-img :src="logo" alt="Logo do sistema SaudeS" class="w-8 h-8" />
         <span class="text-base md:text-xl font-bold tracking-wide">
-          {{ t('common.nameApp') }}
+          {{ $t('common.nameApp') }}
         </span>
       </q-toolbar-title>
 
@@ -46,13 +46,11 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import { useI18n } from 'vue-i18n';
 import logo from 'src/assets/logo-saude.png';
 import { useQuasar } from 'quasar';
 
 const emit = defineEmits(['toggle-menu']);
 
-const { t } = useI18n();
 const router = useRouter();
 const $q = useQuasar();
 

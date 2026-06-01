@@ -1,13 +1,13 @@
 <template>
   <div class="mt-4 text-textPrimary">
     <h2 class="text-base md:text-lg font-semibold mb-2">
-      {{ t('service.time') }}
+      {{ $t('service.time') }}
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
       <q-card flat bordered class="p-2 sm:p-3">
         <p class="text-xs sm:text-sm text-textPrimary">
-          {{ t('service.waitingTime') }}
+          {{ $t('service.waitingTime') }}
         </p>
 
         <h3 class="text-lg sm:text-xl font-bold text-textSecondary">
@@ -17,7 +17,7 @@
 
       <q-card flat bordered class="p-2 sm:p-3">
         <p class="text-xs sm:text-sm">
-          {{ t('service.consultationTime') }}
+          {{ $t('service.consultationTime') }}
         </p>
 
         <h3 class="text-lg sm:text-xl font-bold text-orange">
@@ -27,7 +27,7 @@
 
       <q-card flat bordered class="p-2 sm:p-3">
         <p class="text-xs sm:text-sm">
-          {{ t('service.totalTime') }}
+          {{ $t('service.totalTime') }}
         </p>
 
         <h3 class="text-lg sm:text-xl font-bold text-green">
@@ -40,11 +40,8 @@
 
 <script setup lang="ts">
 import type { Atendimento } from 'src/types/atendimento';
-import { useI18n } from 'vue-i18n';
 
 defineProps<{
   atendimento: Atendimento;
 }>();
-
-const { t } = useI18n();
 </script>

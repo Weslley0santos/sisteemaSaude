@@ -9,7 +9,7 @@
       >
         <h2 class="text-base sm:text-lg font-bold tracking-wide truncate">
           {{
-            atendimentoAtual?.estagio ? t(`stage.${atendimentoAtual.estagio}`) : t('common.form')
+            atendimentoAtual?.estagio ? $t(`stage.${atendimentoAtual.estagio}`) : $t('common.form')
           }}
         </h2>
 
@@ -24,7 +24,6 @@
         />
       </q-card-section>
 
-      <!-- CONTEÚDO COM SCROLL -->
       <q-card-section class="flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-6">
         <div class="space-y-4">
           <FormsAtendimento
@@ -66,7 +65,7 @@
             <q-btn
               outline
               color="white"
-              :label="t('button.edit')"
+              :label="$t('button.edit')"
               class="w-full sm:w-auto rounded-xl px-4 bg-warning"
               @click="editar"
             />
@@ -76,7 +75,7 @@
           <div class="flex flex-col sm:flex-row gap-2">
             <q-btn
               v-if="atendimentoAtual.estagio === STAGE.TRIAGE"
-              :label="t('button.send')"
+              :label="$t('button.send')"
               color="secondary"
               unelevated
               rounded
@@ -89,7 +88,7 @@
                 atendimentoAtual.estagio === STAGE.CONSULTATION &&
                 atendimentoAtual.status === STATUS.IN_PROGRESS
               "
-              :label="t('button.finish')"
+              :label="$t('button.finish')"
               color="positive"
               unelevated
               rounded
@@ -113,7 +112,7 @@
               flat
               class="bg-negative rounded"
               color="white"
-              :label="t('common.cancel')"
+              :label="$t('common.cancel')"
               @click="fechar"
             />
 
@@ -122,7 +121,7 @@
               unelevated
               rounded
               class="min-w-[180px] font-semibold"
-              :label="modo === 'edit' ? t('button.save') : t('button.create')"
+              :label="modo === 'edit' ? $t('button.save') : $t('button.create')"
               @click="currentFormRef?.salvar()"
             />
           </div>
@@ -136,21 +135,15 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { useI18n } from 'vue-i18n';
-
 import { useModal } from 'src/composable/useModal';
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
-
 import type { Atendimento } from 'src/types/atendimento';
-
 import { STATUS, STAGE } from 'src/stores/atendimentoStore';
 
 import ConfirmDelete from './ConfirmDelete.vue';
 import FormsAtendimento from './FormsAtendimento.vue';
 import ViewAtendimento from './ViewAtendimento.vue';
 import editAtendimento from './editAtendimento.vue';
-
-const { t } = useI18n();
 
 const { aberto, modo, atendimentoAtual, fechar } = useModal();
 

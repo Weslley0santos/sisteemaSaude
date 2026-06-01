@@ -4,7 +4,7 @@
       <div class="flex items-center justify-between">
         <div>
           <p class="text-xs md:text-sm">
-            {{ t('dashboard.totalAppointments') }}
+            {{ $t('dashboard.totalAppointments') }}
           </p>
 
           <h2 class="text-xl md:text-2xl font-bold">
@@ -20,7 +20,7 @@
       <div class="flex items-center justify-between">
         <div>
           <p class="text-xs md:text-sm">
-            {{ t('stage.triage') }}
+            {{ $t('stage.triage') }}
           </p>
 
           <h2 class="text-xl md:text-2xl font-bold">
@@ -36,7 +36,7 @@
       <div class="flex items-center justify-between">
         <div>
           <p class="text-xs md:text-sm">
-            {{ t('stage.consultation') }}
+            {{ $t('stage.consultation') }}
           </p>
 
           <h2 class="text-xl md:text-2xl font-bold">
@@ -56,7 +56,7 @@
       <div class="flex items-center justify-between">
         <div>
           <p class="text-xs md:text-sm">
-            {{ t('status.completed') }}
+            {{ $t('status.completed') }}
           </p>
 
           <h2 class="text-xl md:text-2xl font-bold">
@@ -77,11 +77,9 @@
 <script setup lang="ts">
 import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiStethoscope, mdiHospitalBoxOutline, mdiBookmarkCheckOutline } from '@mdi/js';
-import { useI18n } from 'vue-i18n';
 
 import { STATUS, STAGE } from 'src/stores/atendimentoStore';
 
-const { t } = useI18n();
 import type { Atendimento } from 'src/types/atendimento';
 
 const props = defineProps<{

@@ -6,7 +6,7 @@
 
     <section v-if="props.atendimento.observacoes?.length">
       <p class="text-sm sm:text-base font-semibold mb-2">
-        {{ t('service.observation') }}
+        {{ $t('service.observation') }}
       </p>
 
       <ObsAtendimento :observacoes="props.atendimento.observacoes" />
@@ -25,11 +25,7 @@ import DadosAtendimento from './DadosAtendimento.vue';
 import ObsAtendimento from './ObsAtendimento.vue';
 import TempoAtendimento from './TempoAtendimento.vue';
 
-import { useI18n } from 'vue-i18n';
-
 const props = defineProps<{
   atendimento: Atendimento;
 }>();
-
-const { t } = useI18n();
 </script>

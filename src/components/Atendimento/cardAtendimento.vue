@@ -13,7 +13,7 @@
       class="mt-3 md:mt-4 p-2 md:p-3 bg-surface border-t border-border/5"
     >
       <p class="text-xs font-semibold text-textPrimary mb-2">
-        {{ t('service.observation') }}
+        {{ $t('service.observation') }}
       </p>
 
       <ObsAtendimento :observacoes="props.atendimento.observacoes" />
@@ -25,12 +25,10 @@ import DadosAtendimento from './DadosAtendimento.vue';
 import ObsAtendimento from './ObsAtendimento.vue';
 import type { Atendimento } from 'src/types/atendimento';
 import { useModal } from 'src/composable/useModal';
-import { useI18n } from 'vue-i18n';
 
 const props = defineProps<{
   atendimento: Atendimento;
   tipo?: 'dashboard' | 'triagem' | 'consulta' | 'finalizados';
 }>();
-const { t } = useI18n();
 const modal = useModal();
 </script>

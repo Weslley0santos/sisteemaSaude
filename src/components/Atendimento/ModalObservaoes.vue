@@ -3,14 +3,14 @@
     <q-card class="w-full max-w-lg bg-surface">
       <q-card-section>
         <div class="text-h6">
-          {{ t('service.observation') }}
+          {{ $t('service.observation') }}
         </div>
       </q-card-section>
 
       <q-card-section>
         <q-input
           v-model="texto"
-          :label="t('service.observation')"
+          :label="$t('service.observation')"
           type="textarea"
           autogrow
           autofocus
@@ -19,11 +19,11 @@
       </q-card-section>
 
       <q-card-actions align="right">
-        <q-btn flat :label="t('common.cancel')" class="bg-red" color="white" @click="fechar" />
+        <q-btn flat :label="$t('common.cancel')" class="bg-red" color="white" @click="fechar" />
 
         <q-btn
           color="secondary"
-          :label="t('button.saveNote')"
+          :label="$t('button.saveNote')"
           :disable="!texto.trim()"
           @click="salvar"
         />
@@ -34,13 +34,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useI18n } from 'vue-i18n';
 
 const emit = defineEmits<{
   (e: 'salvar', texto: string): void;
 }>();
-
-const { t } = useI18n();
 
 const aberto = ref(false);
 const texto = ref('');

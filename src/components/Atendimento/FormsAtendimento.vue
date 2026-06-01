@@ -19,8 +19,6 @@
           class="w-full"
         />
 
-        <!-- LISTA OBS -->
-
         <q-btn color="accent" icon="add" :label="t('button.addNote')" @click="abrirObs" />
 
         <ModalObservaoes ref="modalObsRef" @salvar="adicionarObs" />

@@ -5,19 +5,19 @@
     >
       <q-card-section>
         <h2 class="text-lg font-bold">
-          {{ t('dialog.deleteTitle') }}
+          {{ $t('dialog.deleteTitle') }}
         </h2>
       </q-card-section>
 
       <q-card-section>
-        {{ t('dialog.deleteMessage') }}
+        {{ $t('dialog.deleteMessage') }}
       </q-card-section>
 
       <q-card-actions align="right">
-        <q-btn flat :label="t('common.cancel')" aria-label="Cancelar exclusão" v-close-popup />
+        <q-btn flat :label="$t('common.cancel')" aria-label="Cancelar exclusão" v-close-popup />
         <q-btn
           color="negative"
-          :label="t('button.delete')"
+          :label="$t('button.delete')"
           aria-label="Confirmar exclusão"
           @click="confirmar"
         />
@@ -28,9 +28,6 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useI18n } from 'vue-i18n';
-
-const { t } = useI18n();
 
 const props = defineProps<{
   modelValue: boolean;

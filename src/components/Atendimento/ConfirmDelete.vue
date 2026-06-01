@@ -27,21 +27,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-
-const props = defineProps<{
-  modelValue: boolean;
-}>();
+const aberto = defineModel<boolean>({
+  required: true,
+});
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: boolean): void;
   (e: 'confirmar'): void;
 }>();
-
-const aberto = computed({
-  get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value),
-});
 
 const confirmar = () => {
   emit('confirmar');

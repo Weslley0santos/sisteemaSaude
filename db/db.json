@@ -1,51 +1,6 @@
 {
   "atendimentos": [
     {
-      "nome": "João Silva ttttaaaaaaaaaaaasdadasd",
-      "status": "in_progress",
-      "estagio": "consultation",
-      "senha": "A-101",
-      "encaminhamento": "general_clinic",
-      "observacoes": [
-        {
-          "texto": "dafafaf",
-          "estagio": "triage"
-        },
-        {
-          "texto": "afdafafafafaf",
-          "estagio": "triage"
-        },
-        {
-          "texto": "asdadadad",
-          "estagio": "triage"
-        },
-        {
-          "texto": "sdsafadagag",
-          "estagio": "triage"
-        },
-        {
-          "texto": "gdgagagaafa",
-          "estagio": "triage"
-        },
-        {
-          "texto": "dsadadsadadsad",
-          "estagio": "triage"
-        },
-        {
-          "texto": "dsadsafadfdafaf",
-          "estagio": "triage"
-        }
-      ],
-      "criadoEm": "2026-05-19T08:10:00.000Z",
-      "tempoAtendimento": {
-        "espera": 19332,
-        "consultando": 0,
-        "total": 12
-      },
-      "id": "a1b2c3d4",
-      "inicioConsulta": "2026-06-01T18:22:34.261Z"
-    },
-    {
       "nome": "Maria Oliveira",
       "status": "completed",
       "estagio": "consultation",

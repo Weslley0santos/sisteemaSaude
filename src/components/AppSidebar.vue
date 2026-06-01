@@ -16,7 +16,7 @@
           active-class="bg-secondary shadow-md"
           class="rounded-xl px-3 py-2 md:px-4 md:py-3 text-white transition-all duration-200 md:hover:bg-primary/70"
         >
-          <svg-icon class="mr-3" :path="item.icon" />
+          <svg-icon class="mr-3" type="mdi" :path="item.icon" />
 
           <q-item-section class="text-sm md:text-base">
             {{ item.label }}

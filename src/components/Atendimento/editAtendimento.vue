@@ -11,11 +11,8 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-
 import FormsAtendimento from './FormsAtendimento.vue';
-
 import type { Atendimento } from 'src/types/atendimento';
-
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import { useModal } from 'src/composable/useModal';
 

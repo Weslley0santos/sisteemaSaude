@@ -11,7 +11,7 @@
         @click="emit('toggle-menu')"
       />
 
-      <q-toolbar-title class="flex items-center gap-2">
+      <q-toolbar-title class="flex felx-wrap items-center gap-2">
         <q-img :src="logo" alt="Logo do sistema SaudeS" class="w-8 h-8" />
         <span class="text-base md:text-xl font-bold tracking-wide">
           {{ $t('common.nameApp') }}

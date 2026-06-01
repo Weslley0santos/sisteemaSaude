@@ -1,9 +1,5 @@
 <template>
-  <q-form
-    ref="formRef"
-    class="w-full min-w-[300px] flex flex-col bg-surface"
-    @submit.prevent="salvar"
-  >
+  <q-form ref="formRef" class="w-full min-w-[300px] flex flex-col bg-surface" @submit="salvar">
     <div class="flex-1 p-1">
       <div class="flex flex-col gap-3 text-textPrimary bg-background p-4 rounded-xl">
         <q-input

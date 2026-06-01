@@ -6,11 +6,11 @@ export default {
 
   theme: {
     screens: {
-      xs: '300px',
-      sm: '640px',
+      xs: '0px',
+      sm: '600px',
       md: '1024px',
-      lg: '1280px',
-      xl: '1536px',
+      lg: '1440px',
+      xl: '1920px',
     },
     extend: {
       colors: {
@@ -26,14 +26,6 @@ export default {
         textSecondary: 'var(--text-secondary)',
         border: 'var(--border)',
         dark: 'var(--dark)',
-      },
-
-      borderRadius: {
-        card: '16px',
-      },
-
-      boxShadow: {
-        card: '0 2px 10px rgba(0,0,0,0.08)',
       },
     },
   },

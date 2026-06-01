@@ -4,7 +4,7 @@
     v-ripple
     @click="modal.abrirView(props.atendimento)"
   >
-    <div class="flex items-start gap-3">
+    <div class="items-start gap-3">
       <DadosAtendimento class="w-full" :atendimento="props.atendimento" />
     </div>
 

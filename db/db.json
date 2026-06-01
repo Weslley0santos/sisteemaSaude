@@ -3,7 +3,7 @@
     {
       "nome": "João Silva ttttaaaaaaaaaaaasdadasd",
       "status": "in_progress",
-      "estagio": "triage",
+      "estagio": "consultation",
       "senha": "A-101",
       "encaminhamento": "general_clinic",
       "observacoes": [
@@ -38,11 +38,12 @@
       ],
       "criadoEm": "2026-05-19T08:10:00.000Z",
       "tempoAtendimento": {
-        "espera": 12,
+        "espera": 19332,
         "consultando": 0,
         "total": 12
       },
-      "id": "a1b2c3d4"
+      "id": "a1b2c3d4",
+      "inicioConsulta": "2026-06-01T18:22:34.261Z"
     },
     {
       "nome": "Maria Oliveira",

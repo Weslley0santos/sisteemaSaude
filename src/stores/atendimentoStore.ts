@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import type { Atendimento } from 'src/types/atendimento';
+import type { Atendimento, AtendimentoCreate, AtendimentoUpdate } from 'src/types/atendimento';
 import { AtendimentoService } from 'src/services/atendimentoService';
 import { calcularEspera, calcularConsulta, calcularTotal } from 'src/utils/tempoAtendimento';
 
@@ -31,7 +31,7 @@ export const useAtendimentoStore = defineStore('atendimento', {
     async carregarAtendimentos() {
       const data = await AtendimentoService.listar();
 
-      this.atendimentos = data.map((a: Atendimento) => ({
+      this.atendimentos = data.map((a) => ({
         ...a,
         tempoAtendimento: {
           espera: a.tempoAtendimento?.espera ?? 0,
@@ -41,7 +41,7 @@ export const useAtendimentoStore = defineStore('atendimento', {
       }));
     },
 
-    async adicionarAtendimento(atendimento: Atendimento) {
+    async adicionarAtendimento(atendimento: AtendimentoCreate) {
       const data = await AtendimentoService.criar(atendimento);
 
       this.atendimentos.push({
@@ -54,12 +54,10 @@ export const useAtendimentoStore = defineStore('atendimento', {
       });
     },
 
-    async atualizarAtendimento(atualizado: Atendimento) {
-      if (!atualizado.id) return;
+    async atualizarAtendimento(id: number, atualizado: AtendimentoUpdate) {
+      const data = await AtendimentoService.atualizar(id, atualizado);
 
-      const data = await AtendimentoService.atualizar(atualizado.id, atualizado);
-
-      const index = this.atendimentos.findIndex((a) => a.id === atualizado.id);
+      const index = this.atendimentos.findIndex((a) => a.id === id);
 
       if (index !== -1) {
         this.atendimentos[index] = {
@@ -74,12 +72,11 @@ export const useAtendimentoStore = defineStore('atendimento', {
       if (index === -1) return;
 
       const atual = this.atendimentos[index];
-      if (!atual?.id) return;
+      if (!atual) return;
 
       const inicioConsulta = new Date().toISOString();
 
-      const atualizado: Atendimento = {
-        ...atual,
+      const atualizado: AtendimentoUpdate = {
         estagio: STAGE.CONSULTATION,
         inicioConsulta,
         tempoAtendimento: {
@@ -88,12 +85,7 @@ export const useAtendimentoStore = defineStore('atendimento', {
         },
       };
 
-      const data = await AtendimentoService.atualizar(atual.id, atualizado);
-
-      this.atendimentos[index] = {
-        ...atual,
-        ...data,
-      };
+      await this.atualizarAtendimento(atual.id, atualizado);
     },
 
     async finalizarAtendimento(id: number) {
@@ -101,14 +93,13 @@ export const useAtendimentoStore = defineStore('atendimento', {
       if (index === -1) return;
 
       const atual = this.atendimentos[index];
-      if (!atual?.id) return;
+      if (!atual) return;
 
       const finalizadoEm = new Date().toISOString();
 
       const consultando = calcularConsulta(atual.inicioConsulta || '', finalizadoEm);
 
-      const atualizado: Atendimento = {
-        ...atual,
+      const atualizado: AtendimentoUpdate = {
         status: STATUS.COMPLETED,
         finalizadoEm,
         tempoAtendimento: {
@@ -118,18 +109,13 @@ export const useAtendimentoStore = defineStore('atendimento', {
         },
       };
 
-      const data = await AtendimentoService.atualizar(atual.id, atualizado);
-
-      this.atendimentos[index] = {
-        ...atual,
-        ...data,
-      };
+      await this.atualizarAtendimento(atual.id, atualizado);
     },
 
     async removerAtendimento(id: number) {
       await AtendimentoService.remover(id);
 
-      this.atendimentos = this.atendimentos.filter((a: Atendimento) => a.id !== id);
+      this.atendimentos = this.atendimentos.filter((a) => a.id !== id);
     },
   },
 

@@ -19,9 +19,7 @@ export interface Atendimento extends AtendimentoBase {
 
 export type AtendimentoCreate = AtendimentoBase;
 
-export type AtendimentoUpdate = Partial<AtendimentoBase> & {
-  id: number;
-};
+export type AtendimentoUpdate = Partial<AtendimentoBase>;
 
 export interface Observacoes {
   texto: string;

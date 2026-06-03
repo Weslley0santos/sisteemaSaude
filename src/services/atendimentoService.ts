@@ -13,7 +13,7 @@ export const AtendimentoService = {
   },
 
   atualizar: async (id: number, atendimento: AtendimentoUpdate): Promise<Atendimento> => {
-    const { data } = await api.put(`/atendimentos/${id}`, atendimento);
+    const { data } = await api.patch(`/atendimentos/${id}`, atendimento);
     return data;
   },
   remover: async (id: number): Promise<void> => {

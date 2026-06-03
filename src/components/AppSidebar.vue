@@ -2,7 +2,7 @@
   <q-drawer
     v-model="drawer"
     show-if-above
-    :breakpoint="1024"
+    :breakpoint="$q.screen.sizes.md"
     bordered
     class="bg-primary text-white h-screen flex flex-col"
   >

@@ -29,16 +29,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import ModalObservaoes from './ModalObservaoes.vue';
 import ObsAtendimento from './ObsAtendimento.vue';
+
 import type { Atendimento, AtendimentoCreate } from 'src/types/atendimento';
 import { REFERRAL, STAGE, STATUS } from 'src/stores/atendimentoStore';
 import { useI18n } from 'vue-i18n';
+import { gerarSenha } from 'src/utils/gerarSenhaUtils';
 
 const props = defineProps<{
   atendimento?: Atendimento;
-  modo?: 'create' | 'edit';
 }>();
 
 const emit = defineEmits<{
@@ -46,40 +47,9 @@ const emit = defineEmits<{
 }>();
 
 const { t } = useI18n();
+
 const formRef = ref();
 const modalObsRef = ref();
-
-const abrirObs = () => {
-  modalObsRef.value?.abrir();
-};
-
-const encaminhamentoOptions = computed(() => [
-  {
-    label: t('referral.general_clinic'),
-    value: REFERRAL.GENERAL_CLINIC,
-  },
-
-  {
-    label: t('referral.cardiology'),
-    value: REFERRAL.CARDIOLOGY,
-  },
-
-  {
-    label: t('referral.orthopedics'),
-    value: REFERRAL.ORTHOPEDICS,
-  },
-
-  {
-    label: t('referral.pediatrics'),
-    value: REFERRAL.PEDIATRICS,
-  },
-]);
-
-const gerarSenha = () => {
-  const numero = Math.floor(100 + Math.random() * 900);
-
-  return `A-${numero}`;
-};
 
 const criarAtendimentoInicial = (): AtendimentoCreate => ({
   nome: '',
@@ -95,9 +65,39 @@ const criarAtendimentoInicial = (): AtendimentoCreate => ({
   },
 });
 
-const atendimento = ref<AtendimentoCreate>(
-  props.atendimento ? { ...props.atendimento } : criarAtendimentoInicial(),
+const atendimento = ref<AtendimentoCreate>(criarAtendimentoInicial());
+
+watch(
+  () => props.atendimento,
+  (newValue) => {
+    atendimento.value = newValue
+      ? {
+          nome: newValue.nome,
+          status: newValue.status,
+          estagio: newValue.estagio,
+          senha: newValue.senha,
+          encaminhamento: newValue.encaminhamento,
+          observacoes: [...newValue.observacoes],
+          tempoAtendimento: { ...newValue.tempoAtendimento },
+        }
+      : criarAtendimentoInicial();
+  },
+  { immediate: true },
 );
+
+/**
+ * options select
+ */
+const encaminhamentoOptions = computed(() => [
+  { label: t('referral.general_clinic'), value: REFERRAL.GENERAL_CLINIC },
+  { label: t('referral.cardiology'), value: REFERRAL.CARDIOLOGY },
+  { label: t('referral.orthopedics'), value: REFERRAL.ORTHOPEDICS },
+  { label: t('referral.pediatrics'), value: REFERRAL.PEDIATRICS },
+]);
+
+const abrirObs = () => {
+  modalObsRef.value?.abrir();
+};
 
 const adicionarObs = (texto: string) => {
   atendimento.value.observacoes.push({

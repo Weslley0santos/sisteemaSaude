@@ -26,11 +26,7 @@
 
       <q-card-section class="flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-6">
         <div class="space-y-4">
-          <FormsAtendimento
-            ref="createFormRef"
-            v-if="modo === 'create'"
-            @salvar="criarAtendimento"
-          />
+          <FormsAtendimento ref="formRef" v-if="modo === 'create'" @salvar="criarAtendimento" />
 
           <ViewAtendimento
             v-if="modo === 'view' && atendimentoAtual"
@@ -38,10 +34,9 @@
           />
 
           <FormsAtendimento
-            ref="editFormRef"
+            ref="formRef"
             v-if="modo === 'edit' && atendimentoAtual"
             :atendimento="atendimentoAtual"
-            modo="edit"
             @salvar="salvarEdicao"
           />
         </div>
@@ -106,10 +101,7 @@
         class="shrink-0 min-h-[70px] border-t border-border bg-accent px-4 sm:px-6 py-4"
       >
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div
-            v-if="!currentFormRef?.mostrarObs"
-            class="flex flex-col sm:flex-row gap-2 sm:ml-auto"
-          >
+          <div v-if="!formRef?.mostrarObs" class="flex flex-col sm:flex-row gap-2 sm:ml-auto">
             <q-btn
               flat
               class="bg-negative rounded"
@@ -124,7 +116,7 @@
               rounded
               class="min-w-[180px] font-semibold"
               :label="modo === 'edit' ? $t('button.save') : $t('button.create')"
-              @click="currentFormRef?.salvar()"
+              @click="formRef?.salvar()"
             />
           </div>
         </div>
@@ -136,7 +128,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import { useModal } from 'src/composable/useModal';
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import type { Atendimento, AtendimentoCreate } from 'src/types/atendimento';
@@ -147,34 +139,24 @@ import FormsAtendimento from './FormsAtendimento.vue';
 import ViewAtendimento from './ViewAtendimento.vue';
 
 const { aberto, modo, atendimentoAtual, fechar } = useModal();
-
 const confirmarDelete = ref(false);
-
 const store = useAtendimentoStore();
-const createFormRef = ref();
-const editFormRef = ref();
-
-const currentFormRef = computed(() => {
-  return modo.value === 'create' ? createFormRef.value : editFormRef.value;
-});
-const editar = () => {
-  if (!atendimentoAtual.value) return;
-
-  useModal().abrirEdit(atendimentoAtual.value);
-};
+const formRef = ref();
 
 const abrirConfirmacao = () => {
   confirmarDelete.value = true;
 };
 
-const remover = async () => {
-  if (!atendimentoAtual.value?.id) return;
-
-  await store.removerAtendimento(atendimentoAtual.value.id);
-
-  confirmarDelete.value = false;
+const criarAtendimento = async (novoAtendimento: AtendimentoCreate) => {
+  await store.adicionarAtendimento(novoAtendimento);
 
   fechar();
+};
+
+const editar = () => {
+  if (!atendimentoAtual.value) return;
+
+  useModal().abrirEdit(atendimentoAtual.value);
 };
 
 const salvarEdicao = async (atendimentoEditado: Atendimento) => {
@@ -184,8 +166,13 @@ const salvarEdicao = async (atendimentoEditado: Atendimento) => {
 
   fechar();
 };
-const criarAtendimento = async (novoAtendimento: AtendimentoCreate) => {
-  await store.adicionarAtendimento(novoAtendimento);
+
+const remover = async () => {
+  if (!atendimentoAtual.value?.id) return;
+
+  await store.removerAtendimento(atendimentoAtual.value.id);
+
+  confirmarDelete.value = false;
 
   fechar();
 };

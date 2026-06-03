@@ -1,25 +1,31 @@
 import type { Stage } from 'src/stores/atendimentoStore';
 
-export interface Atendimento {
-  id?: number;
+interface AtendimentoBase {
   nome: string;
   status: string;
   estagio: Stage;
   senha: string;
   encaminhamento: string;
   observacoes: Observacoes[];
-  criadoEm: string;
   inicioConsulta?: string;
   finalizadoEm?: string;
   tempoAtendimento: TempoAtendimento;
 }
-export type AtendimentoUpdate = Partial<Atendimento> & {
+
+export interface Atendimento extends AtendimentoBase {
+  id: number;
+  criadoEm: string;
+}
+
+export type AtendimentoCreate = AtendimentoBase;
+
+export type AtendimentoUpdate = Partial<AtendimentoBase> & {
   id: number;
 };
 
 export interface Observacoes {
   texto: string;
-  estagio: string;
+  estagio: Stage;
 }
 
 export interface TempoAtendimento {

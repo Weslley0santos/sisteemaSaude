@@ -37,10 +37,12 @@
             :atendimento="atendimentoAtual"
           />
 
-          <editAtendimento
+          <FormsAtendimento
             ref="editFormRef"
             v-if="modo === 'edit' && atendimentoAtual"
             :atendimento="atendimentoAtual"
+            modo="edit"
+            @salvar="salvarEdicao"
           />
         </div>
       </q-card-section>
@@ -137,13 +139,12 @@
 import { computed, ref } from 'vue';
 import { useModal } from 'src/composable/useModal';
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
-import type { Atendimento } from 'src/types/atendimento';
+import type { Atendimento, AtendimentoCreate } from 'src/types/atendimento';
 import { STATUS, STAGE } from 'src/stores/atendimentoStore';
 
 import ConfirmDelete from './ConfirmDelete.vue';
 import FormsAtendimento from './FormsAtendimento.vue';
 import ViewAtendimento from './ViewAtendimento.vue';
-import editAtendimento from './editAtendimento.vue';
 
 const { aberto, modo, atendimentoAtual, fechar } = useModal();
 
@@ -176,7 +177,14 @@ const remover = async () => {
   fechar();
 };
 
-const criarAtendimento = async (novoAtendimento: Atendimento) => {
+const salvarEdicao = async (atendimentoEditado: Atendimento) => {
+  const { id, ...dados } = atendimentoEditado;
+
+  await store.atualizarAtendimento(id, dados);
+
+  fechar();
+};
+const criarAtendimento = async (novoAtendimento: AtendimentoCreate) => {
   await store.adicionarAtendimento(novoAtendimento);
 
   fechar();

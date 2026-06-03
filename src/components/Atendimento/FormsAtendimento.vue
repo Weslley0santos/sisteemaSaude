@@ -32,7 +32,7 @@
 import { ref, computed } from 'vue';
 import ModalObservaoes from './ModalObservaoes.vue';
 import ObsAtendimento from './ObsAtendimento.vue';
-import type { Atendimento } from 'src/types/atendimento';
+import type { Atendimento, AtendimentoCreate } from 'src/types/atendimento';
 import { REFERRAL, STAGE, STATUS } from 'src/stores/atendimentoStore';
 import { useI18n } from 'vue-i18n';
 
@@ -42,7 +42,7 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (e: 'salvar', atendimento: Atendimento): void;
+  (e: 'salvar', atendimento: AtendimentoCreate): void;
 }>();
 
 const { t } = useI18n();
@@ -81,23 +81,22 @@ const gerarSenha = () => {
   return `A-${numero}`;
 };
 
-const atendimento = ref<Atendimento>(
-  props.atendimento
-    ? { ...props.atendimento }
-    : {
-        nome: '',
-        status: STATUS.IN_PROGRESS,
-        estagio: STAGE.TRIAGE,
-        senha: gerarSenha(),
-        encaminhamento: '',
-        observacoes: [],
-        criadoEm: new Date().toISOString(),
-        tempoAtendimento: {
-          espera: 0,
-          consultando: 0,
-          total: 0,
-        },
-      },
+const criarAtendimentoInicial = (): AtendimentoCreate => ({
+  nome: '',
+  status: STATUS.IN_PROGRESS,
+  estagio: STAGE.TRIAGE,
+  senha: gerarSenha(),
+  encaminhamento: '',
+  observacoes: [],
+  tempoAtendimento: {
+    espera: 0,
+    consultando: 0,
+    total: 0,
+  },
+});
+
+const atendimento = ref<AtendimentoCreate>(
+  props.atendimento ? { ...props.atendimento } : criarAtendimentoInicial(),
 );
 
 const adicionarObs = (texto: string) => {
@@ -114,20 +113,7 @@ const salvar = async () => {
 
   emit('salvar', { ...atendimento.value });
 
-  atendimento.value = {
-    nome: '',
-    status: STATUS.IN_PROGRESS,
-    estagio: STAGE.TRIAGE,
-    senha: gerarSenha(),
-    encaminhamento: '',
-    observacoes: [],
-    criadoEm: new Date().toISOString(),
-    tempoAtendimento: {
-      espera: 0,
-      consultando: 0,
-      total: 0,
-    },
-  };
+  atendimento.value = criarAtendimentoInicial();
 };
 
 defineExpose({

@@ -191,34 +191,21 @@
       "id": "u1BHJbP9Fz4"
     },
     {
-      "nome": "Pedro",
-      "status": "in_progress",
-      "estagio": "triage",
-      "senha": "A-138",
-      "encaminhamento": "orthopedics",
-      "observacoes": [],
-      "criadoEm": "2026-05-27T14:53:39.159Z",
-      "tempoAtendimento": {
-        "espera": 0,
-        "consultando": 0,
-        "total": 0
-      },
-      "id": "fUmY0MN1ON4"
-    },
-    {
       "nome": "Henrique",
-      "status": "in_progress",
-      "estagio": "triage",
+      "status": "completed",
+      "estagio": "consultation",
       "senha": "A-103",
       "encaminhamento": "general_clinic",
       "observacoes": [],
       "criadoEm": "2026-05-27T14:56:51.480Z",
       "tempoAtendimento": {
-        "espera": 0,
+        "espera": 9982,
         "consultando": 0,
-        "total": 0
+        "total": 9982
       },
-      "id": "tfFKdAYiwMU"
+      "id": "tfFKdAYiwMU",
+      "inicioConsulta": "2026-06-03T13:19:17.146Z",
+      "finalizadoEm": "2026-06-03T13:19:24.382Z"
     },
     {
       "nome": "shdud",
@@ -234,34 +221,6 @@
         "total": 0
       },
       "id": "W2Gmn3UxE98"
-    },
-    {
-      "nome": "testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-      "status": "in_progress",
-      "estagio": "triage",
-      "senha": "A-893",
-      "encaminhamento": "",
-      "observacoes": [
-        {
-          "texto": "daafafa",
-          "estagio": "triage"
-        },
-        {
-          "texto": "fafadfafaf",
-          "estagio": "triage"
-        },
-        {
-          "texto": "adfafafafa",
-          "estagio": "triage"
-        }
-      ],
-      "criadoEm": "2026-05-28T17:11:14.288Z",
-      "tempoAtendimento": {
-        "espera": 0,
-        "consultando": 0,
-        "total": 0
-      },
-      "id": "sdacnL1DZH0"
     },
     {
       "nome": "testebotaofuncina?",
@@ -307,6 +266,39 @@
         "total": 0
       },
       "id": "1zfAykDrYiw"
+    },
+    {
+      "nome": "cavava",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-641",
+      "encaminhamento": "orthopedics",
+      "observacoes": [
+        {
+          "texto": "aavadvav",
+          "estagio": "triage"
+        }
+      ],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "YDbACDwlbFU"
+    },
+    {
+      "nome": "oaoaoaoaoaaoao]asadsada",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-511",
+      "encaminhamento": "",
+      "observacoes": [],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "OONlLUKohjo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

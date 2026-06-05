@@ -1,7 +1,7 @@
 <template>
   <q-page class="bg-background">
     <div class="p-3 md:p-4 lg:p-6">
-      <h1 class="text-textPrimary font-bold text-xl md:text-2xl lg:text-3xl mb-4">
+      <h1 class="text-foreground font-bold text-xl md:text-2xl lg:text-3xl mb-4">
         {{ t('stage.triage') }}
       </h1>
 
@@ -23,7 +23,7 @@ import cardAtendimento from 'src/components/Atendimento/cardAtendimento.vue';
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import type { Atendimento } from 'src/types/atendimento';
 import { useI18n } from 'vue-i18n';
-
+import { onMounted } from 'vue';
 const { t } = useI18n();
 const store = useAtendimentoStore();
 
@@ -32,4 +32,7 @@ const enviarParaConsulta = async (atendimento: Atendimento) => {
 
   await store.avancarParaConsulta(atendimento.id);
 };
+onMounted(async () => {
+  await store.carregarAtendimentos();
+});
 </script>

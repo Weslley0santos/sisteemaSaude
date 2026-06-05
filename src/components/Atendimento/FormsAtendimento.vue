@@ -1,9 +1,9 @@
 <template>
   <q-form ref="formRef" class="w-full min-w-[300px] flex flex-col bg-surface" @submit="salvar">
     <div class="flex-1 p-1">
-      <div class="flex flex-col gap-3 text-textPrimary bg-background p-4 rounded-xl">
+      <div class="flex flex-col gap-3 text-foreground bg-background p-4 rounded-xl">
         <q-input
-          v-model="atendimento.nome"
+          v-model="formData.nome"
           :label="t('service.name')"
           class="w-full"
           lazy-rules
@@ -11,7 +11,7 @@
         />
 
         <q-select
-          v-model="atendimento.encaminhamento"
+          v-model="formData.encaminhamento"
           :options="encaminhamentoOptions"
           :label="t('service.forwarding')"
           emit-value
@@ -22,7 +22,7 @@
         <q-btn color="accent" icon="add" :label="t('button.addNote')" @click="abrirObs" />
 
         <ModalObservaoes ref="modalObsRef" @salvar="adicionarObs" />
-        <ObsAtendimento :observacoes="atendimento.observacoes" class="rounded-xl w-full" />
+        <ObsAtendimento :observacoes="formData.observacoes" class="rounded-xl w-full" />
       </div>
     </div>
   </q-form>
@@ -65,22 +65,14 @@ const criarAtendimentoInicial = (): AtendimentoCreate => ({
   },
 });
 
-const atendimento = ref<AtendimentoCreate>(criarAtendimentoInicial());
+const formData = ref<AtendimentoCreate>(criarAtendimentoInicial());
 
 watch(
   () => props.atendimento,
   (newValue) => {
-    atendimento.value = newValue
-      ? {
-          nome: newValue.nome,
-          status: newValue.status,
-          estagio: newValue.estagio,
-          senha: newValue.senha,
-          encaminhamento: newValue.encaminhamento,
-          observacoes: [...newValue.observacoes],
-          tempoAtendimento: { ...newValue.tempoAtendimento },
-        }
-      : criarAtendimentoInicial();
+    if (newValue) {
+      formData.value = { ...newValue };
+    }
   },
   { immediate: true },
 );
@@ -100,9 +92,9 @@ const abrirObs = () => {
 };
 
 const adicionarObs = (texto: string) => {
-  atendimento.value.observacoes.push({
+  formData.value.observacoes.push({
     texto,
-    estagio: atendimento.value.estagio,
+    estagio: formData.value.estagio,
   });
 };
 
@@ -111,9 +103,9 @@ const salvar = async () => {
 
   if (!valido) return;
 
-  emit('salvar', { ...atendimento.value });
+  emit('salvar', { ...formData.value });
 
-  atendimento.value = criarAtendimentoInicial();
+  formData.value = criarAtendimentoInicial();
 };
 
 defineExpose({

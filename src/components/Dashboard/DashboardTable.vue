@@ -3,7 +3,7 @@
     <DashboardTabs v-model:tab="tab" />
     <div
       v-if="!rowsFiltradas.length"
-      class="flex items-center justify-center h-[300px] text-textSecondary"
+      class="flex items-center justify-center h-[300px] text-foreground-secondary"
     >
       <p>
         {{ t('dashboard.noAppointments') }}
@@ -21,7 +21,7 @@
         >
           <div class="flex justify-between items-center">
             <div>
-              <p class="text-xs text-textSecondary">
+              <p class="text-xs text-foreground-secondary">
                 {{ t('service.password') }}
               </p>
 
@@ -35,7 +35,7 @@
             </q-badge>
           </div>
 
-          <div class="mt-2 text-sm text-textSecondary">
+          <div class="mt-2 text-sm text-foreground-secondary">
             {{ row.nome }}
           </div>
         </q-card>

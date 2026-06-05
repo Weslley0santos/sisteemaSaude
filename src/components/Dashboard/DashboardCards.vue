@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-4 text-textPrimary">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-4 text-foreground">
     <q-card class="p-3 md:p-4 bg-surface border-2 border-border">
       <div class="flex items-center justify-between">
         <div>

@@ -12,7 +12,7 @@
       v-if="$q.screen.md && props.atendimento.observacoes?.length"
       class="mt-3 md:mt-4 p-2 md:p-3 bg-surface border-t border-border/5"
     >
-      <p class="text-xs font-semibold text-textPrimary mb-2">
+      <p class="text-xs font-semibold text-foreground mb-2">
         {{ $t('service.observation') }}
       </p>
 

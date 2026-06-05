@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class',
-
+  darkMode: ['class', '.body--dark'],
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
 
   theme: {
@@ -14,6 +13,11 @@ export default {
     },
     extend: {
       colors: {
+        foreground: {
+          DEFAUT: 'var(--foreground)',
+          secondary: 'var(--foregorund-secondary)',
+        },
+
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',
         accent: 'var(--accent)',
@@ -22,8 +26,6 @@ export default {
 
         surface: 'var(--surface)',
 
-        textPrimary: 'var(--text-primary)',
-        textSecondary: 'var(--text-secondary)',
         border: 'var(--border)',
         dark: 'var(--dark)',
       },

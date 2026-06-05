@@ -1,7 +1,7 @@
 <template>
   <q-tabs
     :model-value="tab"
-    class="text-textPrimary mb-3 text-sm md:text-base overflow-x-auto"
+    class="text-foreground mb-3 text-sm md:text-base overflow-x-auto"
     active-color="secondary"
     indicator-color="secondary"
     align="left"

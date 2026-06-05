@@ -1,7 +1,7 @@
 <template>
   <q-dialog v-model="aberto" persistent transition-show="scale" transition-hide="scale">
     <q-card
-      class="bg-surface text-textPrimary rounded-3xl shadow-2xl overflow-hidden w-full min-w-[300px] sm:min-w-[640px] md:min-w-[720px] max-w-[95vw] h-[90vh] flex flex-col flex-nowrap"
+      class="bg-surface text-foreground rounded-3xl shadow-2xl overflow-hidden w-full min-w-[300px] sm:min-w-[640px] md:min-w-[720px] max-w-[95vw] h-[90vh] flex flex-col flex-nowrap"
     >
       <!-- HEADER -->
       <q-card-section
@@ -131,7 +131,7 @@
 import { ref } from 'vue';
 import { useModal } from 'src/composable/useModal';
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
-import type { Atendimento, AtendimentoCreate } from 'src/types/atendimento';
+import type { AtendimentoCreate } from 'src/types/atendimento';
 import { STATUS, STAGE } from 'src/stores/atendimentoStore';
 
 import ConfirmDelete from './ConfirmDelete.vue';
@@ -159,10 +159,10 @@ const editar = () => {
   useModal().abrirEdit(atendimentoAtual.value);
 };
 
-const salvarEdicao = async (atendimentoEditado: Atendimento) => {
-  const { id, ...dados } = atendimentoEditado;
+const salvarEdicao = async (dados: AtendimentoCreate) => {
+  if (!atendimentoAtual.value?.id) return;
 
-  await store.atualizarAtendimento(id, dados);
+  await store.atualizarAtendimento(atendimentoAtual.value.id, dados);
 
   fechar();
 };

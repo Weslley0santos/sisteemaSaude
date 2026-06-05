@@ -6,13 +6,13 @@
   --background: #f1eded; /* fundo geral da aplicação (base da página inteira) */
   --surface: #ffffff; /* superfícies elevadas (cards, modais, tabelas, containers) */
 
-  --text-primary: #000000; /* texto principal (títulos, leitura forte, conteúdo importante) */
-  --text-secondary: #525255; /* texto secundário (descrições, labels, informações auxiliares) */
+  --foreground: #000000; /* texto principal (títulos, leitura forte, conteúdo importante) */
+  --foreground-secondary: #525255; /* texto secundário (descrições, labels, informações auxiliares) */
 
   --border: #c0c0c0;
 }
 
-.dark {
+.body--dark {
   --primary: #1e293b; /* mantém identidade visual */
   --secondary: #1e4691; /* mantém consistência */
   --accent: #5674ac; /* mais visível no escuro */
@@ -20,8 +20,8 @@
   --background: #0f172a; /* fundo escuro neutro (mais confortável que preto puro) */
   --surface: #1e293b; /* cartões/modais com contraste suave */
 
-  --text-primary: #ffffff; /* leitura principal no escuro */
-  --text-secondary: #b9d6f2; /* texto auxiliar com menor destaque */
+  --foreground: #ffffff; /* leitura principal no escuro */
+  --foreground-secondary: #b9d6f2; /* texto auxiliar com menor destaque */
 
   --border: rgba(255, 255, 255, 0.08); /* borda sutil no dark */
 }
@@ -41,7 +41,7 @@ $warning: #f2c037;
 
 $background: var(--background);
 
-$text-primary: var(--text-primary);
-$text-secondary: var(--text-secondary);
+$foreground: var(--foreground);
+$foreground-secondary: var(--foreground-secondary);
 
 $surface: var(--surface);

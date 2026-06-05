@@ -35,19 +35,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onMounted } from 'vue';
-import { useQuasar } from 'quasar';
+import { ref, onMounted } from 'vue';
 
 import AppHeader from 'src/components/AppHeader.vue';
 import AppSidebar from 'src/components/AppSidebar.vue';
-import modalAtendimento from 'src/components/Atendimento/modalAtendimento.vue';
+import ModalAtendimento from 'src/components/Atendimento/modalAtendimento.vue';
 
-import { useAtendimentoStore } from 'src/stores/atendimentoStore';
+import { useTheme } from 'src/composable/useTheme';
 import { useModal } from 'src/composable/useModal';
 
-const $q = useQuasar();
+const { carregarTema } = useTheme();
 
-const store = useAtendimentoStore();
 const modal = useModal();
 
 const drawer = ref(false);
@@ -56,26 +54,7 @@ const sideMenu = () => {
   drawer.value = !drawer.value;
 };
 
-onMounted(async () => {
-  await store.carregarAtendimentos();
-
-  const darkMode = localStorage.getItem('darkMode');
-
-  if (darkMode !== null) {
-    const isDark = JSON.parse(darkMode);
-
-    $q.dark.set(isDark);
-
-    document.documentElement.classList.toggle('dark', isDark);
-  }
+onMounted(() => {
+  carregarTema();
 });
-
-watch(
-  () => $q.dark.isActive,
-  (isDark) => {
-    document.documentElement.classList.toggle('dark', isDark);
-
-    localStorage.setItem('darkMode', JSON.stringify(isDark));
-  },
-);
 </script>

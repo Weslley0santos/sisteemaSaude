@@ -11,7 +11,7 @@
         @click="emit('toggle-menu')"
       />
 
-      <q-toolbar-title class="flex felx-wrap items-center gap-2">
+      <q-toolbar-title class="flex felx-nowrap items-center gap-2">
         <q-img :src="logo" alt="Logo do sistema SaudeS" class="w-8 h-8" />
         <span class="text-base md:text-xl font-bold tracking-wide">
           {{ $t('common.nameApp') }}
@@ -47,18 +47,13 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 import logo from 'src/assets/logo-saude.png';
-import { useQuasar } from 'quasar';
+import { useTheme } from 'src/composable/useTheme';
 
 const emit = defineEmits(['toggle-menu']);
 
 const router = useRouter();
-const $q = useQuasar();
 
-const toggleDarkMode = () => {
-  $q.dark.set(!$q.dark.isActive);
-
-  localStorage.setItem('darkMode', JSON.stringify($q.dark.isActive));
-};
+const { toggleDarkMode } = useTheme();
 
 const logout = () => {
   localStorage.removeItem('token');

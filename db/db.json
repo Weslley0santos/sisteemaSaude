@@ -1,7 +1,7 @@
 {
   "atendimentos": [
     {
-      "nome": "Maria Oliveira",
+      "nome": "Maria Oliveira afufa",
       "status": "completed",
       "estagio": "consultation",
       "senha": "A-102",
@@ -23,19 +23,25 @@
       "id": "e5f6g7h8"
     },
     {
-      "nome": "Carlos Souza",
+      "nome": "Carlos Souza teste",
       "status": "in_progress",
-      "estagio": "triage",
+      "estagio": "consultation",
       "senha": "A-103",
       "encaminhamento": "orthopedics",
-      "observacoes": [],
+      "observacoes": [
+        {
+          "texto": "teste obs",
+          "estagio": "triage"
+        }
+      ],
       "criadoEm": "2026-05-20T10:15:00.000Z",
       "tempoAtendimento": {
-        "espera": 8,
+        "espera": 23049,
         "consultando": 0,
         "total": 8
       },
-      "id": "i9j0k1l2"
+      "id": "i9j0k1l2",
+      "inicioConsulta": "2026-06-05T10:24:47.863Z"
     },
     {
       "nome": "Ana Pereira",
@@ -299,6 +305,27 @@
         "total": 0
       },
       "id": "OONlLUKohjo"
+    },
+    {
+      "nome": "wes",
+      "status": "completed",
+      "estagio": "consultation",
+      "senha": "A-107",
+      "encaminhamento": "cardiology",
+      "observacoes": [
+        {
+          "texto": "sdadada",
+          "estagio": "triage"
+        }
+      ],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "RhcmRxQpc6s",
+      "inicioConsulta": "2026-06-05T10:24:15.033Z",
+      "finalizadoEm": "2026-06-05T10:24:19.033Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

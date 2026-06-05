@@ -6,7 +6,7 @@
       class="flex items-center justify-center h-[300px] text-foreground-secondary"
     >
       <p>
-        {{ t('dashboard.noAppointments') }}
+        {{ $t('dashboard.noAppointments') }}
       </p>
     </div>
     <template v-else>
@@ -22,7 +22,7 @@
           <div class="flex justify-between items-center">
             <div>
               <p class="text-xs text-foreground-secondary">
-                {{ t('service.password') }}
+                {{ $t('service.password') }}
               </p>
 
               <p class="font-bold">
@@ -57,12 +57,10 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-
 import type { Atendimento } from 'src/types/atendimento';
-
 import DashboardTabs from './DashboardTabs.vue';
-
 import { STATUS, STAGE } from 'src/stores/atendimentoStore';
+import type { QTableColumn } from 'quasar';
 
 const props = defineProps<{
   rows: Atendimento[];
@@ -72,7 +70,7 @@ const emit = defineEmits<{
   (e: 'abrir-atendimento', atendimento: Atendimento): void;
 }>();
 
-const { t } = useI18n();
+const { t: $t } = useI18n();
 
 const tab = ref('todos');
 
@@ -94,39 +92,37 @@ const rowsFiltradas = computed(() => {
   return props.rows;
 });
 
-const columns = [
+const columns = computed<QTableColumn[]>(() => [
   {
     name: 'nome',
-    label: t('service.patient'),
+    label: $t('service.patient'),
     field: 'nome',
-    align: 'left' as const,
+    align: 'left',
   },
 
   {
     name: 'senha',
-    label: t('service.password'),
+    label: $t('service.password'),
     field: 'senha',
-    align: 'left' as const,
+    align: 'left',
   },
 
   {
     name: 'estagio',
-    label: t('service.stage'),
+    label: $t('service.stage'),
     field: 'estagio',
-    align: 'left' as const,
-
-    format: (val: string) => t(`stage.${val}`),
+    align: 'left',
+    format: (val) => $t(`stage.${val}`),
   },
 
   {
     name: 'status',
-    label: t('service.status'),
+    label: $t('service.status'),
     field: 'status',
-    align: 'left' as const,
-
-    format: (val: string) => t(`status.${val}`),
+    align: 'left',
+    format: (val) => $t(`status.${val}`),
   },
-];
+]);
 
 const abrirAtendimento = (atendimento: Atendimento) => {
   emit('abrir-atendimento', atendimento);

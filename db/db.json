@@ -24,7 +24,7 @@
     },
     {
       "nome": "Carlos Souza teste",
-      "status": "in_progress",
+      "status": "completed",
       "estagio": "consultation",
       "senha": "A-103",
       "encaminhamento": "orthopedics",
@@ -37,11 +37,12 @@
       "criadoEm": "2026-05-20T10:15:00.000Z",
       "tempoAtendimento": {
         "espera": 23049,
-        "consultando": 0,
-        "total": 8
+        "consultando": 217,
+        "total": 23266
       },
       "id": "i9j0k1l2",
-      "inicioConsulta": "2026-06-05T10:24:47.863Z"
+      "inicioConsulta": "2026-06-05T10:24:47.863Z",
+      "finalizadoEm": "2026-06-05T14:02:26.436Z"
     },
     {
       "nome": "Ana Pereira",
@@ -67,18 +68,20 @@
     },
     {
       "nome": "Pedro Santos",
-      "status": "in_progress",
-      "estagio": "triage",
+      "status": "completed",
+      "estagio": "consultation",
       "senha": "A-105",
       "encaminhamento": "general_clinic",
       "observacoes": [],
       "criadoEm": "2026-05-21T07:40:00.000Z",
       "tempoAtendimento": {
-        "espera": 5,
+        "espera": 21982,
         "consultando": 0,
-        "total": 5
+        "total": 21982
       },
-      "id": "q7r8s9t0"
+      "id": "q7r8s9t0",
+      "inicioConsulta": "2026-06-05T14:02:34.584Z",
+      "finalizadoEm": "2026-06-05T14:02:37.435Z"
     },
     {
       "nome": "Juliana Costa",
@@ -104,18 +107,20 @@
     },
     {
       "nome": "Lucas Almeida",
-      "status": "in_progress",
-      "estagio": "triage",
+      "status": "completed",
+      "estagio": "consultation",
       "senha": "A-107",
       "encaminhamento": "orthopedics",
       "observacoes": [],
       "criadoEm": "2026-05-22T08:00:00.000Z",
       "tempoAtendimento": {
-        "espera": 18,
+        "espera": 20523,
         "consultando": 0,
-        "total": 18
+        "total": 20523
       },
-      "id": "y5z6a7b8"
+      "id": "y5z6a7b8",
+      "inicioConsulta": "2026-06-05T14:03:50.869Z",
+      "finalizadoEm": "2026-06-05T14:03:57.658Z"
     },
     {
       "nome": "Fernanda Lima",
@@ -141,18 +146,20 @@
     },
     {
       "nome": "Rafael Martins",
-      "status": "in_progress",
-      "estagio": "triage",
+      "status": "completed",
+      "estagio": "consultation",
       "senha": "A-109",
       "encaminhamento": "general_clinic",
       "observacoes": [],
       "criadoEm": "2026-05-23T08:05:00.000Z",
       "tempoAtendimento": {
-        "espera": 7,
+        "espera": 19078,
         "consultando": 0,
-        "total": 7
+        "total": 19078
       },
-      "id": "g3h4i5j6"
+      "id": "g3h4i5j6",
+      "inicioConsulta": "2026-06-05T14:03:53.631Z",
+      "finalizadoEm": "2026-06-05T14:03:59.322Z"
     },
     {
       "nome": "Beatriz Rocha",
@@ -178,8 +185,8 @@
     },
     {
       "nome": "adfdafa",
-      "status": "in_progress",
-      "estagio": "triage",
+      "status": "completed",
+      "estagio": "consultation",
       "senha": "A-242",
       "encaminhamento": "general_clinic",
       "observacoes": [
@@ -190,11 +197,13 @@
       ],
       "criadoEm": "2026-05-27T14:39:09.454Z",
       "tempoAtendimento": {
-        "espera": 0,
+        "espera": 12925,
         "consultando": 0,
-        "total": 0
+        "total": 12925
       },
-      "id": "u1BHJbP9Fz4"
+      "id": "u1BHJbP9Fz4",
+      "inicioConsulta": "2026-06-05T14:04:58.672Z",
+      "finalizadoEm": "2026-06-05T14:05:01.812Z"
     },
     {
       "nome": "Henrique",
@@ -215,33 +224,37 @@
     },
     {
       "nome": "shdud",
-      "status": "in_progress",
-      "estagio": "triage",
+      "status": "completed",
+      "estagio": "consultation",
       "senha": "A-238",
       "encaminhamento": "cardiology",
       "observacoes": [],
       "criadoEm": "2026-05-28T16:41:13.624Z",
       "tempoAtendimento": {
-        "espera": 0,
+        "espera": 11364,
         "consultando": 0,
-        "total": 0
+        "total": 11364
       },
-      "id": "W2Gmn3UxE98"
+      "id": "W2Gmn3UxE98",
+      "inicioConsulta": "2026-06-05T14:05:22.966Z",
+      "finalizadoEm": "2026-06-05T14:05:36.158Z"
     },
     {
       "nome": "testebotaofuncina?",
-      "status": "in_progress",
-      "estagio": "triage",
+      "status": "completed",
+      "estagio": "consultation",
       "senha": "A-503",
       "encaminhamento": "",
       "observacoes": [],
       "criadoEm": "2026-05-28T20:51:43.809Z",
       "tempoAtendimento": {
-        "espera": 0,
+        "espera": 11114,
         "consultando": 0,
-        "total": 0
+        "total": 11114
       },
-      "id": "V1XeF3B9c4Q"
+      "id": "V1XeF3B9c4Q",
+      "inicioConsulta": "2026-06-05T14:06:26.972Z",
+      "finalizadoEm": "2026-06-05T14:06:29.962Z"
     },
     {
       "nome": "dsadasdasd",

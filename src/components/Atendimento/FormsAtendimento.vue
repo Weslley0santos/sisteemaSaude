@@ -17,6 +17,8 @@
           emit-value
           map-options
           class="w-full"
+          outlined
+          popup-content-class="bg-surface text-foreground"
         />
 
         <q-btn color="accent" icon="add" :label="t('button.addNote')" @click="abrirObs" />

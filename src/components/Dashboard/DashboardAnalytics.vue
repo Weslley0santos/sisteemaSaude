@@ -2,13 +2,12 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-4">
     <q-card class="p-3 md:p-4 bg-surface border-2 border-border">
       <h2 class="text-foreground text-sm md:text-base font-semibold mb-3">
-        {{ t('dashboard.filter') }}
+        {{ $t('dashboard.filter') }}
       </h2>
 
       <div class="w-full overflow-x-auto">
         <q-date
-          :model-value="dataSelecionada"
-          @update:model-value="emit('update:dataSelecionada', $event)"
+          v-model="dataSelecionada"
           minimal
           class="min-w-[260px] w-full bg-surface text-foreground-secondary"
         />
@@ -19,22 +18,22 @@
     <q-card class="p-3 md:p-4 flex flex-col gap-3 md:gap-4 bg-surface border-2 border-border">
       <div>
         <h2 class="text-foreground text-sm md:text-base font-semibold mb-2">
-          {{ t('dashboard.averageTime') }}
+          {{ $t('dashboard.averageTime') }}
         </h2>
 
         <div class="text-foreground-secondary flex flex-col gap-2 text-sm">
           <div class="flex justify-between">
-            <span>{{ t('dashboard.waitingTime') }}</span>
+            <span>{{ $t('dashboard.waitingTime') }}</span>
             <strong>{{ tempoMedioEspera }} min</strong>
           </div>
 
           <div class="flex justify-between">
-            <span>{{ t('dashboard.consultationTime') }}</span>
+            <span>{{ $t('dashboard.consultationTime') }}</span>
             <strong>{{ tempoMedioConsulta }} min</strong>
           </div>
 
           <div class="flex justify-between">
-            <span>{{ t('dashboard.totalTime') }}</span>
+            <span>{{ $t('dashboard.totalTime') }}</span>
             <strong>{{ tempoMedioTotal }} min</strong>
           </div>
         </div>
@@ -44,7 +43,7 @@
 
       <div class="text-foreground-secondary">
         <h2 class="text-foreground text-sm md:text-base font-semibold mb-2">
-          {{ t('dashboard.forwarding') }}
+          {{ $t('dashboard.forwarding') }}
         </h2>
 
         <div class="flex flex-col gap-2 text-sm">
@@ -69,86 +68,72 @@
 import { computed } from 'vue';
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import { useI18n } from 'vue-i18n';
-
+import { isSameDay } from 'src/helpers/dataHelper';
 defineOptions({
   name: 'DashboardAnalytics',
 });
-const props = defineProps<{
-  dataSelecionada: string;
-}>();
 
-const emit = defineEmits<{
-  (e: 'update:dataSelecionada', value: string): void;
-}>();
+const dataSelecionada = defineModel<string>('dataSelecionada', {
+  default: '',
+});
 
-const { t } = useI18n();
+const { t: $t } = useI18n();
 const store = useAtendimentoStore();
 
 const atendimentosFiltrados = computed(() => {
-  if (!props.dataSelecionada) return store.atendimentos;
+  if (!dataSelecionada.value) return store.atendimentos;
 
-  return store.atendimentos.filter((a) => isSameDay(a.criadoEm, props.dataSelecionada));
+  return store.atendimentos.filter((a) => isSameDay(a.criadoEm, dataSelecionada.value));
 });
-
 const tempoMedioEspera = computed(() => {
   if (!atendimentosFiltrados.value.length) return 0;
 
-  const total = atendimentosFiltrados.value.reduce(
-    (acc, atendimento) => acc + atendimento.tempoAtendimento.espera,
-    0,
-  );
+  let total = 0;
 
+  for (const atendimento of atendimentosFiltrados.value) {
+    total += atendimento.tempoAtendimento.espera;
+  }
   return Math.round(total / atendimentosFiltrados.value.length);
 });
 
 const tempoMedioConsulta = computed(() => {
   if (!atendimentosFiltrados.value.length) return 0;
 
-  const total = atendimentosFiltrados.value.reduce(
-    (acc, atendimento) => acc + atendimento.tempoAtendimento.consultando,
-    0,
-  );
+  let total = 0;
 
+  for (const atendimento of atendimentosFiltrados.value) {
+    total += atendimento.tempoAtendimento.consultando;
+  }
   return Math.round(total / atendimentosFiltrados.value.length);
 });
 
 const tempoMedioTotal = computed(() => {
   if (!atendimentosFiltrados.value.length) return 0;
 
-  const total = atendimentosFiltrados.value.reduce(
-    (acc, atendimento) => acc + atendimento.tempoAtendimento.total,
-    0,
-  );
+  let total = 0;
 
+  for (const atendimento of atendimentosFiltrados.value) {
+    total += atendimento.tempoAtendimento.total;
+  }
   return Math.round(total / atendimentosFiltrados.value.length);
 });
 
 const encaminhamentos = computed(() => {
   const contagem: Record<string, number> = {};
 
-  atendimentosFiltrados.value.forEach((atendimento) => {
+  for (const atendimento of atendimentosFiltrados.value) {
     const key = atendimento.encaminhamento || 'not_informed';
 
-    contagem[key] = (contagem[key] || 0) + 1;
-  });
+    if (!contagem[key]) {
+      contagem[key] = 0;
+    }
+    contagem[key]++;
+  }
 
   return Object.entries(contagem).map(([key, total]) => ({
-    nome: key === 'not_informed' ? t('service.notInformed') : t(`referral.${key}`),
+    nome: key === 'not_informed' ? $t('service.notInformed') : $t(`referral.${key}`),
 
     total,
   }));
 });
-
-const isSameDay = (dateA: string, dateB: string) => {
-  if (!dateA || !dateB) return false;
-
-  const a = new Date(dateA);
-  const b = new Date(dateB);
-
-  return (
-    a.getFullYear() === b.getFullYear() &&
-    a.getMonth() === b.getMonth() &&
-    a.getDate() === b.getDate()
-  );
-};
 </script>

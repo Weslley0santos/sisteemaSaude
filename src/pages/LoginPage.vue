@@ -54,10 +54,12 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
-
 import { useAuthStore } from 'src/stores/authStore';
-
 import logo from 'src/assets/logo-saude.png';
+
+defineOptions({
+  name: 'LoginPage',
+});
 
 const router = useRouter();
 const auth = useAuthStore();

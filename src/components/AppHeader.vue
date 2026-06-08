@@ -49,6 +49,10 @@ import { useRouter } from 'vue-router';
 import logo from 'src/assets/logo-saude.png';
 import { useTheme } from 'src/composable/useTheme';
 
+defineOptions({
+  name: 'AppHeader',
+});
+
 const emit = defineEmits(['toggle-menu']);
 
 const router = useRouter();

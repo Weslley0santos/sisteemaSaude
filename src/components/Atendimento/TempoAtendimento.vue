@@ -41,6 +41,9 @@
 <script setup lang="ts">
 import type { Atendimento } from 'src/types/atendimento';
 
+defineOptions({
+  name: 'TempoAtendimento',
+});
 defineProps<{
   atendimento: Atendimento;
 }>();

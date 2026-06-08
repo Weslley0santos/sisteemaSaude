@@ -48,6 +48,9 @@
 <script setup lang="ts">
 import type { Atendimento } from 'src/types/atendimento';
 
+defineOptions({
+  name: 'DadosAtendimento',
+});
 const props = defineProps<{
   atendimento: Atendimento;
 }>();

@@ -11,34 +11,36 @@
     </div>
     <template v-else>
       <div v-if="$q.screen.lt.md" class="flex flex-col gap-3">
-        <q-card
+        <q-btn
           v-for="row in rowsFiltradas"
           :key="row.senha"
-          class="p-3 cursor-pointer bg-surface"
-          clickable
-          v-ripple
+          flat
+          no-caps
+          class="p-0"
           @click="abrirAtendimento(row)"
         >
-          <div class="flex justify-between items-center">
-            <div>
-              <p class="text-xs text-foreground-secondary">
-                {{ $t('service.password') }}
-              </p>
+          <q-card class="p-3 cursor-pointer bg-surface w-full">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="text-xs text-foreground-secondary">
+                  {{ $t('service.password') }}
+                </p>
 
-              <p class="font-bold">
-                {{ row.senha }}
-              </p>
+                <p class="font-bold">
+                  {{ row.senha }}
+                </p>
+              </div>
+
+              <q-badge color="secondary">
+                {{ row.status }}
+              </q-badge>
             </div>
 
-            <q-badge color="secondary">
-              {{ row.status }}
-            </q-badge>
-          </div>
-
-          <div class="mt-2 text-sm text-foreground-secondary">
-            {{ row.nome }}
-          </div>
-        </q-card>
+            <div class="mt-2 text-sm text-foreground-secondary text-left">
+              {{ row.nome }}
+            </div>
+          </q-card>
+        </q-btn>
       </div>
 
       <q-table
@@ -62,6 +64,9 @@ import DashboardTabs from './DashboardTabs.vue';
 import { STATUS, STAGE } from 'src/stores/atendimentoStore';
 import type { QTableColumn } from 'quasar';
 
+defineOptions({
+  name: 'DashboardTable',
+});
 const props = defineProps<{
   rows: Atendimento[];
 }>();

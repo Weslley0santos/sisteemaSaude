@@ -35,6 +35,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+defineOptions({
+  name: 'ModalObservaceos',
+});
 const emit = defineEmits<{
   (e: 'salvar', texto: string): void;
 }>();

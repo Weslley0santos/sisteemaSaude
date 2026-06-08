@@ -133,11 +133,13 @@ import { useModal } from 'src/composable/useModal';
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import type { AtendimentoCreate } from 'src/types/atendimento';
 import { STATUS, STAGE } from 'src/stores/atendimentoStore';
-
 import ConfirmDelete from './ConfirmDelete.vue';
 import FormsAtendimento from './FormsAtendimento.vue';
 import ViewAtendimento from './ViewAtendimento.vue';
 
+defineOptions({
+  name: 'modalAtendimento',
+});
 const { aberto, modo, atendimentoAtual, fechar } = useModal();
 const confirmarDelete = ref(false);
 const store = useAtendimentoStore();

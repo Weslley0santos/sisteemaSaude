@@ -339,6 +339,39 @@
       "id": "RhcmRxQpc6s",
       "inicioConsulta": "2026-06-05T10:24:15.033Z",
       "finalizadoEm": "2026-06-05T10:24:19.033Z"
+    },
+    {
+      "nome": "DSADADAD",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-388",
+      "encaminhamento": "orthopedics",
+      "observacoes": [
+        {
+          "texto": "VZVZV",
+          "estagio": "triage"
+        }
+      ],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "dkb-PGeZrAc"
+    },
+    {
+      "nome": "calosodkad",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-275",
+      "encaminhamento": "",
+      "observacoes": [],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "ONjaxUsotRo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

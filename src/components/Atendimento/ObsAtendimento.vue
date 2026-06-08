@@ -23,6 +23,9 @@
 <script setup lang="ts">
 import type { Observacoes } from 'src/types/atendimento';
 
+defineOptions({
+  name: 'ObsAtendimento',
+});
 const props = defineProps<{
   observacoes: Observacoes[];
 }>();

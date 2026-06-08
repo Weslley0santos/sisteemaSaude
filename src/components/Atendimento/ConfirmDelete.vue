@@ -27,6 +27,10 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({
+  name: 'ConfirmDelete',
+});
+
 const aberto = defineModel<boolean>({
   required: true,
 });

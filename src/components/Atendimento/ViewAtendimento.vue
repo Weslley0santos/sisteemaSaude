@@ -20,10 +20,13 @@
 
 <script setup lang="ts">
 import type { Atendimento } from 'src/types/atendimento';
-
 import DadosAtendimento from './DadosAtendimento.vue';
 import ObsAtendimento from './ObsAtendimento.vue';
 import TempoAtendimento from './TempoAtendimento.vue';
+
+defineOptions({
+  name: 'ViewAtendimento',
+});
 
 const props = defineProps<{
   atendimento: Atendimento;

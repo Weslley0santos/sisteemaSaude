@@ -26,6 +26,10 @@ import ObsAtendimento from './ObsAtendimento.vue';
 import type { Atendimento } from 'src/types/atendimento';
 import { useModal } from 'src/composable/useModal';
 
+defineOptions({
+  name: 'cardAtendimennto',
+});
+
 const props = defineProps<{
   atendimento: Atendimento;
   tipo?: 'dashboard' | 'triagem' | 'consulta' | 'finalizados';

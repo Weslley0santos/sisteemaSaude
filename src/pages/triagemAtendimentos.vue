@@ -21,6 +21,10 @@
 import cardAtendimento from 'src/components/Atendimento/cardAtendimento.vue';
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import { onMounted } from 'vue';
+
+defineOptions({
+  name: 'triagemAtendimento',
+});
 const store = useAtendimentoStore();
 
 onMounted(async () => {

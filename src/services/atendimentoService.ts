@@ -1,4 +1,4 @@
-import api from './api';
+import { api } from 'src/boot/axios';
 import type { Atendimento, AtendimentoCreate, AtendimentoUpdate } from 'src/types/atendimento';
 
 export const AtendimentoService = {

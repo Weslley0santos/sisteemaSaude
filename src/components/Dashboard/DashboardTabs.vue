@@ -18,5 +18,8 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({
+  name: 'DashboardTabs',
+});
 const tab = defineModel<string>();
 </script>

@@ -23,6 +23,10 @@ import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import { useI18n } from 'vue-i18n';
 import { onMounted } from 'vue';
 
+defineOptions({
+  name: 'ConsultasAtendimento',
+});
+
 const { t } = useI18n();
 const store = useAtendimentoStore();
 

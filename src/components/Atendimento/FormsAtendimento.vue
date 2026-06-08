@@ -32,11 +32,14 @@
 import { ref, computed, watch } from 'vue';
 import ModalObservaoes from './ModalObservaoes.vue';
 import ObsAtendimento from './ObsAtendimento.vue';
-
 import type { Atendimento, AtendimentoCreate } from 'src/types/atendimento';
 import { REFERRAL, STAGE, STATUS } from 'src/stores/atendimentoStore';
 import { useI18n } from 'vue-i18n';
 import { gerarSenha } from 'src/utils/gerarSenhaUtils';
+
+defineOptions({
+  name: 'FormsAtendimento',
+});
 
 const props = defineProps<{
   atendimento?: Atendimento;

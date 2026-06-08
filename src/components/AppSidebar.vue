@@ -37,8 +37,11 @@ import {
   mdiHomeHeart,
   mdiBookmarkCheckOutline,
 } from '@mdi/js';
-
 import { useI18n } from 'vue-i18n';
+
+defineOptions({
+  name: 'AppSidebar',
+});
 
 const { t } = useI18n();
 

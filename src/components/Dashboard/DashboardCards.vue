@@ -77,10 +77,12 @@
 <script setup lang="ts">
 import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiStethoscope, mdiHospitalBoxOutline, mdiBookmarkCheckOutline } from '@mdi/js';
-
 import { STATUS, STAGE } from 'src/stores/atendimentoStore';
-
 import type { Atendimento } from 'src/types/atendimento';
+
+defineOptions({
+  name: 'DashboardCards',
+});
 
 const props = defineProps<{
   rows: Atendimento[];

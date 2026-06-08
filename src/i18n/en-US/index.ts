@@ -47,7 +47,7 @@ export default {
     notInformed: 'Not informed',
     patient: 'Patient',
     status: 'Status',
-    stage: 'Stage',
+    stage: 'STAGE',
     password: 'Password',
     time: 'Service time',
     waitingTime: 'Waiting time',

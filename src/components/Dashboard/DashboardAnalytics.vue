@@ -70,6 +70,9 @@ import { computed } from 'vue';
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import { useI18n } from 'vue-i18n';
 
+defineOptions({
+  name: 'DashboardAnalytics',
+});
 const props = defineProps<{
   dataSelecionada: string;
 }>();

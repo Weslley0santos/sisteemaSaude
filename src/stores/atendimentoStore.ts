@@ -1,14 +1,16 @@
 import { defineStore } from 'pinia';
 import type { Atendimento, AtendimentoCreate, AtendimentoUpdate } from 'src/types/atendimento';
 import { AtendimentoService } from 'src/services/atendimentoService';
-import { calcularEspera, calcularConsulta, calcularTotal } from 'src/utils/tempoAtendimento';
+import {
+  calcularEspera,
+  calcularConsulta,
+  calcularTotal,
+} from 'src/helpers/tempoAtendimentoHelper';
 
-export const STAGE = {
-  TRIAGE: 'triage',
-  CONSULTATION: 'consultation',
-} as const;
-
-export type Stage = (typeof STAGE)[keyof typeof STAGE];
+export enum STAGE {
+  TRIAGE = 'triage',
+  CONSULTATION = 'consultation',
+}
 
 export const STATUS = {
   IN_PROGRESS: 'in_progress',

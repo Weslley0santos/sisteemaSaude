@@ -17,16 +17,17 @@
 
 <script setup lang="ts">
 import { computed, ref, onMounted } from 'vue';
-
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import { useModal } from 'src/composable/useModal';
 import type { Atendimento } from 'src/types/atendimento';
-
 import DashboardCards from 'src/components/Dashboard/DashboardCards.vue';
 import DashboardAnalytics from 'src/components/Dashboard/DashboardAnalytics.vue';
 import DashboardTable from 'src/components/Dashboard/DashboardTable.vue';
-
 import { useI18n } from 'vue-i18n';
+
+defineOptions({
+  name: 'DashboardAtendimento',
+});
 
 const { t } = useI18n();
 

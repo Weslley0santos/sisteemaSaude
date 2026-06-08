@@ -23,6 +23,10 @@ import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import { useI18n } from 'vue-i18n';
 import { onMounted } from 'vue';
 
+defineOptions({
+  name: 'finalizadosAtendimento',
+});
+
 const { t } = useI18n();
 const store = useAtendimentoStore();
 onMounted(async () => {

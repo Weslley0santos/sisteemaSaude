@@ -36,18 +36,18 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-
 import AppHeader from 'src/components/AppHeader.vue';
 import AppSidebar from 'src/components/AppSidebar.vue';
 import ModalAtendimento from 'src/components/Atendimento/modalAtendimento.vue';
-
 import { useTheme } from 'src/composable/useTheme';
 import { useModal } from 'src/composable/useModal';
 
+defineOptions({
+  name: 'PaginaPrincipal',
+});
+
 const { carregarTema } = useTheme();
-
 const modal = useModal();
-
 const drawer = ref(false);
 
 const sideMenu = () => {

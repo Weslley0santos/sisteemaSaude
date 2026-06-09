@@ -4,7 +4,7 @@
       {{ $t('service.time') }}
     </h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
       <q-card flat bordered class="p-2 sm:p-3">
         <p class="text-xs sm:text-sm text-foreground">
           {{ $t('service.waitingTime') }}

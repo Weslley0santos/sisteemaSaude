@@ -6,7 +6,12 @@
       "estagio": "triage",
       "senha": "A-201",
       "encaminhamento": "general_clinic",
-      "observacoes": [],
+      "observacoes": [
+        {
+          "texto": "teste",
+          "estagio": "triage"
+        }
+      ],
       "criadoEm": "2026-06-01T08:12:00.000Z",
       "tempoAtendimento": {
         "espera": 14,

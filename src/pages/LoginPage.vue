@@ -1,32 +1,28 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-slate-100 dark:bg-surface p-4">
-    <q-card class="w-full max-w-md p-6 rounded-2xl shadow-lg">
-      <div class="flex flex-col items-center mb-6">
-        <q-img :src="logo" class="w-24 h-24" fit="contain" alt="Logo SaudeS" />
-
-        <p class="text-gray-500 dark:text-gray-300">
-          {{ t('auth.welcome') }}
-        </p>
+  <div class="min-h-screen flex items-center justify-center bg-accent p-4">
+    <q-card class="w-full max-w-md p-6 rounded-2xl shadow-lg bg-surface">
+      <div class="flex flex-col items-center mb-1">
+        <q-img :src="logo" class="w-30 h-30" fit="contain" alt="Logo SaudeS" />
       </div>
 
       <q-form class="flex flex-col gap-4" @submit.prevent="login">
         <q-input
           v-model="email"
-          :label="t('auth.email')"
+          :label="$t('auth.email')"
           outlined
           type="email"
           lazy-rules
-          :rules="[(val) => !!val || t('validation.required')]"
+          :rules="[(val) => !!val || $t('validation.required')]"
           aria-label="Campo de e-mail"
         />
 
         <q-input
           v-model="senha"
-          :label="t('auth.password')"
+          :label="$t('auth.password')"
           outlined
           :type="mostrarSenha ? 'text' : 'password'"
           lazy-rules
-          :rules="[(val) => !!val || t('validation.required')]"
+          :rules="[(val) => !!val || $t('validation.required')]"
           aria-label="Campo de senha"
         >
           <template #append>
@@ -39,10 +35,10 @@
         </q-input>
 
         <q-btn
-          :label="t('button.login')"
+          :label="$t('button.login')"
           color="primary"
           type="submit"
-          class="w-full"
+          class="w-full bg-secondary"
           aria-label="Entrar no sistema"
         />
       </q-form>
@@ -53,9 +49,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { useI18n } from 'vue-i18n';
 import { useAuthStore } from 'src/stores/authStore';
-import logo from 'src/assets/logo-saude.png';
+import logo from 'src/assets/logo-top.png';
 
 defineOptions({
   name: 'LoginPage',
@@ -63,8 +58,6 @@ defineOptions({
 
 const router = useRouter();
 const auth = useAuthStore();
-
-const { t } = useI18n();
 
 const email = ref('');
 const senha = ref('');

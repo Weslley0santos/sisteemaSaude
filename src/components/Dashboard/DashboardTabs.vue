@@ -1,6 +1,6 @@
 <template>
   <q-tabs
-    :model-value="tab"
+    v-model="tab"
     class="text-foreground mb-3 text-sm md:text-base overflow-x-auto"
     active-color="secondary"
     indicator-color="secondary"

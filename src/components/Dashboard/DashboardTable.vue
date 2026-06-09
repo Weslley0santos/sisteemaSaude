@@ -1,6 +1,6 @@
 <template>
   <div class="bg-surface rounded-xl p-3 min-h-[300px] md:min-h-[450px]">
-    <DashboardTabs v-model:tab="tab" />
+    <DashboardTabs v-model="tab" />
     <div
       v-if="!rowsFiltradas.length"
       class="flex items-center justify-center h-[300px] text-foreground-secondary"

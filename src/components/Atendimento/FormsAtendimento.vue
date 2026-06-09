@@ -82,9 +82,6 @@ watch(
   { immediate: true },
 );
 
-/**
- * options select
- */
 const encaminhamentoOptions = computed(() => [
   { label: t('referral.general_clinic'), value: REFERRAL.GENERAL_CLINIC },
   { label: t('referral.cardiology'), value: REFERRAL.CARDIOLOGY },

@@ -59,9 +59,22 @@ const router = useRouter();
 
 const { toggleDarkMode } = useTheme();
 
-const logout = () => {
+const logout = async () => {
   localStorage.removeItem('token');
 
-  void router.push('/login');
+  try {
+    void router
+      .push('/login')
+      .then(() => {
+        window.location.reload();
+      })
+      .catch((error) => {
+        throw error;
+      });
+
+    await router.push('/login');
+  } catch (error) {
+    console.error('Erro ao deslogar:', error);
+  }
 };
 </script>

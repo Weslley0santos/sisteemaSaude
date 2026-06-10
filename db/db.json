@@ -200,6 +200,20 @@
         "total": 55
       },
       "id": "atd010"
+    },
+    {
+      "nome": "exemplo",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-502",
+      "encaminhamento": "cardiology",
+      "observacoes": [],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "6o3a-ETKiO8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

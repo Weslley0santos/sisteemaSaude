@@ -50,7 +50,6 @@ const atendimentosFiltrados = computed(() => {
 const abrirAtendimento = (atendimento: Atendimento) => {
   modal.abrirView(atendimento);
 };
-console.log(store.atendimentos.map((a) => a.estagio));
 onMounted(async () => {
   await store.carregarAtendimentos();
 });

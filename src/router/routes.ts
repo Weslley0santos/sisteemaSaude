@@ -29,21 +29,37 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'dashboard',
         component: DashboardAtendimento,
+        meta: {
+          requiresAuth: true,
+          showBotaoAdd: true,
+        },
       },
 
       {
         path: 'triagem',
         component: TriagemAtendimentos,
+        meta: {
+          requiresAuth: true,
+          showBotaoAdd: true,
+        },
       },
 
       {
         path: 'consulta',
         component: ConsultasAtendimento,
+        meta: {
+          requiresAuth: true,
+          showBotaoAdd: true,
+        },
       },
 
       {
         path: 'finalizados',
         component: FinalizadosAtendimento,
+        meta: {
+          requiresAuth: true,
+          showBotaoAdd: true,
+        },
       },
     ],
   },

@@ -1,11 +1,11 @@
-import type { STAGE } from 'src/stores/atendimentoStore';
+import type { REFERRAL, STAGE, STATUS } from 'src/types/enums/atendimentoEnums';
 //interface minima do aatendimento
 interface AtendimentoBase {
   nome: string;
-  status: string;
+  status: STATUS;
   estagio: STAGE;
   senha: string;
-  encaminhamento: string;
+  encaminhamento: REFERRAL | '';
   observacoes: Observacoes[];
   inicioConsulta?: string;
   finalizadoEm?: string;

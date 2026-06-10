@@ -14,8 +14,8 @@ export default {
     extend: {
       colors: {
         foreground: {
-          DEFAUT: 'var(--foreground)',
-          secondary: 'var(--foregorund-secondary)',
+          DEFAULT: 'var(--foreground)',
+          secondary: 'var(--foreground-secondary)',
         },
 
         primary: 'var(--primary)',

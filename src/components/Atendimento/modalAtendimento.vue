@@ -132,7 +132,7 @@ import { ref } from 'vue';
 import { useModal } from 'src/composable/useModal';
 import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import type { AtendimentoCreate } from 'src/types/atendimento';
-import { STATUS, STAGE } from 'src/stores/atendimentoStore';
+import { STATUS, STAGE } from 'src/types/enums/atendimentoEnums';
 import ConfirmDelete from './ConfirmDelete.vue';
 import FormsAtendimento from './FormsAtendimento.vue';
 import ViewAtendimento from './ViewAtendimento.vue';

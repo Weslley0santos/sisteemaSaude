@@ -61,7 +61,7 @@ import { computed, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import type { Atendimento } from 'src/types/atendimento';
 import DashboardTabs from './DashboardTabs.vue';
-import { STATUS, STAGE } from 'src/stores/atendimentoStore';
+import { STATUS, STAGE } from 'src/types/enums/atendimentoEnums';
 import type { QTableColumn } from 'quasar';
 
 defineOptions({

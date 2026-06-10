@@ -6,23 +6,7 @@ import {
   calcularConsulta,
   calcularTotal,
 } from 'src/helpers/tempoAtendimentoHelper';
-
-export enum STAGE {
-  TRIAGE = 'triage',
-  CONSULTATION = 'consultation',
-}
-
-export const STATUS = {
-  IN_PROGRESS: 'in_progress',
-  COMPLETED: 'completed',
-};
-
-export const REFERRAL = {
-  GENERAL_CLINIC: 'general_clinic',
-  CARDIOLOGY: 'cardiology',
-  ORTHOPEDICS: 'orthopedics',
-  PEDIATRICS: 'pediatrics',
-};
+import { REFERRAL, STAGE, STATUS } from 'src/types/enums/atendimentoEnums';
 
 export const useAtendimentoStore = defineStore('atendimento', {
   state: () => ({

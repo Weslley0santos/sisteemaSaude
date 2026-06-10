@@ -3,7 +3,7 @@
     {
       "nome": "Gabriel Ferreira",
       "status": "in_progress",
-      "estagio": "triage",
+      "estagio": "consultation",
       "senha": "A-201",
       "encaminhamento": "general_clinic",
       "observacoes": [
@@ -14,11 +14,12 @@
       ],
       "criadoEm": "2026-06-01T08:12:00.000Z",
       "tempoAtendimento": {
-        "espera": 14,
+        "espera": 13300,
         "consultando": 0,
         "total": 14
       },
-      "id": "atd001"
+      "id": "atd001",
+      "inicioConsulta": "2026-06-10T13:52:27.594Z"
     },
     {
       "nome": "Camila Rodrigues",

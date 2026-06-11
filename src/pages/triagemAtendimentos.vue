@@ -7,7 +7,7 @@
 
       <div class="flex flex-col gap-3">
         <cardAtendimento
-          v-for="item in store.triagem"
+          v-for="item in triagem"
           :key="item.senha"
           :atendimento="item"
           tipo="triagem"
@@ -18,16 +18,18 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
 import cardAtendimento from 'src/components/Atendimento/cardAtendimento.vue';
-import { useAtendimentoStore } from 'src/stores/atendimentoStore';
-import { onMounted } from 'vue';
+import { useAtendimentosQuery } from 'src/queries/atendimento/atendimento.queries';
+import { STAGE } from 'src/types/enums/atendimentoEnums';
 
 defineOptions({
   name: 'triagemAtendimento',
 });
-const store = useAtendimentoStore();
 
-onMounted(async () => {
-  await store.carregarAtendimentos();
-});
+const { data: atendimentos } = useAtendimentosQuery();
+
+const triagem = computed(() =>
+  (atendimentos.value ?? []).filter((item) => item.estagio === STAGE.TRIAGE),
+);
 </script>

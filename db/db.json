@@ -68,17 +68,18 @@
     {
       "nome": "Larissa Souza",
       "status": "in_progress",
-      "estagio": "triage",
+      "estagio": "consultation",
       "senha": "A-204",
       "encaminhamento": "pediatrics",
       "observacoes": [],
       "criadoEm": "2026-06-02T10:30:00.000Z",
       "tempoAtendimento": {
-        "espera": 9,
+        "espera": 13502,
         "consultando": 0,
         "total": 9
       },
-      "id": "atd004"
+      "id": "atd004",
+      "inicioConsulta": "2026-06-11T19:32:30.099Z"
     },
     {
       "nome": "Thiago Costa",
@@ -215,6 +216,92 @@
         "total": 0
       },
       "id": "6o3a-ETKiO8"
+    },
+    {
+      "nome": "teste7744",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-561",
+      "encaminhamento": "",
+      "observacoes": [],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "mlNuJ_FTA3g"
+    },
+    {
+      "nome": "teste 1223",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-587",
+      "encaminhamento": "",
+      "observacoes": [],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "DJQphZYRgbs"
+    },
+    {
+      "nome": "teste 31981",
+      "status": "in_progress",
+      "estagio": "consultation",
+      "senha": "A-993",
+      "encaminhamento": "",
+      "observacoes": [],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "7JAhqrLd3WY",
+      "inicioConsulta": "2026-06-11T19:57:40.182Z"
+    },
+    {
+      "nome": "carlos",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-175",
+      "encaminhamento": "",
+      "observacoes": [],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "T8Ly7fUcD6M"
+    },
+    {
+      "nome": "tales",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-534",
+      "encaminhamento": "",
+      "observacoes": [],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "uO8qtAO6ICo"
+    },
+    {
+      "nome": "marco",
+      "status": "in_progress",
+      "estagio": "consultation",
+      "senha": "A-932",
+      "encaminhamento": "",
+      "observacoes": [],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "GFtfUqnloYA",
+      "inicioConsulta": "2026-06-11T19:57:43.388Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

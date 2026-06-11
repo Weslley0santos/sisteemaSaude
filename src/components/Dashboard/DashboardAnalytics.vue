@@ -66,24 +66,27 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import { useI18n } from 'vue-i18n';
 import { isSameDay } from 'src/helpers/dataHelper';
+import type { Atendimento } from 'src/types/atendimento';
 defineOptions({
   name: 'DashboardAnalytics',
 });
+
+const props = defineProps<{
+  rows: Atendimento[];
+}>();
 
 const dataSelecionada = defineModel<string>('dataSelecionada', {
   default: '',
 });
 
 const { t: $t } = useI18n();
-const store = useAtendimentoStore();
 
 const atendimentosFiltrados = computed(() => {
-  if (!dataSelecionada.value) return store.atendimentos;
+  if (!dataSelecionada.value) return props.rows;
 
-  return store.atendimentos.filter((a) => isSameDay(a.criadoEm, dataSelecionada.value));
+  return props.rows.filter((a) => isSameDay(a.criadoEm, dataSelecionada.value));
 });
 const tempoMedioEspera = computed(() => {
   if (!atendimentosFiltrados.value.length) return 0;

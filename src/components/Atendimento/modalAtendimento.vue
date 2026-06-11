@@ -130,9 +130,15 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useModal } from 'src/composable/useModal';
-import { useAtendimentoStore } from 'src/stores/atendimentoStore';
 import type { AtendimentoCreate } from 'src/types/atendimento';
 import { STATUS, STAGE } from 'src/types/enums/atendimentoEnums';
+import {
+  useAtualizarAtendimentoMutation,
+  useAvancarParaConsultaMutation,
+  useCriarAtendimentoMutation,
+  useFinalizarAtendimentoMutation,
+  useRemoverAtendimentoMutation,
+} from 'src/queries/atendimento/atendimento.mutations';
 import ConfirmDelete from './ConfirmDelete.vue';
 import FormsAtendimento from './FormsAtendimento.vue';
 import ViewAtendimento from './ViewAtendimento.vue';
@@ -140,58 +146,55 @@ import ViewAtendimento from './ViewAtendimento.vue';
 defineOptions({
   name: 'modalAtendimento',
 });
+
 const { aberto, modo, atendimentoAtual, fechar } = useModal();
 const confirmarDelete = ref(false);
-const store = useAtendimentoStore();
 const formRef = ref();
+const criarAtendimentoMutation = useCriarAtendimentoMutation();
+const atualizarAtendimentoMutation = useAtualizarAtendimentoMutation();
+const removerAtendimentoMutation = useRemoverAtendimentoMutation();
+const avancarParaConsultaMutation = useAvancarParaConsultaMutation();
+const finalizarAtendimentoMutation = useFinalizarAtendimentoMutation();
 
 const abrirConfirmacao = () => {
   confirmarDelete.value = true;
 };
 
 const criarAtendimento = async (novoAtendimento: AtendimentoCreate) => {
-  await store.adicionarAtendimento(novoAtendimento);
-
+  await criarAtendimentoMutation.mutateAsync(novoAtendimento);
   fechar();
 };
 
 const editar = () => {
   if (!atendimentoAtual.value) return;
-
   useModal().abrirEdit(atendimentoAtual.value);
 };
 
 const salvarEdicao = async (dados: AtendimentoCreate) => {
   if (!atendimentoAtual.value?.id) return;
-
-  await store.atualizarAtendimento(atendimentoAtual.value.id, dados);
-
+  await atualizarAtendimentoMutation.mutateAsync({
+    id: atendimentoAtual.value.id,
+    atendimento: dados,
+  });
   fechar();
 };
 
 const remover = async () => {
   if (!atendimentoAtual.value?.id) return;
-
-  await store.removerAtendimento(atendimentoAtual.value.id);
-
+  await removerAtendimentoMutation.mutateAsync(atendimentoAtual.value.id);
   confirmarDelete.value = false;
-
   fechar();
 };
 
 const enviarConsulta = async () => {
-  if (!atendimentoAtual.value?.id) return;
-
-  await store.avancarParaConsulta(atendimentoAtual.value.id);
-
+  if (!atendimentoAtual.value) return;
+  await avancarParaConsultaMutation.mutateAsync(atendimentoAtual.value);
   fechar();
 };
 
 const finalizarAtendimento = async () => {
-  if (!atendimentoAtual.value?.id) return;
-
-  await store.finalizarAtendimento(atendimentoAtual.value.id);
-
+  if (!atendimentoAtual.value) return;
+  await finalizarAtendimentoMutation.mutateAsync(atendimentoAtual.value);
   fechar();
 };
 </script>

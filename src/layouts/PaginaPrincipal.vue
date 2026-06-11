@@ -22,7 +22,11 @@
         class="shadow-lg"
         aria-label="Adicionar atendimento"
         @click="modal.abrirCreate()"
-      />
+      >
+        <q-tooltip :delay="500" class="whitespace-nowrap max-w-none">
+          {{ $t('tooltip.newService') }}
+        </q-tooltip>
+      </q-btn>
     </q-page-sticky>
     <q-footer
       class="mt-auto border-t border-border dark:border-white/10 bg-primary text-white text-xs md:text-sm"

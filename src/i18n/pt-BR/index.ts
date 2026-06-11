@@ -23,6 +23,14 @@ export default {
     login: 'Entrar',
   },
 
+  tooltip: {
+    menu: 'Menu',
+    darkMode: 'Ativar modo escuro',
+    lightMode: 'Ativar modo claro',
+    logout: 'Sair',
+    newService: 'Novo atendimento',
+  },
+
   stage: {
     triage: 'Triagem',
     consultation: 'Consulta',

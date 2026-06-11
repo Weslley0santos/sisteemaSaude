@@ -9,7 +9,11 @@
         aria-label="Abrir menu"
         class="mr-2"
         @click="emit('toggle-menu')"
-      />
+      >
+        <q-tooltip :delay="500">
+          {{ $t('tooltip.menu') }}
+        </q-tooltip>
+      </q-btn>
 
       <q-toolbar-title class="flex felx-nowrap items-center gap-2">
         <q-img :src="logo" alt="Logo do sistema SaudeS" class="w-8 h-8" />
@@ -22,11 +26,15 @@
         <q-btn
           flat
           round
-          dense
-          aria-label="Modo escuro"
-          :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'"
-          @click="toggleDarkMode"
-        />
+        dense
+        aria-label="Modo escuro"
+        :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'"
+        @click="toggleDarkMode"
+      >
+        <q-tooltip :delay="500">
+          {{ $q.dark.isActive ? $t('tooltip.lightMode') : $t('tooltip.darkMode') }}
+        </q-tooltip>
+      </q-btn>
 
         <q-btn
           v-if="$q.screen.md"
@@ -36,7 +44,11 @@
           icon="logout"
           aria-label="Sair do sistema"
           @click="logout"
-        />
+        >
+          <q-tooltip :delay="500">
+            {{ $t('tooltip.logout') }}
+          </q-tooltip>
+        </q-btn>
 
         <q-btn v-else flat round dense icon="more_vert" />
       </div>

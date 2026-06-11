@@ -23,6 +23,14 @@ export default {
     login: 'Iniciar sesión',
   },
 
+  tooltip: {
+    menu: 'Menú',
+    darkMode: 'Activar modo oscuro',
+    lightMode: 'Activar modo claro',
+    logout: 'Cerrar sesión',
+    newService: 'Nueva atención',
+  },
+
   stage: {
     triage: 'Triaje',
     consultation: 'Consulta',

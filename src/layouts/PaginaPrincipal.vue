@@ -24,11 +24,11 @@
         @click="modal.abrirCreate()"
       />
     </q-page-sticky>
-    <div
+    <q-footer
       class="mt-auto border-t border-border dark:border-white/10 bg-primary text-white text-xs md:text-sm"
     >
       <div class="py-2 md:py-3 text-center tracking-wide">SaudeS © 2026</div>
-    </div>
+    </q-footer>
 
     <modalAtendimento />
   </q-layout>

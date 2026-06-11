@@ -17,7 +17,9 @@ export interface Atendimento extends AtendimentoBase {
   criadoEm: string;
 }
 // manipula um atendimento como um tipo create tendo referencia um atendimento base
-export type AtendimentoCreate = AtendimentoBase;
+export type AtendimentoCreate = AtendimentoBase & {
+  criadoEm?: string;
+};
 // mesma coisa, só que parcialmente, pois não precisamos atualizar todos os atributos para salvar um atendimento
 export type AtendimentoUpdate = Partial<AtendimentoBase>;
 

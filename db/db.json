@@ -110,17 +110,18 @@
     {
       "nome": "Patrícia Gomes",
       "status": "in_progress",
-      "estagio": "triage",
+      "estagio": "consultation",
       "senha": "A-206",
       "encaminhamento": "cardiology",
       "observacoes": [],
       "criadoEm": "2026-06-03T11:15:00.000Z",
       "tempoAtendimento": {
-        "espera": 6,
+        "espera": 12097,
         "consultando": 0,
         "total": 6
       },
-      "id": "atd006"
+      "id": "atd006",
+      "inicioConsulta": "2026-06-11T20:52:07.012Z"
     },
     {
       "nome": "Renato Almeida",
@@ -234,7 +235,7 @@
     {
       "nome": "teste 1223",
       "status": "in_progress",
-      "estagio": "triage",
+      "estagio": "consultation",
       "senha": "A-587",
       "encaminhamento": "",
       "observacoes": [],
@@ -243,7 +244,8 @@
         "consultando": 0,
         "total": 0
       },
-      "id": "DJQphZYRgbs"
+      "id": "DJQphZYRgbs",
+      "inicioConsulta": "2026-06-11T20:55:16.441Z"
     },
     {
       "nome": "teste 31981",
@@ -261,11 +263,11 @@
       "inicioConsulta": "2026-06-11T19:57:40.182Z"
     },
     {
-      "nome": "carlos",
+      "nome": "carlos opa",
       "status": "in_progress",
       "estagio": "triage",
       "senha": "A-175",
-      "encaminhamento": "",
+      "encaminhamento": "orthopedics",
       "observacoes": [],
       "tempoAtendimento": {
         "espera": 0,
@@ -273,20 +275,6 @@
         "total": 0
       },
       "id": "T8Ly7fUcD6M"
-    },
-    {
-      "nome": "tales",
-      "status": "in_progress",
-      "estagio": "triage",
-      "senha": "A-534",
-      "encaminhamento": "",
-      "observacoes": [],
-      "tempoAtendimento": {
-        "espera": 0,
-        "consultando": 0,
-        "total": 0
-      },
-      "id": "uO8qtAO6ICo"
     },
     {
       "nome": "marco",
@@ -302,6 +290,52 @@
       },
       "id": "GFtfUqnloYA",
       "inicioConsulta": "2026-06-11T19:57:43.388Z"
+    },
+    {
+      "nome": "adads",
+      "status": "in_progress",
+      "estagio": "consultation",
+      "senha": "A-475",
+      "encaminhamento": "",
+      "observacoes": [],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "id": "02A36ORJU_U",
+      "inicioConsulta": "2026-06-11T20:10:22.269Z"
+    },
+    {
+      "nome": "asdasdas",
+      "status": "in_progress",
+      "estagio": "consultation",
+      "senha": "A-384",
+      "encaminhamento": "",
+      "observacoes": [],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "criadoEm": "2026-06-11T20:51:56.814Z",
+      "id": "JHPqIYraEYc",
+      "inicioConsulta": "2026-06-11T20:52:14.844Z"
+    },
+    {
+      "nome": "testeee",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-250",
+      "encaminhamento": "",
+      "observacoes": [],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "criadoEm": "2026-06-11T20:54:51.522Z",
+      "id": "qxJ_Eyqg7nI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

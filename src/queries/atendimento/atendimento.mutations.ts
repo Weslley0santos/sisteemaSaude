@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/vue-query';
 import { AtendimentoService } from 'src/services/atendimentoService';
+import { notifyError, notifySuccess } from 'src/helpers/notifyHelper';
 import {
   calcularConsulta,
   calcularEspera,
@@ -13,9 +14,17 @@ export function useCriarAtendimentoMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (atendimento: AtendimentoCreate) => AtendimentoService.criar(atendimento),
+    mutationFn: (atendimento: AtendimentoCreate) =>
+      AtendimentoService.criar({
+        ...atendimento,
+        criadoEm: atendimento.criadoEm ?? new Date().toISOString(),
+      }),
     onSuccess: () => {
+      notifySuccess('Atendimento criado com sucesso');
       void queryClient.invalidateQueries({ queryKey: atendimentoKeys.lists() });
+    },
+    onError: () => {
+      notifyError('Erro ao criar atendimento');
     },
   });
 }
@@ -27,21 +36,26 @@ export function useAtualizarAtendimentoMutation() {
     mutationFn: ({ id, atendimento }: { id: number; atendimento: AtendimentoUpdate }) =>
       AtendimentoService.atualizar(id, atendimento),
     onSuccess: () => {
+      notifySuccess('Atendimento atualizado com sucesso');
       void queryClient.invalidateQueries({ queryKey: atendimentoKeys.lists() });
+    },
+    onError: () => {
+      notifyError('Erro ao atualizar atendimento');
     },
   });
 }
 
 export function useRemoverAtendimentoMutation() {
-  // exporta a função removerAtendimento
-  const queryClient = useQueryClient(); // da aceso a cache
+  const queryClient = useQueryClient();
 
   return useMutation({
-    // retorna o mutation
-    mutationFn: (id: number) => AtendimentoService.remover(id), // chama a função remover atendimento no service
+    mutationFn: (id: number) => AtendimentoService.remover(id),
     onSuccess: () => {
-      //se sucesso
-      void queryClient.invalidateQueries({ queryKey: atendimentoKeys.lists() }); // avisa que a lista de atendimentos esta desatualizada
+      notifySuccess('Atendimento removido com sucesso');
+      void queryClient.invalidateQueries({ queryKey: atendimentoKeys.lists() });
+    },
+    onError: () => {
+      notifyError('Erro ao remover atendimento');
     },
   });
 }
@@ -63,7 +77,11 @@ export function useAvancarParaConsultaMutation() {
       });
     },
     onSuccess: () => {
+      notifySuccess('Atendimento enviado para consulta');
       void queryClient.invalidateQueries({ queryKey: atendimentoKeys.lists() });
+    },
+    onError: () => {
+      notifyError('Erro ao enviar atendimento para consulta');
     },
   });
 }
@@ -87,7 +105,11 @@ export function useFinalizarAtendimentoMutation() {
       });
     },
     onSuccess: () => {
+      notifySuccess('Atendimento finalizado com sucesso');
       void queryClient.invalidateQueries({ queryKey: atendimentoKeys.lists() });
+    },
+    onError: () => {
+      notifyError('Erro ao finalizar atendimento');
     },
   });
 }

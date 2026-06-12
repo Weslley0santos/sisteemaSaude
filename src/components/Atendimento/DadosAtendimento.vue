@@ -54,5 +54,4 @@ defineOptions({
 const props = defineProps<{
   atendimento: Atendimento;
 }>();
-console.log(props.atendimento.encaminhamento);
 </script>

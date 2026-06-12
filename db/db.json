@@ -1,30 +1,10 @@
 {
   "atendimentos": [
     {
-      "id": "1",
-      "nome": "Gabriel Ferreira",
-      "status": "in_progress",
-      "estagio": "triage",
-      "senha": "A-101",
-      "encaminhamento": "general_clinic",
-      "observacoes": [
-        {
-          "texto": "Paciente relata febre baixa e dor de garganta",
-          "estagio": "triage"
-        }
-      ],
-      "criadoEm": "2026-06-11T08:05:00.000Z",
-      "tempoAtendimento": {
-        "espera": 0,
-        "consultando": 0,
-        "total": 0
-      }
-    },
-    {
       "id": "2",
       "nome": "Camila Rodrigues",
-      "status": "in_progress",
-      "estagio": "triage",
+      "status": "completed",
+      "estagio": "consultation",
       "senha": "A-102",
       "encaminhamento": "cardiology",
       "observacoes": [
@@ -35,16 +15,18 @@
       ],
       "criadoEm": "2026-06-11T08:18:00.000Z",
       "tempoAtendimento": {
-        "espera": 0,
+        "espera": 1755,
         "consultando": 0,
-        "total": 0
-      }
+        "total": 1755
+      },
+      "inicioConsulta": "2026-06-12T13:33:28.444Z",
+      "finalizadoEm": "2026-06-12T13:34:26.952Z"
     },
     {
       "id": "3",
       "nome": "Bruno Martins",
-      "status": "in_progress",
-      "estagio": "triage",
+      "status": "completed",
+      "estagio": "consultation",
       "senha": "A-103",
       "encaminhamento": "orthopedics",
       "observacoes": [
@@ -55,15 +37,17 @@
       ],
       "criadoEm": "2026-06-11T08:32:00.000Z",
       "tempoAtendimento": {
-        "espera": 0,
+        "espera": 1741,
         "consultando": 0,
-        "total": 0
-      }
+        "total": 1741
+      },
+      "inicioConsulta": "2026-06-12T13:33:46.723Z",
+      "finalizadoEm": "2026-06-12T13:34:33.770Z"
     },
     {
       "id": "4",
       "nome": "Larissa Souza",
-      "status": "in_progress",
+      "status": "completed",
       "estagio": "consultation",
       "senha": "A-104",
       "encaminhamento": "pediatrics",
@@ -77,14 +61,15 @@
       "inicioConsulta": "2026-06-11T09:05:00.000Z",
       "tempoAtendimento": {
         "espera": 20,
-        "consultando": 0,
-        "total": 20
-      }
+        "consultando": 1709,
+        "total": 1729
+      },
+      "finalizadoEm": "2026-06-12T13:34:45.460Z"
     },
     {
       "id": "5",
       "nome": "Thiago Costa",
-      "status": "in_progress",
+      "status": "completed",
       "estagio": "consultation",
       "senha": "A-105",
       "encaminhamento": "general_clinic",
@@ -98,9 +83,10 @@
       "inicioConsulta": "2026-06-11T09:25:00.000Z",
       "tempoAtendimento": {
         "espera": 25,
-        "consultando": 0,
-        "total": 25
-      }
+        "consultando": 1690,
+        "total": 1715
+      },
+      "finalizadoEm": "2026-06-12T13:35:00.621Z"
     },
     {
       "id": "6",
@@ -178,8 +164,13 @@
       "status": "in_progress",
       "estagio": "triage",
       "senha": "A-109",
-      "encaminhamento": "general_clinic",
-      "observacoes": [],
+      "encaminhamento": "cardiology",
+      "observacoes": [
+        {
+          "texto": "bombou",
+          "estagio": "triage"
+        }
+      ],
       "criadoEm": "2026-06-10T08:20:00.000Z",
       "tempoAtendimento": {
         "espera": 0,
@@ -340,6 +331,61 @@
         "consultando": 42,
         "total": 62
       }
+    },
+    {
+      "nome": "salvou hoje?",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-362",
+      "encaminhamento": "",
+      "observacoes": [],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "criadoEm": "2026-06-12T13:40:48.924Z",
+      "id": "dJISceyu5V8"
+    },
+    {
+      "nome": "ó",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-391",
+      "encaminhamento": "",
+      "observacoes": [
+        {
+          "texto": "batata",
+          "estagio": "triage"
+        }
+      ],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "criadoEm": "2026-06-12T13:53:45.604Z",
+      "id": "XC2h9EHl5FI"
+    },
+    {
+      "nome": "pois é",
+      "status": "in_progress",
+      "estagio": "triage",
+      "senha": "A-294",
+      "encaminhamento": "",
+      "observacoes": [
+        {
+          "texto": "aqui salva",
+          "estagio": "triage"
+        }
+      ],
+      "tempoAtendimento": {
+        "espera": 0,
+        "consultando": 0,
+        "total": 0
+      },
+      "criadoEm": "2026-06-12T14:03:08.432Z",
+      "id": "otrBXrG5tTU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

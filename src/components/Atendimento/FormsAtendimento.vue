@@ -76,7 +76,10 @@ watch(
   () => props.atendimento,
   (newValue) => {
     if (newValue) {
-      formData.value = { ...newValue };
+      formData.value = {
+        ...newValue,
+        observacoes: [...(newValue.observacoes ?? [])],
+      };
     }
   },
   { immediate: true },
@@ -94,10 +97,13 @@ const abrirObs = () => {
 };
 
 const adicionarObs = (texto: string) => {
-  formData.value.observacoes.push({
-    texto,
-    estagio: formData.value.estagio,
-  });
+  formData.value.observacoes = [
+    ...(formData.value.observacoes ?? []),
+    {
+      texto,
+      estagio: formData.value.estagio,
+    },
+  ];
 };
 
 const salvar = async () => {
